@@ -1,0 +1,44 @@
+**Preset & Superset User Documentation**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We are excited to announce the launch of Preset Docs, a set of newly built Apache Superset and Preset Cloud end-user documentation and tutorials. Our new doc site is here to help you be more productive and successful on Superset and will be frequently updated with new material and step-by-step guides.
+Preset Docs now covers six categories:
+Getting Started: Start your journey with Preset by quickly ramping up with our Getting Started guide. To start using Preset Cloud today, you can register here.
+Connecting your Data:  Learn how to bring data in to Preset. From SQL databases to CSV files, you're covered.
+Creating Datasets: The Preset Semantic Layer:  Use datasets to build charts and take full control of which data is presented to your audiences.
+Creating a Chart: Our intuitive drag & drop interface empowers your teams to build stunning visualizations.
+Creating a Dashboard: Use dashboards to convey a narrative with your charts. Use filtering to refine your own data story.
+Sharing and Collaboration: Share charts & dashboards with your colleagues while remaining in-the-know with alerts & reports.
+Our goal at Preset is to provide the best Superset experience for our community and customers. Feedback and suggestions are welcome! Feel free to leave feedback directly on the site or email us at training@preset.io directly with any recommendations or suggestions on improving the overall experience.
+Happy learning and happy dashboarding!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Getting Started: Start your journey with Preset by quickly ramping up with our Getting Started guide. To start using Preset Cloud today, you can register here.
+
+• 
+Connecting your Data:  Learn how to bring data in to Preset. From SQL databases to CSV files, you're covered.
+
+• 
+Creating Datasets: The Preset Semantic Layer:  Use datasets to build charts and take full control of which data is presented to your audiences.
+
+• 
+Creating a Chart: Our intuitive drag & drop interface empowers your teams to build stunning visualizations.
+
+• 
+Creating a Dashboard: Use dashboards to convey a narrative with your charts. Use filtering to refine your own data story.
+
+• 
+Sharing and Collaboration: Share charts & dashboards with your colleagues while remaining in-the-know with alerts & reports.
+

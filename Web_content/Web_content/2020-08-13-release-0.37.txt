@@ -1,0 +1,43 @@
+**Superset 0.37, Viz Plugins, Row-Level Security, Better Code Quality**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+It has been almost four months since Apache Superset 0.36.0 was officially released. Since then, Superset maintainers, committers, and the wider (and growing) community have been hard at work, building Superset into the best open-source business intelligence application that it can be.
+Today, we are happy to announce the next step in that journey -- the official 0.37 release. There are a lot of improvements and fixes packed into this release. Here are some highlights.
+One major improvement is a re-architecture of the Superset visualization code base, so developers can now build their own data visualization plugins referencing a new chart data API without the need to add any code to the main Superset repo. This improvement includes adding new features like commonly needed data transformation operations, enabling support for the new endpoint and finally migrating the first viz to the new endpoint and many others. Along with additional small improvements and bug fixes to existing chart types, like pivot table, pie chart, and filter box, this new architecture empowers users to do more with their data. You can now create a custom visualization plugin using any available JavaScript based data visualization library onto Superset, e.g. ECharts, AntV, HighCharts, VX, D3.
+It's also easy to use and experiment with. We have published a tutorial where you can build a "Hello World" plugin to try things out. We've also held a community-wide virtual meetup in July to present this new architecture with a live plugin-making demo by Evan (@rusackas). We highly encourage you to watch the recording and Q&A here to dive deeper.
+
+Building new visualization plugins is obviously cool and useful, but for any BI application to be enterprise-grade, it must be rock solid on security. This 0.37 release has made strides in that direction as well with improvements in row-level security.
+Now, Superset can have multiple table row-level security filters instead of just a single table filter. This improvement is accomplished by introducing a new table called rls_filter_tables. (See this pull request for the full detail.) We also want to give a shoutout to Aliaksei (@axelet), a community contributor, for initiating this improvement!
+
+We take the security of our users' data very seriously and will continue to build security-related features in future releases, in order to make sure Superset is a production-ready solution for companies of all sizes and security postures. It's worth mentioning that Preset's fully-hosted cloud offering of Superset is SOC2 compliant.
+Bug fixes are not as sexy as new features, but no one likes to use buggy software. This release prioritized a lot of seemingly small but ultimately important work to take Superset's code quality to the next level -- more strict linting rules, full Mypy coverage of the Python codebase, continued migration of JavaScript frontend code to TypeScript, and many bug fixes. The project also added full Python 3.7 and 3.8 support by upgrading PyDruid and PyLint to the most recent versions, and included 3.8 to our build matrix.
+If you want to dive deep into any of the fixes, check out the entire 0.37 changelog or just search for "fix" or "chore" commits in our GitHub repo. Of course, maintaining code quality is not a one-time effort, but a long-term commitment. That's what we plan to deliver in Superset.
+Writing a release announcement post is kind of like being forced to name your favorite kids -- you love them all equally! So we'd be remissed not to mention some of the other improvements in 0.37, including:
+
+
+The Superset user base also continues to grow. Since the last release, we welcomed many new users into the community, including Netflix. You can see the whole list of Superset users (that we know of) on this page, broken down by broad industries.
+If you are looking to use Superset 0.37 right away, please read through this documentation on backward compatibility and breaking changes before upgrading.
+Lastly, thank you to all the maintainers, committers, and especially the community contributors, for building, testing, and documenting 0.37 -- the best Superset version yet. We are also working on sharing a public version of our roadmap soon, so you know what's in store ahead. In the meantime, please join the Superset community Slack and ask questions on Stack Overflow.
+Happy dashboarding!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• CSV upload support to AWS Athena
+• Partition filter option to Presto
+• Excel spreadsheets upload
+• Visualization flow to CTAS queries
+• SQL-based email alerts with screenshots
+• Slack reporting integration
+• Download dashboard or chart as image
+• Maximize or minimize charts
+`rls_filter_tables`

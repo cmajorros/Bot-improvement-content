@@ -1,0 +1,45 @@
+**Apache Superset vs Looker**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Both Apache Superset and Looker are business intelligence platforms that provide data exploration, data visualization, and reporting capabilities to organizations. They enable users to access, analyze, and visualize information stored in a variety of databases and cloud data warehouses. These platforms also provide collaboration and sharing features, allowing teams to work together to share insights and reports.
+While both BI platforms are popular among data analysts, this guide outlines why you might find Superset to be a compelling Looker alternative.
+In June 2019, the Looker team announced that they were being acquired by Google. The acquisition resulted in the transition from Google Data Studio to Looker Studio.
+This isn't a new phenomenon. Due to the maturity and dynamism of the BI market, consolidation has been accelerating over the past few years:
+Acquisitions often carry the risk of shutdowns or reduced investments in the acquired solutions, leaving customers to seek new services for their business analytics assets, which they will likely need to rebuild. Open-source BI applications mitigate this risk. If you're self-hosting an open-source tool, you are immune to vendor lock-in. If you choose to partner with a SaaS or hosted service provider of the open-source software, you will have numerous options, from alternative vendors to hiring expertise in the marketplace, all the way to taking ownership and operating the software on your own.
+Apache Superset is the most popular and mature open-source business intelligence platform. This BI tool provides in-depth data exploration functionality for both SQL-savvy technical users and non-technical business users seeking actionable insights for their business.
+Below, we compare between Superset and Looker across key dimensions for a BI tool.
+While connecting to databases is similar in both tools, Looker requires learning and modeling your data in LookML. This process entails expensive developer licenses and a significant amount of time due to the learning curve and implementation.
+Superset allows you to dive straight into data exploration with SQL or drag-and-drop functionality. It also provides a straightforward semantic layer that isn't restricted by user licenses. Superset additionally enables CSV uploads and connections to Google Sheets, making it possible for users to work with data that isn't stored in your data lake / data warehouse without the need for complex workarounds or ETL solutions.
+The open-source Superset is, of course, free to install. However, there is an ongoing cost associated with maintaining Superset, which depends on your organization's scale and deployment complexity, ranging from fractional to full-time engineering resources.
+If you don't have in-house resources to maintain Superset deployment, you might consider a hosted solution. Preset, a SaaS version of Superset, has no platform fee and offers an affordable user licensing fee of $20 per month. Unlike most BI tools that charge extra for additional capabilities, Preset's standard license includes all functionalities, including admin capabilities, and allows you to restrict functionality as needed.
+Preset's standard license is most comparable to Looker's developer user, priced at $150 per month, which can force organizations to limit functionality, creating bottlenecks for the data team or significantly increasing costs and learning requirements. Looker's view-only license is listed at $30 per month and typically includes a platform fee that can start at tens of thousands of dollars per year.”
+ Evaluate popular analytics software tools such as Apache Superset, Tableau, Looker, and more.
+Superset ships with a wide range of pre-installed visualization types. Moreover, it allows you to build and add in new custom visualizations.
+Both Looker and Superset have SQL IDE for crafting SQL queries in UI.
+Both ship with a powerful SQL editor and a powerful semantic layer.
+Preset offers a cloud-hosted service for Superset. In addition to all the features that Superset provides out of the box, Preset simplifies the management of deployments, user access, and data permissions while ensuring enterprise-grade security.
+Below, you'll find comparisons between Looker and Preset regarding admin and data security functionalities.
+Superset, Preset, and Looker are BI platforms that offer a robust set of visualization, dashboarding, and SQL querying capabilities. If you're seeking a data visualization solution with more affordable licenses, instant time-to-dashboard, and no vendor lock-in, we encourage you to give Superset or Preset a try!
+Sign up for a free account on Preset. You don't need to be a LookML expert; you can start creating charts and interactive dashboards in just a few minutes by connecting to any of your organization's SQL-based data sources or even CSV files or Google Sheets.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Redash was acquired by Databricks
+•  Chart.io was acquired and shut down by Atlassian 
+• Tableau was acquired by Salesforce
+• Periscope was acquired by Sisense
+• Mode Analytics was acquired by ThoughtSpot
+• Aggregate values across multiple columns and publish them as Metrics.
+• Metrics can be certified as authoritative by a specific user.
+• Transform specific columns and publish them as Calculated Columns.
+• Write arbitrary SQL queries and publish them as a Virtual Dataset.

@@ -1,0 +1,53 @@
+**Preset Cloud As A Chart.io Alternative**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+In February 2021, Atlassian announced the acquisition of the proprietary BI platform Chart.io, started to downsize the Chart.io team, and announced their intention to shut down the platform.
+
+This isn’t a new phenomenon. Given how mature and dynamic the BI market is, consolidation has been accelerating over the past few years:
+While consolidation is likely to continue, these concerns don’t arise when your BI platform is open source. Whether you're using a commercial vendor or self-hosting, you have immense flexibility with open source.
+Preset is a modern business intelligence platform built on Apache Superset , the most popular open-source business intelligence platform in the world.
+Our founder and CEO, Max Beauchemin, helped create Superset while working at Airbnb. Modern data organizations like Airbnb, Lyft, Dropbox, Nielsen, and many other organizations all use Superset because it is cloud-native and designed for the modern data stack.
+
+Chart.io was known for pioneering visual SQL, a no-code interface for preparing data for visualization. Superset has Explore, a no-code interface that unlocks the same capability.
+
+Chart.io has a limited set of chart types (only 17). Superset ships with more than 40 charts and this list is quickly growing). More importantly, Superset lets you develop and add new custom visualizations.
+
+Both Chart.io and Superset ship with a powerful SQL editor for more SQL-savvy analysts. Unlike Chart.io, Superset has a powerful semantic layer that you can use for data modeling.
+In the no-code chart builder (Explore), metrics, columns, and virtual datasets all inherit the power that physical database tables have in Superset.
+
+Superset is widely known for the beautiful charts and dashboards you can create quickly. Here's an example that's a community favorite:
+
+
+In addition to all of the features that Superset has out of the box, Preset has built additional features to deliver the moist scalable, the most secure, and the easiest to run Superset experience:
+We are proud to be the experts of Apache Superset. Over the last 3 years, Preset has grown to become the majority contributor to the open source Superset project. We've also learned how to deploy and scale Superset to thousands of customers, across a diverse set of industries, use cases, data stacks, and geographies.
+The easiest way to try Superset is through our Starter tier in Preset Cloud. The Starter tier is free forever, upto 5 users.
+
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Tableau was acquired by Salesforce
+• Looker was acquired by Google Cloud
+• Periscope was acquired by Sisense
+• Zoomdata was acquired by Logi Analytics
+• Redash was acquired by Databricks
+• Aggregate values across multiple columns and publish as Metrics.
+• Metrics can be certified as authoritative by a specific user.
+• Transform specific columns and publish as Calculated Columns.
+• Write arbitrary SQL queries and publish as a Virtual Dataset.
+• Preset Manager: our admin layer that lets you create multiple Superset workspaces and manage permissions using role-based access control (RBAC)
+• Single Sign-On (SSO): we offer a unified SSO experience for all paid plans, which is a bit unique in the BI space
+• Managed Private Cloud: Preset can now deploy Superset inside of your own cloud infrastructure for added security, giving you more control over where data is stored with the ease of a fully managed service (currently in Beta)
+• Documentation & Training: we maintain high quality end-user focused documentation  and also offer training
+• Compliance: Preset is SOC2 Type 1 & Type 2 compliant
+• Embeddeding dashboards: you can safely embed Preset dashboards in other applications (currently in Beta)
+• World-class Support: teams on a paid tier get access to our dedicated email and chat support

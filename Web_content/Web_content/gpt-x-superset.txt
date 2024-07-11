@@ -1,0 +1,442 @@
+**GPT x Apache Superset**
+**What can we Superset users DO with this power?**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+A few disclaimers before we embark: This post was written by human hands. Also, these are not Preset’s stance on GPT, Bard, or Large Language Models (LLMs) in general… they’re my own feelings after running my own experiments. Your mileage may vary.
+This article is penned in hopes of giving you, the Apache Superset user, some useful starting points for what can (or can’t) be done with this exciting new capability. The goal is to test many practical ideas for things we can all do with the tools available at our fingertips (i.e. the web-based UIs), and counterbalance those with a bit of a reality check.
+We hope that this will seed more ideas of how we can be effective in our day-to-day work… at least as far as how we define work today.
+I want to acknowledge that this post does tend to focus on OpenAI’s GPT (both 3.5 and 4), for the most part. I only received Open AI’s Beta features (namely, the web browser access feature) at the tail end of writing this article, so I can only somewhat speak to all of its use cases
+I also did spend a fair amount of time experimenting with Google’s Bard, on this journey, and will compare it here in the places in which it stands out against GPT in noteworthy ways.
+I anticipate a lot of questions here, like “why not use the API, and adjust the temperature?” or “why not try this prompt or that tool.” I’ll provide a vehicle at the end to ask these questions, but this post is intended to be more user-focused than developer-focused, so we’re playing with each platform’s UI in these examples.
+If I have one complaint about “working” with these tools, it’s that they’re confidently wrong in a number of intricate ways. Don’t get me wrong, this stuff is absolutely mind-blowing, and I use it all the time to solve life’s little problems and discover all sorts of new things. But we’re using it to do our jobs here, and I’m finding this has some really big caveats, which is effectively the crux of this article
+Let me cover a few recent instances to illustrate a few ways the wheels can fall off.
+I wanted to see how many days there were between the releases of Superset 2.0.1 and Superset 2.1. Surely it can sort this out without breaking a sweat, so I asked:
+How many days between Dec 20 2022 and April 4 2023?
+GPT was kind enough to explain its thinking to this clearly solvable problem…
+To calculate the number of days between two dates, we can simply subtract the earlier date from the later date.
+April 4 2023 is the later date and Dec 20 2022 is the earlier date.
+Sounds great! Carry on!
+So,
+Number of days between April 4 2023 and Dec 20 2022 = April 4 2023 - Dec 20 2022
+= (31 + 28 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 31 + 4) - (31 + 19)
+= 365 - 50
+= 315
+Therefore, there are 315 days between Dec 20 2022 and April 4 2023.
+Say what?! Clearly, this was neither the logic nor the answer that I sought. Was I able to tell it that the answer was incorrect and get a correct one? Yes indeed, but that's not the point, per se.
+Given that LLMs are not intrinsically good at math, but great at language, you might have better luck asking it to give you the SQL date function to compute this with a SQL query. That would work (and in fact does work), but the point here is that to trust the answer you receive, you must either already know the answer, or be able and willing to check its work.
+This article was actually spurred by my asking GPT about Superset’s Feature flags, as an attempt at fleshing out a recent blog post on the topic. The first time I asked it to give me definitions for some of Superset’s most important Feature Flags. I know full well that GPT only knows about Superset from a few years ago, but that should be fine since the bulk of these existed (and were well documented) far before that cutoff. Alas, the sort of lists I got back were intriguing:
+
+Some of these are pretty legit! For example:
+What bothers me, however, is that many of these are flat-out made up! This is honestly more work to fact-check and correct than it is to just sit down and sort out from scratch.
+But what about GPT-4, you might ask? The claim is that it “hallucinates” less, so I gave it a whirl as well. I get a very long-winded explanation about its old memory, what feature flags are for, that it depends on which version of Superset you’re running, that things may have changed at any point, and so on… basically a full page telling me to “RTFM.” Le sigh. I guess that’s less helpful, but more honest at least.
+Someone asked me on Slack about a problem they had what ChatGPT told them to do: modify superset_config.py and add EXPORT_RESTRICTED=True - then "Save the file and restart the Superset server. Now, only the dashboard owners and admins will be able to export dashboards. Other users will see a message stating that they don't have permission to export.” Sounds amazing, but it’s totally made up! I think I trust GPT to provide feature ideas more than technical answers, the more I use it.
+While I may have some trust issues, GPT knows an awful lot about an awful lot of things and there are numerous ways you can leverage it in your day-to-day as a Superset user.
+In testing various workflows, I've left these experiments with widely varying levels of optimism, so I’ll try to capture the realism of how this might change your day (for now) as well. I've rated them subjectively on a Hope Scale, where 1 would be a pessimistic “this will never happen, don’t waste your time” and 10 is a “holy smokes, this changes everything, today” level of optimism.
+
+This is perhaps the most intriguing of all ideas involving GPT and Superset, so let’s just start here. Suffice to say, Preset is as intrigued as any data-centric org, and we’re prototyping things already. We hope to show you what we’re working on before long (perhaps in the upcoming meetup) but let’s talk about a few of the things we have to contend with to make this effort successful:
+To give just one example, I’ll grab a sample from Superset’s Video Game Sales data. To do that, I go to SQL Lab, and run a simplistic query:
+You can then click the DOWNLOAD CSV button to get the following:
+I then add a prompt crafted to contain the “Video Game Sales” table name, tell it that this is a PostgreSQL database, and provide the sample data. I finally ask it to write a query that’s easy to ask in English, but perhaps not as obvious in SQL for most non-analysts.
+Given the following schema and CSV data sample from the PostgreSQL table "Video Game Sales":
+rank,name,platform,year,genre,publisher,na_sales,eu_sales,jp_sales,other_sales,global_sales
+1,Wii Sports,Wii,2006,Sports,Nintendo,41.49,29.02,3.77,8.46,82.74
+2,Super Mario Bros.,NES,1985,Platform,Nintendo,29.08,3.58,6.81,0.77,40.24
+3,Mario Kart Wii,Wii,2008,Racing,Nintendo,15.85,12.88,3.79,3.31,35.82
+4,Wii Sports Resort,Wii,2009,Sports,Nintendo,15.75,11.01,3.28,2.96,33.0
+5,Pokemon Red/Pokemon Blue,GB,1996,Role-Playing,Nintendo,11.27,8.89,10.22,1.0,31.37
+6,Tetris,GB,1989,Puzzle,Nintendo,23.2,2.26,4.22,0.58,30.26
+7,New Super Mario Bros.,DS,2006,Platform,Nintendo,11.38,9.23,6.5,2.9,30.01
+8,Wii Play,Wii,2006,Misc,Nintendo,14.03,9.2,2.93,2.85,29.02
+9,New Super Mario Bros. Wii,Wii,2009,Platform,Nintendo,14.59,7.06,4.7,2.26,28.62
+10,Duck Hunt,NES,1984,Shooter,Nintendo,26.93,0.63,0.28,0.47,28.31
+Write a SQL Query  that finds the most popular game for each known platform, during the year that has that platform’s highest overall sales
+The result spat out a helpful bit of context about how CTEs work, and how/why the resulting query works. That’s great, but let’s put the resulting query here, in a format you can copy/paste yourself:
+I eagerly plopped this into SQL lab, and bang… it worked!
+
+That… looks absolutely reasonable to me! I’m actually quite excited about this. I can see a lot of opportunity here for this to be a more seamless integration in a product like Superset, but clearly this is something you can do right now, even if it takes stepping out of the tool and performing a few intermediary steps. Some tuning and prompt engineering could likely dial this in pretty nicely.
+Hope Scale: 9 🥳 (This is what many of us want, and… it seems to work)
+GPT not only knows how to write a query, it clearly knows the correct syntax for a variety of databases. I won’t fill this page with SQL snippets and prompts, but I assure you I had some interesting baseline queries written for Postgres and BigQuery that I wanted to swap. I exported a representative sampling of the data from each of these DBs into the other. I then asked GPT 3.5 and GPT 4 to take the BigQuery SQL query, and translate it for Postgres, and vice versa. I also tried to migrate both of them to SQLite for good measure. I made sure to add prompt clarifications to make sure the results returned would be the same.
+In all cases, GPT gave tremendously helpful advice on things like whether I should be using single or double quotation marks, how to get current timestamps, which date functions I should be using in the new dialect, string concatenation methods, and much more. But at the end of the day… basically NONE of these queries actually worked Out of dozens of experiments, I got one query to run… and it yielded incorrect results, missing many of the aggregations and calculations that I desired in the result set.
+Hope Scale: 6 🙂 (I feel like this could be prompt-engineered a bit more, but )
+Similar to the preceding experiment, I wanted to throw GPT a softball, this time. I took a fully functioning query (again, running on BigQuery) and made a variety of mistakes in it. I would start making a few mistakes in it, for example:
+Hope Scale: 5 😕 (it points out legitimate fixes, but breaks more than it fixes)
+I’m not a gambling man, but I’d suspect the number of people that write a broken SQL query, get an error message in Superset’s UI, and then go Googling for what that error indicates, is… approximately 100% of the user base. So what if you write a (lightly) broken query, and then feed GPT the query, the error message, and tell it to fix it.
+Well, I found that 100% of the time, GPT proudly proclaims that it’s fixed the query. After trying this dozens of times, often iteratively with any newly ensuing error messages, I only managed to get GPT (3.5, FWIW) to “fix” one query. And when it ran, the columns returned and filters applied were completely off base. I was really hopeful for this one, hoping GPT could be the Stack Overflow killer, but alas, I left saddened.
+Hope Scale: 4 😬 (I couldn’t get it to “fix” a query this way even once)
+Again, I’ll spare you all the mile-long blog post full of copy-paste GPT threads, but what I did was take some fully functional BigQuery and PostgreSQL queries, and have GPT optimize the queries. Like above, it would refactor CTEs, optimize WHERE clauses, and various other things that sounded great on paper, but at the end of the day, I had an almost zero success rate in getting queries that would run and/or return the correct results schema.
+Hope Scale: 3 😭 (So much fail)
+OK, so while everyone’s fired up about generating SQL, what about those times where someone hands you a query they wrote, and you ask yourself “what the heck is this mess?” Well, it turns out this is something that GPT is really good at helping you with! I’ll finally make you exercise that scrolling finger by pasting in one of my test queries for this post, which goes through a bunch of Superset’s GitHub events, to help find PRs that are in need of some love.
+It’s not the craziest thing ever, but it also isn’t patently obvious what’s happening at first glance. When I ask GPT-4 to answer “What exactly is the following BigQuery query actually doing?” I get the following:
+
+That last paragraph really sums it up fairly nicely! Out of curiosity, you can provide the same prompt to GPT 3.5, and get a pretty different answer:
+
+In that case, I think the answer was a little… dense… but the summary at the bottom is arguably simpler and more accurate than GPT-4.
+In the name of science, I posted the same prompt to Google’s Bard, and I was pretty blown away by the contrast in results here. The paragraphs at the start and end here actually captured the use case of what I was trying to do, quite accurately and concisely:
+
+All in all, explaining things is one of an LLM’s strengths, and they do a fine job in this application… especially Bard.
+Hope Scale: 8 🤩 (it works… and it’s essentially truthful! But… Bard wins here in my book.)
+GPT can certainly take a lot of tedium out of repetitive tasks when it comes to formatting content. Hacks that apply to written documents (e.g. change this bulleted list to a numeric list) can also help in SQL. Take for example a case where you want to remove all these unnecessary backticks, but don’t want to spend the time hand-editing.
+
+Hope Scale: 8 🤩 (just check its work to make sure it doesn’t make other edits along the way!)
+Superset has a LOT of granular permissions, which are grouped into various roles. People ask all the time which permissions are (or should be) part of a given role, and what these individual permissions actually do. I tasked the LLMs with creating a table of these permissions, to clarify things and (in a perfect world) add to our docs.
+Bard, and all flavors of GPT (including GPT4 with web access) returned a wall of half-truths, even after a lot of prompt tweaking. Some were legit, some were close and some were complete fabrications. If you’re trying to manage the permissions of your users when security is on the line, this isn’t just not helpful it’s potentially dangerous
+Hope Scale: 2 😡 (it’s wrong, and dangerously so)
+Similar to the RBAC experiment above, if you ask these AI to tell you about Superset’s feature flags, you’ll get something kind-of truthful. However, if you ask about a specific feature flag, even a recent one, you get incorrect results on all fronts. None of the older models have data on newer feature flags obviously, but the ones with web access should do OK, I hoped. There was a glimmer of hope when Bard gave a reasonable explanation of the GENERIC_CHART_AXES flag, but with questionable version/release information. If you throw an even newer flag like DRILL_BY or DRILL_TO_DETAIL at it, you get a bunch of fabricated nonsense.
+Hope Scale: 3 😭 (liar liar, pants on fire!)
+Whether it’s writing Superset Documentation, or populating a Text (née Markdown) component in your Superset Dashboard, there are times where you want to wrangle a block of text into Markdown format. This might be a block of rich text you have in a document, or plain text in need of enhancement.
+To illustrate one use case, I’ll take a block of plain text copied as plain text from the Superset website, and tell GPT to “convert the following into Markdown with headers, and add relevant links along the way:”
+Superset is fast, lightweight, intuitive, and loaded with options that make it easy for users of all skill sets to explore and visualize their data, from simple line charts to highly detailed geospatial charts.
+Powerful yet easy to use
+Quickly and easily integrate and explore your data, using either our simple no-code viz builder or state of the art SQL IDE.
+Integrates with modern databases
+Superset can connect to any SQL based datasource through SQLAlchemy, including modern cloud native databases and engines at petabyte scale.
+Modern architecture
+Superset is lightweight and highly scalable, leveraging the power of your existing data infrastructure without requiring yet another ingestion layer.
+Rich visualizations and dashboards
+Superset ships with a wide array of beautiful visualizations. Our visualization plug-in architecture makes it easy to build custom visualizations that drop directly into Superset.
+The end result was clean Markdown, with links and headers and all.
+
+Unfortunately, neither Bard nor GPT let you paste rich text into their tools (yet), nor can they access Google Docs (yet). If you have a nice paragraph full of bold/italicized words, links, etc., you’re going to have a hard time. It can scrape HTML, but if you feed them something like Superset’s Wikipedia page, the results are kind of a mess.
+Still, for simple copy/paste conversions, formatting GPT-generated text as markdown, or making a table/list of various contents, it’s priceless. I’m never hand-coding a markdown table again, I’ll tell you that much.
+Hope Scale: 8 🤩 (it pretty much excels at formatting, but lacks useful input options for now
+Just a general word about these tests: Superset isn’t the most up-to-date tool in the world regarding its dependencies, but GPT was trained in 2021, and a lot has happened since then! For example, if you want to work on end-to-end (E2E) tests in a way that’s compatible Cypress 10, GPT won’t do you much good since Cypress 10 came out in June of 2022, well after GPT was trained. For this application, I’m finding that Bard leaps ahead in the running. But as you’ll see, it isn’t all wine and roses…
+It’s no secret that Superset’s E2E test runs require a lot of re-starting on CI. It’s super frustrating, and it’s because we have a lot of flaky tests! Cypress’ dashboard helps us see which ones are the worst offenders. Can GPT help us de-flake these tests? It sure claims it can!
+I quickly found out it doesn’t infer what version of Cypress you have… or that you’re using Typescript. You have to hand-hold it a bit, but it was indeed on a good track. In the end, it also wound up insisting I use an NPM module that I didn’t have, but I added that, and I opened a couple PRs to illustrate its approaches on the repo [1, 2].
+Hope Scale: 5 😕 (it needs a lot of fine-tuning, but it spots some reasonable culprits!)
+As in the previous test, I prompted the AI to take Superset’s slowest test (with a median run time of 1:32 over the last 2,704 test runs), and optimize it! it provided insightful optimizations to the code, including parallelizing certain aspects of the test. The full details of what it’s attempting to do are available on the PR. Again, this completely fails, since it doesn’t provide all the functions/fixtures it tells you to use. It just kind of points you in a reasonable direction…
+Hope Scale: 4 😬 (again, it points out some interesting ideas, but fails wildly at providing working code)
+For this one, I tired a few different angles: First, I tried GPT4 with web browser access (which I got finally got as I was wrapping up this article) against Bard. I used a recent PR, which is written by @kgabryje and is entitled “fix: Make drill by work correctly with time filters”.
+The Bard review is particularly hilarious, since… well… that’s just nonsense. This isn’t the author (it’s a real person, but they’ve never contributed to Superset), that’s not the title, and this has nothing to do with the PR in question.
+
+GPT-4 (with web browsing) looks a lot more promising, as it actually looked These are actually helpful comments! All in all, I’m pretty impressed! GPT4 for the win!
+
+That said, the PR is held up due to an issue about the higher-level problem that the PR is trying to solve for… something that wouldn’t be caught unless you had a historical context with the codebase and use cases involved. Again, all of this underscores a need to check the machine’s work, to make sure it’s not BS-ing you, or missing the bigger picture.
+Hope Score: 7 😃 (if you’re using GPT-4 with web browsing, but you must review the review!)
+If you happen to be writing code to integrate with Superset’s API layer, you’ll be happy to know that many of these endpoints are well documented in a Swagger file available for perusal in the docs for human consumption, and in JSON format for machine consumption.
+I tried using both of these with GPT4’s web browser access (since the current API is a prerequisite). Unfortunately, the tool was unable to access the Docs page (likely because it’s rendered client-side) and is currently unable to parse JSON, so the second link is a no-go as well.
+What it can do, is provide a scaffold for just about any language to make a generic API call. When attempting to do this for older Superset endpoints that it is aware of, it still tells you to “just add” the rest of the request body/parameters, authentication, etc. GPT-4 isn’t getting us any closer than copying code from countless Stack Overflow posts.
+On the plus side, GPT-4 doesn’t hallucinate about this, whereas GPT 3.5 will confidently provide a block of code that calls a non-existent API endpoint, with made-up parameters, and you’ll likely be no closer to the truth than a blank page.
+Hope Score: 3 😭 (I guess scaffolding is helpful, to save perusing other websites for the right snippet)
+Superset has been undergoing a slow but steady migration to TypeScript for years, and I’d love to see LLMs help step on the gas in this effort. I was trying this at length with GPT4 to convert a couple files from the wish list, namely superset-frontend/src/components/Chart/Chart.jsx, superset-frontend/src/dashboard/components/gridComponents/Chart.jsx, and superset-frontend/src/dashboard/containers/Chart.jsx (in hopes that this might be a chance to rename things whilst making new files).
+Unfortunately, GPT-4 seems to arbitrarily remove type definitions, delete styled (Emotion) components, and lead to a wall of “not defined” linting errors. I opened a PR  for one of the best of these conversions in case you’d like to compare the diff or check out the CI failures.
+Bard went interestingly sideways, too, adding React component definitions in the middle of a block of CSS, and other oddities. Once cleaned up a little, I was finding roughly twice the linting TS & linting errors of GPT-4.
+I will add that, after trying this various ways, I also asked GPT4 to convert Class components to Function components along the way, just for sport. This led to perhaps my favorite bit of code yet generated by GPT:
+
+I actually ran into this sort of thing at various times throughout this article. Occasionally it would inform you that the code remains unchanged in a block, which makes sense to keep replies brief. At other times, it felt like i it was giving me the classic instructions for drawing an owl:
+
+What I didn’t test in the scope of this were platforms like Github’s Copilot, or any of the other more IDE-based code-specific AI tools that are emerging. Perhaps that’s another blog post ahead…
+Hope Score: 3 😭 (With results like these, you're likely to save time doing it yourself)
+For frontend tests, I poked around for some random base components that didn’t appear to have neighboring test files. I asked GPT-4 to write typescript tests for the DropdownButton and EmptyState components. It did what looks like quite a reasonable job at writing some basic tests. The tests are pretty basic sanity checks and GPT didn’t test all the props it would seem it ought to know about. But the real devil is in the details. There were minor things like having to edit a module import path, and some auto-linting (no big deal!). There was a Typescript error, but in the end I was able to get GPT to fix it (pretty nifty!). However, the tests on the PRs (here and here) are failing because the components being tested don’t have access to the Superset theme, the assertions are based on selectors that aren’t specific enough, and more. These are things that you would know if you just copied the scaffold from another component’s tests, and just wrote it. GPT might be enough to set up a nice little scaffold, but you still have to tweak it, fix it, and flesh out the more intricate operations of the component.
+Hope Score: 5 😕 (probably not a real time-saver)
+In this case, I picked on the same two (randomly selected) components from our prior example, but asked GPT-4 to add dosctrings. It spat out what generally looked pretty reasonable. I think it’s generally capable of doing this well, since it’s more or less describing things, which is its forté. Check out the PR, and imagine if we did this for the whole codebase. Ask yourself this: does it add clarity, or does it add noise? And who gets to go through and fact-check it?
+Hope Score: 7 😃 (it seems to work… but does it help much?)
+While GPT-4’s web browsing capability and Bard’s capability to integrate Google’s search powers, I was hopeful to be able to search the Github repo. One of the most common difficulties in participating in a community with over a thousand open issues is properly searching them - either for a similar but to what you might have encountered, or for a bug related to a fix you’re providing in a pull request.
+I tried to use both GPT and Bard to search for issues on specific topics (e.g. translations or documentation problems), as well as search for open issues that have had a lack of attention or were ready to be closed.
+Bard happily provided a list of complete hallucinations, to nonexistent Issues with fabricated URLs. GPT just kept crashing, but after several attempts, returned two very old closed issues, and some poorly formatted excerpts from the docs. Better than made up stuff, I suppose, but not particularly thorough or helpful.
+Hope Scale: 3 😭 (pretty much a fail, but I have a mild sense GPT 4 could be further coerced)
+For this last chunk, I wanted to seed a few ideas that might work beautifully, provided the right tools, the right prompts, and the right level of patience and/or ingenuity. For now, this is largely a set of ideas for further experimentation - I'm considering them out of scope since they'd likely involve building custom integrations using APIs provided by OpenAI or other competitors. I’ll provide a means at the end of this post to let us know if you think these (or others) are worth delving deeper into:
+Generating charts/formData from a given dataset
+This one would not so likely be a use of the web interface for Chat GPT or Bard, but more of a GPT API integration. Given proper prompts, and possibly a bit of tuning/prompting around how Superset’s various chart controls build their form data objects, I suspect it would be possible to give GPT a sample of some data, inquire which chart(s) would best tell a particular data story, and have it actually build the formData object needed to actually generate a chart in Superset automatically.
+Organizing content
+Superset has a newly added feature for labeling/organizing content (Dashboards, Charts, etc.) with custom labels. This feature is in testing, behind a feature flag ( TAGGING_SYSTEM, specifically). It seems that it would not be a huge leap to have GPT look at aspects (chart titles, queries, descriptions, etc.) to GPT, and have it suggest or apply relevant tags
+Generating content descriptions/summaries
+Similar to the content organization idea, GPT would seemingly be able to generate descriptors of queries, charts, and dashboards. These could be placed in the UI and/or markup of the page to provide improved accessibility, or provide text-based summaries that might prove useful for alerting or reporting by email or other text-based means.
+Advanced Type generation
+Another recent feature is unlocked by the ENABLE_ADVANCED_DATA_TYPES flag. In a nutshell, this ltest you annotate columns in your datasets as a particular type of data, even if they’re in different formats (for example, different formats of IP addresses). It would seem a trivial task for something like GPT to look through sample data and discern if columns match these defined types, reducing semantic layer maintenance work.
+Just have some fun, since we’re writing this post, let’s install Superset on GPT.
+Wait, what? Yeah, well.. kind of. But not really. GPT is not a VM. But, you can make it act like one.
+GPT knows enough about computers, and the software that runs on them, to be able to pretend it is one! With the right prompt, you can use GPT as a computer. Well, not a real computer, but a computer’s imagination of a computer.
+Via twitter, I found this article, which provides my favorite GPT prompt to date:
+I want you to act like a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. Do not write explanations. Do not type commands unless I instruct you to do so. When I need to tell you something in English I will do so by putting text inside curly brackets {like this}. My first command is pwd.
+Long story short, you can basically do it. And it’s crazy to go through it. You might have to install some packages and things along the way, and the AI is clever enough to act like it now has those running.
+
+You can’t actually run and access Superset (at least I couldn’t), but boy is it interesting to make directories, install things, and run software… all in a faux computer that kind of works. Go ahead, make some files, write some scripts… I think you’ll be entertained.
+Without going into the mechanics of how LLMs are trained, my current analogy on LLMs is that it’s akin to taking the library of Alexandria, inserting it into the mind of a compulsive liar, and only allowing them to answer your question after extensive practice sessions with a lie detector. Again… I have trust issues, in a nutshell. My general impression is that when using this for a technical application that might affect the data (or the interpretation of data) that your business is built upon, it might be wise to start from place of distrust, and be able/willing to fact-check the machine’s work.
+That said, there are SO many things you can do with this type of tool in your tool belt. When you pick the right LLM, and apply the right constraints, I’m surprised how well certain things work! Tasks like converting natural language to SQL show huge promise. Automated PR reviews can save a lot of time, as long as you provide your own critical thinking. Many of these experiments seem bright with promise. I honestly remain hopeful about the potential of all the tasks AI fails at, because it probably won’t suck at them for long!
+I’m as much in love with this tech as anyone, I don’t want to sound pessimistic. I remain bullish on where this is all headed, and will continue to kick these tires and try to get more of this stuff to actually work To help guide this effort, I/we can use your help!
+You ain’t seen the last of this topic! In this post, we’re turning over a lot of rocks, and there are so many topic areas and experiments worth going wider and deeper on. We’d love to have you all weigh in on what you think will be important to our product and our community.
+Once the meetup on this topic has ended, please join us in the Github Discussion thread to provide your support/feedback on these experiments, provide new integration/workflow ideas worth testing, and upvote the ideas on the thread that you think we should explore further in terms of content and/or product features.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Tools & methodology
+• A cautionary note
+• Use cases (intro)
+• 
+Section 1: GPT for SQL
+
+Queries from natural language
+Converting beween SQL dialects
+Autocorrect for SQL
+Troubleshooting queries
+
+Optimizing queries
+
+Explaining SQL
+Linting SQL
+
+
+• Queries from natural language
+• Converting beween SQL dialects
+• Autocorrect for SQL
+• Troubleshooting queries
+
+• Optimizing queries
+
+• Explaining SQL
+• Linting SQL
+• 
+Section 2: Documentation
+
+RBAC permissions?
+
+Feature Flags
+Markdown
+
+
+• RBAC permissions?
+
+• Feature Flags
+• Markdown
+• 
+Section 3: Developer tooling
+
+Flaky Cypress tests
+Speeding up Cypress
+Reviewing PRs
+Making API calls
+JS to TS conversion
+
+React component testing
+Auto-generating docstrings
+Searching for issues
+
+
+• Flaky Cypress tests
+• Speeding up Cypress
+• Reviewing PRs
+• Making API calls
+• JS to TS conversion
+
+• React component testing
+• Auto-generating docstrings
+• Searching for issues
+• Section 4: Other use cases
+• A parlor trick
+• Conclusion
+• Comment and vote!
+• 
+I wanted to see how many days there were between the releases of Superset 2.0.1 and Superset 2.1. Surely it can sort this out without breaking a sweat, so I asked:
+
+How many days between Dec 20 2022 and April 4 2023?
+
+GPT was kind enough to explain its thinking to this clearly solvable problem…
+
+To calculate the number of days between two dates, we can simply subtract the earlier date from the later date.
+April 4 2023 is the later date and Dec 20 2022 is the earlier date.
+
+Sounds great! Carry on!
+
+So,
+Number of days between April 4 2023 and Dec 20 2022 = April 4 2023 - Dec 20 2022
+= (31 + 28 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31 + 31 + 4) - (31 + 19)
+= 365 - 50
+= 315
+Therefore, there are 315 days between Dec 20 2022 and April 4 2023.
+
+Say what?! Clearly, this was neither the logic nor the answer that I sought. Was I able to tell it that the answer was incorrect and get a correct one? Yes indeed, but that's not the point, per se.
+Given that LLMs are not intrinsically good at math, but great at language, you might have better luck asking it to give you the SQL date function to compute this with a SQL query. That would work (and in fact does work), but the point here is that to trust the answer you receive, you must either already know the answer, or be able and willing to check its work.
+
+• 
+This article was actually spurred by my asking GPT about Superset’s Feature flags, as an attempt at fleshing out a recent blog post on the topic. The first time I asked it to give me definitions for some of Superset’s most important Feature Flags. I know full well that GPT only knows about Superset from a few years ago, but that should be fine since the bulk of these existed (and were well documented) far before that cutoff. Alas, the sort of lists I got back were intriguing:
+
+Some of these are pretty legit! For example:
+
+ENABLE_TEMPLATE_PROCESSING seems about right.
+ENABLE_REACT_CRUD_VIEWS was real back then, and the definition is correct, even if it doesn’t exist today.
+ENABLE_PROXY_FIX is a config setting, rather than a feature flag, but OK, i can look past that technicality… even if this doesn’t quite explain what it does.
+ENABLE_ASYNC_QUERIES seems to be describing what GLOBAL_ASYNC_QUERIES does.
+
+What bothers me, however, is that many of these are flat-out made up! This is honestly more work to fact-check and correct than it is to just sit down and sort out from scratch.
+But what about GPT-4, you might ask? The claim is that it “hallucinates” less, so I gave it a whirl as well. I get a very long-winded explanation about its old memory, what feature flags are for, that it depends on which version of Superset you’re running, that things may have changed at any point, and so on… basically a full page telling me to “RTFM.” Le sigh. I guess that’s less helpful, but more honest at least.
+
+• ENABLE_TEMPLATE_PROCESSING seems about right.
+• ENABLE_REACT_CRUD_VIEWS was real back then, and the definition is correct, even if it doesn’t exist today.
+• ENABLE_PROXY_FIX is a config setting, rather than a feature flag, but OK, i can look past that technicality… even if this doesn’t quite explain what it does.
+• ENABLE_ASYNC_QUERIES seems to be describing what GLOBAL_ASYNC_QUERIES does.
+• 
+Someone asked me on Slack about a problem they had what ChatGPT told them to do: modify superset_config.py and add EXPORT_RESTRICTED=True - then "Save the file and restart the Superset server. Now, only the dashboard owners and admins will be able to export dashboards. Other users will see a message stating that they don't have permission to export.” Sounds amazing, but it’s totally made up! I think I trust GPT to provide feature ideas more than technical answers, the more I use it.
+
+• Understanding the data: To generate SQL queries, ChatGPT needs to understand the structure and content of the data you're working with. This can be accomplished by providing GPT with representative sample data to familiarize it with the schema of the dataset.
+• Define the query’s objective: Clearly articulate the goal of your query. For example, if you want to retrieve sales data for a specific date range, mention that explicitly to ChatGPT.
+• Ask specific questions: When framing your query as a natural language question, ask for the specific information you want to extract from the data. Be as detailed and specific as possible. For instance, "What were the total sales on May 1st, 2023?"
+• Leverage SQL knowledge: GPT has knowledge of SQL syntax and structure. When generating a query, you should give it some context (e.g. database type, and the exact table name, so it doesn’t have to guess).
+• I’d “mistakenly” use other dialects’ timestamp delta calculations instead of BigQuery’s TIMESTAMP_DIFF - e.g. TIMESTAMPDIFF, DATEDIFF, etc. GPT (3.5 or 4) would catch and correct this, but somehow either result in a completely broken query, or (in only one case out of dozens of experiments) a working query with completely wrong result columns.
+• I’d again sabotage a perfectly valid query, by using the wrong format of quotation marks, e.g. single quotes instead of backticks, or other incorrect quote types. Again, pretending to be an oblivious user, I would ask GPT 3.5/4 to “fix this SQL query to run correctly on {database}”.  It would often catch and correct these quotation marks, but without fail it would overcorrect and “fix” or optimize other aspects of the query, thus breaking it entirely.
+• In one last set of experiments, I threw other small syntactical wrenches into the works, such as removing commas in column lists or in WHERE...IN clauses. Again, it would catch these beautifully and then continue to refactor CTEs, adjust timestamps unnecessarily, and other optimizations. Yes, I could craft a better prompt to tell it to only fix certain aspects of the query, but again, that requires knowing the scope of your problem in order to have AI fix only those aspects… which kind of defeats the purpose of this as a solution.
+• 
+Generating charts/formData from a given dataset
+This one would not so likely be a use of the web interface for Chat GPT or Bard, but more of a GPT API integration. Given proper prompts, and possibly a bit of tuning/prompting around how Superset’s various chart controls build their form data objects, I suspect it would be possible to give GPT a sample of some data, inquire which chart(s) would best tell a particular data story, and have it actually build the formData object needed to actually generate a chart in Superset automatically.
+
+• 
+Organizing content
+Superset has a newly added feature for labeling/organizing content (Dashboards, Charts, etc.) with custom labels. This feature is in testing, behind a feature flag ( TAGGING_SYSTEM, specifically). It seems that it would not be a huge leap to have GPT look at aspects (chart titles, queries, descriptions, etc.) to GPT, and have it suggest or apply relevant tags
+
+• 
+Generating content descriptions/summaries
+Similar to the content organization idea, GPT would seemingly be able to generate descriptors of queries, charts, and dashboards. These could be placed in the UI and/or markup of the page to provide improved accessibility, or provide text-based summaries that might prove useful for alerting or reporting by email or other text-based means.
+
+• 
+Advanced Type generation
+Another recent feature is unlocked by the ENABLE_ADVANCED_DATA_TYPES flag. In a nutshell, this ltest you annotate columns in your datasets as a particular type of data, even if they’re in different formats (for example, different formats of IP addresses). It would seem a trivial task for something like GPT to look through sample data and discern if columns match these defined types, reducing semantic layer maintenance work.
+
+`ENABLE_TEMPLATE_PROCESSING`
+`ENABLE_REACT_CRUD_VIEWS`
+`ENABLE_PROXY_FIX`
+`ENABLE_ASYNC_QUERIES`
+`GLOBAL_ASYNC_QUERIES`
+`superset_config.py`
+`EXPORT_RESTRICTED=True`
+`1`
+`10`
+`SELECT *
+FROM public."Video Game Sales"
+LIMIT 10`
+`DOWNLOAD CSV`
+`rank,name,platform,year,genre,publisher,na_sales,eu_sales,jp_sales,other_sales,global_sales
+1,Wii Sports,Wii,2006,Sports,Nintendo,41.49,29.02,3.77,8.46,82.74
+2,Super Mario Bros.,NES,1985,Platform,Nintendo,29.08,3.58,6.81,0.77,40.24
+3,Mario Kart Wii,Wii,2008,Racing,Nintendo,15.85,12.88,3.79,3.31,35.82
+4,Wii Sports Resort,Wii,2009,Sports,Nintendo,15.75,11.01,3.28,2.96,33.0
+5,Pokemon Red/Pokemon Blue,GB,1996,Role-Playing,Nintendo,11.27,8.89,10.22,1.0,31.37
+6,Tetris,GB,1989,Puzzle,Nintendo,23.2,2.26,4.22,0.58,30.26
+7,New Super Mario Bros.,DS,2006,Platform,Nintendo,11.38,9.23,6.5,2.9,30.01
+8,Wii Play,Wii,2006,Misc,Nintendo,14.03,9.2,2.93,2.85,29.02
+9,New Super Mario Bros. Wii,Wii,2009,Platform,Nintendo,14.59,7.06,4.7,2.26,28.62
+10,Duck Hunt,NES,1984,Shooter,Nintendo,26.93,0.63,0.28,0.47,28.31`
+`WITH platform_year_sales AS (
+    SELECT 
+        platform, 
+        year, 
+        SUM(global_sales) AS total_sales
+    FROM 
+        "Video Game Sales"
+    GROUP BY 
+        platform, 
+        year
+),
+max_year_sales AS (
+    SELECT 
+        platform, 
+        MAX(total_sales) AS max_sales
+    FROM 
+        platform_year_sales
+    GROUP BY 
+        platform
+),
+max_year_per_platform AS (
+    SELECT 
+        p.platform, 
+        p.year
+    FROM 
+        platform_year_sales p
+    JOIN 
+        max_year_sales m ON p.platform = m.platform AND p.total_sales = m.max_sales
+),
+most_popular_game AS (
+    SELECT 
+        v.platform, 
+        v.year, 
+        v.name, 
+        RANK() OVER(PARTITION BY v.platform, v.year ORDER BY v.global_sales DESC) as rank
+    FROM 
+        "Video Game Sales" v
+    JOIN 
+        max_year_per_platform m ON v.platform = m.platform AND v.year = m.year
+)
+SELECT 
+    platform, 
+    year, 
+    name 
+FROM 
+    most_popular_game 
+WHERE 
+    rank = 1;`
+`TIMESTAMP_DIFF`
+`TIMESTAMPDIFF`
+`DATEDIFF`
+`WHERE...IN`
+`WHERE`
+`-- 6dcd92a04feb50f14bbcf07c661680ba
+SELECT `issue_type` AS `issue_type`,
+       `hours_stale` AS `hours_stale`,
+       `last_action_type` AS `last_action_type`,
+       `hours_since_opened_or_closed` AS `hours_since_opened_or_closed`,
+       `last_touched` AS `last_touched`,
+       `link` AS `link`,
+       `opened_or_closed_at` AS `opened_or_closed_at`,
+       `is_open` AS `is_open`
+FROM
+  (with base as
+     (SELECT *,
+             ROW_NUMBER() OVER(PARTITION BY parent_id
+                               ORDER BY dttm DESC) AS first_created
+      FROM core_github.github_actions
+      WHERE repo in ('apache/incubator-superset',
+                     'apache/superset')
+        AND action != "fork"
+        AND action != "star"
+        AND action != "watch" ) ,
+        statusi as
+     (select parent_id ,
+             TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), max(dttm), HOUR) as hours_stale ,
+             max(case
+                     when action in ('pr_created', 'issue_created', 'pr_closed', 'pr_merged', 'issue_closed') then dttm
+                 end) as opened_or_closed_at ,
+             coalesce(max(case
+                              when action in ('pr_created', 'issue_created') then dttm
+                          end), '1900-01-01T01:01:01+00:00') > coalesce(max(case
+                                                                                when action in ('pr_closed', 'pr_merged', 'issue_closed') then dttm
+                                                                                else '1900-01-01T01:01:01+00:00'
+                                                                            end), '9999-01-01T01:01:01+00:00') as is_open
+      from base
+      group by parent_id) SELECT base.parent_type as issue_type,
+                                 base.action as last_action_type,
+                                 base.dttm as last_touched,
+                                 ARRAY
+     (SELECT *
+      FROM UNNEST(SPLIT(base.labels, '|')) part
+      WHERE part != '') labels,
+                                 TIMESTAMP_DIFF(CURRENT_TIMESTAMP(), opened_or_closed_at, HOUR) as hours_since_opened_or_closed,
+                                 CONCAT('<a href="https://www.github.com/apache/superset/pull/', base.parent_id, '" target="_github">', base.parent_id, '</a>') as link ,
+                                 statusi.*
+   FROM base
+   LEFT JOIN statusi ON base.parent_id = statusi.parent_id
+   WHERE first_created = 1) AS `virtual_table`
+WHERE `is_open` IN (true)
+ORDER BY hours_stale DESC
+LIMIT 1000
+-- 6dcd92a04feb50f14bbcf07c661680ba;`
+`GENERIC_CHART_AXES`
+`DRILL_BY`
+`DRILL_TO_DETAIL`
+`@kgabryje`
+`superset-frontend/src/components/Chart/Chart.jsx`
+`superset-frontend/src/dashboard/components/gridComponents/Chart.jsx`
+`superset-frontend/src/dashboard/containers/Chart.jsx`
+`DropdownButton`
+`EmptyState`
+`formData`
+`TAGGING_SYSTEM`
+`ENABLE_ADVANCED_DATA_TYPES`
+`I want you to act like a linux terminal. I will type commands and you will reply with what the terminal should show. I want you to only reply with the terminal output inside one unique code block, and nothing else. Do not write explanations. Do not type commands unless I instruct you to do so. When I need to tell you something in English I will do so by putting text inside curly brackets {like this}. My first command is pwd.`

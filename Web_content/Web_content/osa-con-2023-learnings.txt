@@ -1,0 +1,30 @@
+**OSA CON 2023: Learnings from 40+ open-source data and analytics projects**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+It’s a wrap! We’re energized by the leaders, practitioners, and advocates of the open-source projects sharing successes, best practices, and knowledge at OSA CON 2023 last week. We're grateful for your participation in our virtual event and are happy that you're here to catch up on the session highlights and recordings.
+Here’s a recap of what happened at OSA CON 2023.
+The Open Source Analytics Conference (OSA CON) was a unique event dedicated to all aspects of open-source analytics. Covering a broad spectrum of projects within the modern data stack, this inclusive virtual conference brought together creators, leaders, active contributors, users, and advocates from various open-source communities. The goal was to facilitate learning, sharing, connections, and exploration of the latest developments in data ingestion, orchestration, databases, infrastructure, governance, visualization, and AI. In its third year, Preset collaborated with Altinity to host this conference.
+We were thrilled by the turnout and engagement; over 2,000 data practitioners from 90+ countries joined the three-day event, where they had the opportunity to learn from 53 experts specializing in modern data stacks.
+
+Practitioners of over 40+ open-source projects and their associated managed services came together to exchange the latest developments, best practices, and insights.
+
+There were so many great sessions from the open-source analytics community members sharing their work. With representatives from Confluent, Google, Cloudera, Altinity, Preset, and so on, OSA CON provided learnings to bring to your data team.
+Sessions covered a broad range of topics - everything from expert points of view in the data world such as Most "Open Source" AI Isn't. And What We Can Do About That to popular topics such as Many Faces of Real-time Analytics and Building a ChatGPT Data Pipeline with RisingWave Stream Processor and Astra Vector Search.
+And of course, much of the focus was on real-world applications within companies of all sizes, from enterprises to growing startups - from Unlocking Financial Data with Real-Time Pipelines and Open Source BI FTW - Building Compelling Dashboards with Apache Superset.
+Check out all OSA CON 2023 session recordings by logging into the OSA CON 2023 event platform.
+ It’s not too late. You can access all the sessions by creating an account on the event platform. 
+Bringing together the open-source data and analytics communities requires a tremendous team effort. We extend our gratitude to all the sponsors of OSA CON 2023, including Google, Cube, Presto, and Packt for supporting the event, and Mux for hosting a fun in-person happy hour event in San Francisco! Special thanks also go to Software Guru, who played a vital role in ensuring an exceptional lineup of speakers, smooth operations, and a lively event!
+Our vision is to make OSA CON the go-to event for learning about all things related to open-source analytics and AI. We are constantly working to enhance and test new ideas to ensure a fun and inspiring event. We look forward to seeing you next year!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

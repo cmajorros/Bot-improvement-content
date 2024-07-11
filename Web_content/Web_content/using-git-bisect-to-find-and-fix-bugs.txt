@@ -1,0 +1,52 @@
+**Using Git Bisect to Find (and Fix) Bugs**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+While most people know ways to go spelunking in code to figure out why something is broken, or how to use git blame to figure out who broke something, I keep finding folks who don’t know about  git bisect, or simply don’t use it enough. If this quick little post saves anyone (especially an Apache Superset contributor) a few hours, then it was well worth the effort!
+So yes, there are official docs on the matter, but I never found them straightforward, and they go a bit into the weeds. Today I want to show you how to use git bisect in your most-likely day-to-day troubleshooting.
+Well, it’s kind of like a “binary search” if you know that technique. Let’s say the codebase has a bug right now (likely the case). And let’s say it didn’t have that bug a week ago. You can tell git bisect that your current SHA/commit is “bad” and the earlier SHA/commit is “good”.
+From there, git bisect finds the SHA in the middle of the range, for you to test. Tell git bisect if that SHA has the bug (i.e. it’s “bad”) or not (i.e. it’s “good). If it’s “good” it’ll try again halfway between there and your initial “bad” SHA. If it’s "bad", it’ll try halfway between there and your initial “good” SHA.
+In other words, git bisect will keep cutting the range of commits in half until it finds the exact commit that caused your problem. All you have to do is test along the way.
+Here’s how git bisect works for most use cases:
+Obviously, the time that it takes to build Superset, and the time spent testing for your bug’s presence might mount up. I will admit this can get a bit tedious. In many cases, however, it can be a lot easier/faster than digging through the code, especially when you have that “this worked last week” feeling. While it might take some time, it doesn’t usually require that much mental energy, so it’s a good way to bug hunt while making the proverbial cup of tea.
+Let me know on Slack if you enjoy this sort of tips n’ tricks post… I’m happy to do more!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Start by telling Git you want to use bisect: You do this by typing git bisect start in your terminal. This tells Git to prepare to search through your project's history.
+• Identify a bad point in the repo history: You need to tell Git a point in time (commit) where things are broken (bad). This is probably the “head” of your branch, and if so, you can just type git bisect bad HEAD. If you know a SHA further back in time that’s busted, then great, just use git bisect bad xxxxxxx with the SHA.
+• Identify a good point in the repo history: This might be a little thicker, but you need to find a time when things DID work. You can just check out random SHAs going back in time and testing them to see if that moment was bug-free. When you find it, just enter the SHA with git bisect good xxxxxxx. Remember that since git bisect cuts the range of SHAs in half with each test/validation, going back twice as far in history only takes one more test, if you want to play it safe.
+• Let ‘er rip: Git will now check out a commit halfway between the known good and bad commits. It’s like flipping to the middle of the time range to see if the mistake was there at that point.
+• Test the SHA it provides: At this halfway point, you check if the bug is present. If it is there, just type git bisect bad and if it’s not, type git bisect good
+• Rinse and repeat: Git will continue to pick a new halfway point based on your feedback, as you keep testing SHAs. Git will eventually narrow it down to a specific change
+• End of the search: Once Git has identified the commit that introduced the mistake, it will tell you which one it is. You have your “AHA!” moment to go see what went sideways in that change.
+• Wipe the slate: Now that you’re done, you can run git bisect reset to finish the process and return your project to the latest state.
+`git blame`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect`
+`git bisect start`
+`bad`
+`bad`
+`git bisect bad HEAD`
+`git bisect bad xxxxxxx`
+`good`
+`git bisect good xxxxxxx`
+`git bisect`
+`git bisect bad`
+`git bisect good`
+`git bisect reset`

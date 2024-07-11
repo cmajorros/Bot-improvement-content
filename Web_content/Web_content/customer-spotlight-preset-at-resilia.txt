@@ -1,0 +1,36 @@
+**Customer spotlight: Preset at Resilia**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Resilia is a fast-growing, venture-backed, “tech-for-good” startup powering a digital transformation in the nonprofit sector. The company’s mission is to strengthen nonprofit capacity and help grantors (foundations, corporations, governments) scale impact through data-driven technology solutions. Resilia’s SaaS-based products help new nonprofits achieve tax exempt status, empower existing nonprofits to build capacity in pursuit of becoming high-performing organizations, and enable grantors to support their nonprofit partners beyond simple grant awards. Resilia was named a Rising Star on the 2020 Forbes Cloud 100 list and was listed on VentureBeat's Companies to Watch list. Sevetri Wilson, Resilia’s Founder and CEO, holds the distinction of achieving the largest funding raise ever ($35M) for a solo Black female-founded tech company, and she has been recognized in Inc Magazine's 100 Women Building America's Most Innovative Companies, Pitchbook's top Black Tech Leaders list, and Black Enterprise's 40 Under 40 list.
+The North Star for Resilia’s Data & Analytics team is to reach the almighty data-driven tier of the data hierarchy of needs. They began their data journey by implementing a best-in-class stack of Snowflake, dbt, and Fivetran, which laid the foundation for high-quality data modeling that could serve the entire organization. The last piece of the puzzle: a BI tool worthy of Resilia’s customers.
+Resilia’s customers are high-performing grantors and nonprofits that track impact data over time and use it for performance measurement and reporting. Research shows that there’s a strong correlation between impact tracking and fundraising dollars. Further, Resilia treats data best practices (self-service, governance, and security) at the forefront of its business and enables nonprofits to do the same through its technology and learning resources.
+Pinpointing customer needs is difficult and requires a lot of product feedback (qualitative and quantitative) and iteration. Similar to how nonprofits track how they engage with those they serve on the Resilia app, Resilia tracks how users engage with its platform solutions. Analyzing these actions is an integral part of building a valuable product, reaching revenue goals, and measuring the efficacy of product-led growth motions.
+Navigating the BI landscape is difficult (explained in Resilia’s recent technical blog post), as there are many tools with similar offerings. Given the challenges above, Resilia doubled down on a few pieces of criteria: self-service, governance, and security.
+
+Preset is a best-in-class tool that covers all of the above. Self-service (contributor roles, easy to use/drag and drop charting and dashboarding), data governance (dashboard and metric certification, data access groups, and workspace roles), and security (SSO, data caching) are at the forefront of Preset’s business model.
+To meet their requirements, Resilia decided to choose Preset to enable their teams to visualize and analyze data while meeting all of their key requirements above:
+Preset and Resilia as businesses have very similar missions: both strive to empower customers with data through innovative products, advanced BI, modern governance, and a future state of embed-ability and data-apps. After partnering with Preset, in only a few months Resilia saw the following results:
+Another, even more profound area where Resilia and Preset overlap is the belief in the ability of nonprofit organizations to empower communities. Resilia’s R&D team is a huge fan of the products that come out of the Apache Foundation, which has fostered some of the most important and innovative open source technologies of the past decade including Apache Spark, Kafka, Airflow, and Superset. Apache projects and their communities are unique, diverse, and focused on the activities needed at a particular stage of the project’s lifetime, including nurturing communities, developing great code, and building awareness, values that are important and help by both Resilia and Preset.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Self-service: enabling business stakeholders to address their own questions
+• Governance: building a single source of truth through dashboard and metric certification and permissioning in a way where only those who need access have access (protecting PII)
+• Security: data encryption; secure authentication (Key Pair, MFA)
+• Self-service: Preset enables Resilia’s team to self-serve analytics through an easy to use drag and drop interface to create charts and dashboard with the ability to quickly define creator roles
+• Data governance: Through configurable data access policies and row level security, Preset ensures that the right people have the right access to data. Creators can also certify metrics and dashboards to build a single source of truth and better discoverability
+• Security: Users can connect directly into Preset through SSO, and Preset’s lightweight architecture does not require data ingestion and ensures all data is encrypted. The configurable caching layer only stores aggregated results so no PII is ever exposed in the platform.
+• The product team visualized the proportion of nonprofit organizations using a specific feature, which would later inform future iterations of the feature.
+• The sales team used geomapping to analyze user engagement by state and resource their team accordingly.
+• Revenue tracking has automated standard SaaS metric reporting, saving the RevOps team 12-24 hours per week.
+• The use of certification and permission has eliminated questions like “is this still relevant?” and removed the ability for the majority of Resilia’s employees to access PII.

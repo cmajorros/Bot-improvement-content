@@ -1,0 +1,71 @@
+**Superset 2.0.1 - A Small Yet Critical Patch Release**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The release of Superset 2.0 represented the culmination of not just a large swath of engineering work, but also an equal measure of process development within the Superset community. It represented the first major release of Superset to follow the SemVer (semantic versioning) process as laid out in SIP-57, which in turn helped the community build new guardrails and rigor around how we collectively decide when and how to introduce not just features, but (more importantly perhaps) breaking changes, into this product which is paramount to the success of not just Preset, but the numerous orgs that rely on Superset day to day.
+2.0 is by no means a new release at this point. It was voted in on July 14, over 6 months ago. Since then it has been adopted by many organizations, but the truth is that even more deployments seemed to be holding off due to actual or perceived stability issues and upgrade/compatibility difficulties. 2.0.1 is a critical release as it addresses many of these long-standing issues. In fact, it represents over 40 resolved issues.
+While Superset 2.0.1 is a patch release centered on stability (full release notes/changelog here), it’s largely about security as well. Superset 2.0.1 carries with it seven patches for security vulnerabilities. These came through various sources including individuals and security auditing firms and were taken in by the Superset PMC (Project Management Committee), handled in the Superset Operational Model’s Security working group. The process behind all this is worthy of its own blog post, but the security issues will be coming to light over time when they’re made public to the world as CVEs.
+While many of these are small edge cases, some are most definitely of critical importance, meaning this update is essential to anyone running or wishing to run Superset 2.0. The fallout from some of these changes will be felt in the product, which we’ll go into below.
+A few areas of Superset have been affected by an important change that took place in this release. Limitations have been imposed within Superset’s configuration, which limit the set of tags and attributes available for use by the Handlebars Chart and the Markdown component in their default configuration. It's important to note that it was considered whether or not these modifications would constitute a breaking change, but it was concluded by the PMC that these should be treated as a security fix instead.
+2.0.1 also includes a check for CSP (content security policy) configuration on production environments, and adds a warning when these are not defined. These policies allow you to limit the sources of files/content imported by the impacted features, and thereby remain better protected when re-enabling aspects of their prior functionality. For deployments that manage CSPs with other software, this check can be disabled using the  CONTENT_SECURITY_POLICY_WARNING configuration.
+The new Handlebars plugin (another forthcoming post, stay tuned!) has been limited by a change in Superset’s configuration. In the current default configuration of Superset, it’s also restricted to a limited set of HTML tags (similar to Github’s markdown support) and no CSS styling. The most visible limitation out-of-the-box is that the Handlebars plugin loses support for the <style> tag, which is disabled by default. Additionally, the use of the style and class attributes has been disabled by default. To enable the Handlebars plugin with all of the above CSS capabilities, you must edit two areas of your configuration (found in config.py ). There are two options to choose from:
+Again, please note that if you wish to change your configuration with either approach we’ve described here, it is strongly advised to enable a content security policy (CSP) that only allows content to be loaded from trusted domains. More details for these changes and the risks involved will be forthcoming after the 2.0.1 release and related CVEs have been made official.
+The markdown component used in Superset dashboards has historically been wide-open, supporting the full range of Markdown’s capabilities. In 2.0.1, this support has been limited in scope, supporting fewer tags and attributes. In the default state, it’s restricted to a set of markdown elements, again nearly identical to that which is used by GitHub. If you run a private instance of Superset, or your deployment has sufficient Content Security Policies (CSPs) enabled, and you feel comfortable enabling the full capability, you can simply set HTML_SANITIZATION to False in your http://config.py file. The recommended approach, however, is to extend the HTML sanitization schema to only enable the elements covered by your CSP policies. To do that, you can use the HTML_SANITIZATION_SCHEMA_EXTENSIONS configuration, similar to the Handlebars Chart approach mentioned above.
+The Superset 2.0.1 release presents an interesting challenge in the project’s support for LTS (long term support) releases. The intent since the onset of the original Superset 2.0.0 release has been to continue supporting the prior major version (1.x.x) as long as possible, alongside the current one, and continue to providing LTS patch releases to improve stability/security.
+We know that not everyone has upgraded to Superset 2.0 yet, because many were awaiting this new 2.0.1 release. Since not everyone will be able to make the jump immediately, we remain committed to supporting 1.5.x users as much as is reasonably possible. Trying to maintain an LTS version can present some difficulties, however.
+Maintaining an aging release increases with difficulty as the codebase moves along and diverges, making cherry-picking fixes into LTS more complex (or in some cases, impossible) due to merge conflicts and lack of feature parity. At times, applying a fix may in itself cause side effects that would be considered a breaking change. SemVer dictates that one cannot make a breaking change without bumping by a major version, which is part of what led us to release 2.0 in the first place. If such a breaking change were to occur with a prior major version, this can put a release in a catch-22, where we can’t patch a version without breaking it.
+It is suspected that some of the security patches released in 2.0.1 may be subject to the above complications, and might not be applicable to 1.5.2. Release managers at Preset will make a best attempt early in 2023 to back-port these security fixes, but the project may face a difficult choice of baking a 1.5.3 release with an incomplete set of security patches, or discuss dropping LTS support for 1.5.x. Either way we encourage the community at large to begin their migration to 2.0.1, since that’s where the bulk of engineering effort will be focused going forward.
+Looking even further ahead, when 3.0.0 is eventually released, we’ll continue to attempt to support 2.x.x as the LTS release. Additional updates and clarifications regarding Superset’s LTS support plan will be further discussed among the PMC, then raised as a public proposal on the Apache mailing list for publication on the Superset Wiki.
+While the fate of LTS support for 1.5.x not certain, there are a number of efforts going into forthcoming releases. Among those currently in discussions (which you’re welcome to join!) are:
+Interestingly enough, the short answer is, it doesn’t! People in the Superset community often inquire about how official Superset releases impact customer-facing deployments at Preset. The simple truth is that Preset cuts, tests, and maintains its own bespoke releases of Superset, at a much higher cadence than these official Apache releases. This is in order to get features and fixes to customers as soon as possible.
+Superset releases do indeed remain important to Preset, mainly in that we rely on the community as much as anyone else, and want to keep the open source releases as stable as possible, so we often act as stewards of these releases - though really any individual or org with Committer/PMC membership can get involved.
+Shipping a release of Apache Superset takes a lot of coordinated effort. For 2.0.1, Elizabeth Thompson, Arash Afghani, and Eric Briscoe worked diligently to publish no fewer than six release candidates for testing and voting. Numerous others were involved as well, of course - it really does take a village, and we could really use your support in shipping future releases. These are but a few places to get involved.
+Testing and voting release candidates. Anyone and everyone are encouraged to test and vote for release candidates when they’re posted online. While Superset PMC members have a “binding” vote, everyone else in the community has an advisory vote, and they really do help. To participate, you simply reply to an email thread on the Superset developer's email list with your vote, and/or file an Issue if you find one that needs to be addressed. If you haven’t already subscribed to the list, you can email dev-subscribe@superset.apache.org to do so.
+Join the Release Strategy working group which has a recurring sync (visible on the Superset Community Calendar) to speak synchronously on zoom, as well as the #operational-model-release-strategy channel on Slack for async communications. These are a group of invested folks who are either running a release, sorting out how to handle the issues encountered along the way, and trying to strategize what gets into a release and how/when we accomplish it. All who want to help in this effort are encouraged to join.
+Join the Superset Town Hall for monthly updates about project development, including issues the community is facing including any plans that are taking shape toward these versioned releases and other community milestones. This, too is on the Superset Community Calendar with the next one happening Thursday, January 19th.
+Join the Slack workspace - You can visit us on the Superset Slack chat, particularly in the #apache-releases channel for news, the #operational-model-release-strategy channel to get involved in coordination efforts, and of course #vendor-preset if you’re one of our valued customers, or would like to learn more about becoming one!.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• You can configure HTML_SANITIZATION_SCHEMA_EXTENSIONS with some additional config overrides. As long as HTML_SANITIZATION remains enabled, this allows you to to extend the sanitization schema to allow more HTML elements and attributes such as style and class attributes on all HTML tags, and enabling <style> tags to allow the plugin’s base styles to function, and/or theaddition of custom <style> tags. The full details of ways to configure this schema are depicted on this page provided by the hast-util-sanitize library, but here’s one example config:
+• Set HTML_SANITIZATION to False. This allows Markdown (and the Handlebars plugin) to render ALL HTML tags and attributes. This change removes the limits imposed HTML sanitization in their entirety.
+• 1.5.3 - We will attempt to backport security fixes from 2.0.1 into this release, but it is uncertain whether or not all known security concerns can be mitigated in this release.
+• 2.0.2 - A fast-follow release to provide additional patches/fixes that have been discovered during or after the 2.0.1 release process, for additional stability
+• 2.1.0 - A new minor release, meaning additional new features! Where 2.0.1 was focused on “fix” patches, 2.1.0 will open the door to contain additional backwards-compatible features (and database migrations). New features often introduce new bugs, so this minor version will likely lead to patch versions as well.
+• 3.0.0 - With any major release, comes the opportunity to make breaking changes. For Superset’s next major version, this might include things like enabling certain feature flags by default, and removing deprecated or antiquated bits of code or functionality. These changes will be proposed and ratified through appropriate working groups, open discussions, and Apache voting processes in the coming months.
+`CONTENT_SECURITY_POLICY_WARNING`
+`<style>`
+`style`
+`class`
+`config.py`
+`HTML_SANITIZATION_SCHEMA_EXTENSIONS`
+`HTML_SANITIZATION`
+`style`
+`class`
+`<style>`
+`<style>`
+`HTML_SANITIZATION_SCHEMA_EXTENSIONS = {
+  "attributes": {
+    "*": ["style","className"],
+  },
+  "tagNames": ["style"],
+}`
+`HTML_SANITIZATION`
+`HTML_SANITIZATION`
+`False`
+`http://config.py`
+`HTML_SANITIZATION_SCHEMA_EXTENSIONS`
+`dev-subscribe@superset.apache.org`
+`#operational-model-release-strategy`
+`#apache-releases`
+`#operational-model-release-strategy`
+`#vendor-preset`

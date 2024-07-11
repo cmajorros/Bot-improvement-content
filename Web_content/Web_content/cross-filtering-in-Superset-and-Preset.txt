@@ -1,0 +1,36 @@
+**Exploring Your Data from Every Angle: Cross-Filtering in Apache Superset and Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Enabling self-serve analytics is critical for companies that want to scale data-driven decision-making across their organizations. While centralized data teams often prepare charts and dashboards, the consumers of the data want to zoom in on a chart element and conduct their own analyses. Cross-filtering allows individual users to interact with a chart or table and apply immediate ad-hoc filters across visualizations in the dashboard without having to set up dashboard-level filters each time.
+Cross-filtering has been available through the Chart Builder (formerly known as Explore) view of Apache Superset and Preset for some time, but our recent release allows all users to readily access the cross-filtering feature in the dashboards. In Preset, users with any workspace role, including Viewer and Dashboard Viewer, can immediately use cross-filters to interact with chart elements, allowing them to get more nuances of data and explore their data from every angle.
+In this blog, we’ll explain how to use cross-filters in Preset, but it works similarly in Superset.
+
+Before the recent update, cross-filtering was controlled by manually marking a checkbox on each chart, putting the burden on the chart builders. This means that the dashboard consumers with limited access permissions, such as Preset users with Viewer workspace role, could not self-explore their data and visualizations without manual enablement by their colleagues first.
+Today, cross-filtering can be used on the following chart types:
+To use cross-filters, open your dashboard and pick a chart or a table you want to filter down. Clicking on a chart or a table element automatically applies cross-filters to compatible visualizations in the dashboard.
+In the below example, we applied cross-filtering of “publisher: Nintendo” from a pie chart. You can see that the compatible visualizations reflect the filtered-down datasets (e.g., the table chart on the left of the pie chart). You can also clearly see the active filters through the filter indicators, where the “blue colored indicator” means a cross-filter was applied, and the “double-ringed circle with an arrow” indicator means a cross-filter was emitted from the chart.
+It’s also possible to see which filters are active in the horizontal or vertical filter bar.
+
+By default, you will see that the same filters are applied to all other compatible visualizations in the dashboard. If you want to apply a filter to specific visualizations, select “Apply to specific panels” from the “Cross Filter Scoping” option and define which visualizations the filter should be applied to.
+
+In some situations, you may want to restrict dashboard consumers from applying cross-filters (e.g., when embedding dashboards in customer-facing apps). Dashboard creators can easily disable cross-filtering by unchecking the cross-filtering option in the dashboard filter bar.
+Cross-filtering is available in the open-source Superset and is included in all Preset subscription plans. Log into Preset, or sign up for a free account to create your first dashboard!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• All charts built with ECharts
+• All types of time series charts
+• Pivot table charts
+• Table charts
+• Graph charts
+• World maps

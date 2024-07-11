@@ -1,0 +1,45 @@
+**Preset Getting Started Guide is Now Available**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Want to get a head start on Preset Cloud? Then we have great news for you! We are very excited to announce the introduction of the Preset Getting Started Guide.
+This end-user documentation is focused on taking you step-by-step through the entire onboarding Preset Cloud experience, from connecting your data to building your very first chart and dashboard.
+As part of this walkthrough process we used data that everyone can relate to: Netflix TV shows and movies! Just visit Kaggle to download the sample data.
+Now, let’s have a look at the topics included in the Getting Started Guide:
+Introduction: Learn about what Preset Cloud is and how it can enable your organization to quickly and easily draw insights from your data.
+Terminology: Introduction to some common concepts and terms you’ll encounter while using Preset Cloud.
+Connect Data: Learn about the steps required to connect your database to the Preset environment, such as adding a database, configuring the connection, and adding a dataset to Preset.
+Creating a Chart: Learn about the importance of knowing your data and correlating that to a visualization that works best for the data story you want to convey. These articles take you one step at a time through the process of building a Sunburst chart using data from a source everyone is familiar with: Netflix. Lastly, we cover how to configure your chart, select metrics, and customize it.
+Chart Examples: To show the breadth of Preset Cloud’s capabilities, we apply the same Netflix dataset to multiple charts so that you can see the possibilities.
+Using Dashboards: Next we tackle the subject of dashboards and cover all the basics: how to save charts in a dashboard, edit its properties, favorite a dashboard, and how to share it with colleagues.
+At Preset, our focus is on providing the best Superset experience for our community and customers. We welcome all feedback and suggestions! Feel free to leave feedback directly on our site or e-mail us at training@preset.io with your thoughts on how we can improve your Preset Cloud experience.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Introduction: Learn about what Preset Cloud is and how it can enable your organization to quickly and easily draw insights from your data.
+
+• 
+Terminology: Introduction to some common concepts and terms you’ll encounter while using Preset Cloud.
+
+• 
+Connect Data: Learn about the steps required to connect your database to the Preset environment, such as adding a database, configuring the connection, and adding a dataset to Preset.
+
+• 
+Creating a Chart: Learn about the importance of knowing your data and correlating that to a visualization that works best for the data story you want to convey. These articles take you one step at a time through the process of building a Sunburst chart using data from a source everyone is familiar with: Netflix. Lastly, we cover how to configure your chart, select metrics, and customize it.
+
+• 
+Chart Examples: To show the breadth of Preset Cloud’s capabilities, we apply the same Netflix dataset to multiple charts so that you can see the possibilities.
+
+• 
+Using Dashboards: Next we tackle the subject of dashboards and cover all the basics: how to save charts in a dashboard, edit its properties, favorite a dashboard, and how to share it with colleagues.
+

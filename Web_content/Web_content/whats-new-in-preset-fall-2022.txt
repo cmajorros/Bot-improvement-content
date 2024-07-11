@@ -1,0 +1,54 @@
+**What’s New in Preset - Fall 2022**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The Preset team has released over 70 features and 200 fixes and enhancements to improve the product experience in Preset powered by Superset. Below is a recap of what we’ve shipped since our last product announcement in August.
+To stay updated on our future announcements, click Subscribe next to this post's title.
+Preset’s embedded dashboards allow teams to quickly deliver customized analytics experiences in any application, empowering end users to make data-driven decisions where they are. Our platform lets you customize visual components, annotations, and more, making it an ideal solution for bringing interactive charts and dashboards inside internal tools and customer applications without the overhead. Learn more about embedded dashboards here.
+
+
+
+
+
+
+
+
+
+Faster navigation on SQL Lab and Data pages: We’ve clarified terminology and simplified information architecture in the “SQL Lab” and “Data” tabs in the navigation bar to help you find information faster (Pull Request 21245).
+Getting context on your charts: We’ve added MetadataBar to the "Explore header" to quickly get more context on a chart, such as admin users and the description of the chart.
+
+Excited to try out these features? Head over to your Preset workspace now and get started!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Viewing chart as table to explore datasets: If you want to dig into details of the visualized data or understand the data behind a crowded chart, you can now access the underlying data with a single click. Clicking on the "three-dot menu" in the top right corner of the chart brings up the data in a tabular format, making it easier to interpret or analyze the data.
+• Easily moving from SQL to visualization: The new workflow lets you visualize ad hoc queries before converting them into a dataset. You can create a visualization from a SQL query and save them both as a dataset.
+• Managing color palettes with labels: Annotating color palettes makes it easier to find a palette you want to use for each chart. Naming also helps your team members always pick the right brand color palette for their visualizations (Pull Request 21040).
+• Defining team and workspace roles at the time of invite: Team admins now have greater control to prevent the risk of assigning incorrect data access by defining user permissions at the time of invite. This optional feature lets admins select new users’ team and workspace role permissions before they can log into Preset.
+• More secure dashboard sharing with your team: The new sharing experience lets you easily share dashboards with your team in a safe and secure manner. The updated feature allows for sharing a specific dashboard with your teammates with a single click while keeping track of who has access to the dashboard.
+• Revamped homepage experience: New enhancements to the homepage make it easier to navigate the Preset interface in self-serve mode. The updated setup guide and search module help new users create charts and dashboards and find information faster.
+• Cross-referencing between charts and dashboards: You can now confidently edit charts and datasets while understanding which dashboards or charts may be impacted. You will see which charts are on which dashboards and what datasets power which charts, improving the ability to understand how changing individual objects impacts other aspects of the workspace.
+• Previewing charts before adding to a dashboard: We’ve added thumbnails to draggable chart cards in the sidebar of the "Edit Dashboard" view, making it easier to find charts you want to include in your dashboard.
+• 
+Faster navigation on SQL Lab and Data pages: We’ve clarified terminology and simplified information architecture in the “SQL Lab” and “Data” tabs in the navigation bar to help you find information faster (Pull Request 21245).
+
+• 
+Getting context on your charts: We’ve added MetadataBar to the "Explore header" to quickly get more context on a chart, such as admin users and the description of the chart.
+
+• Charts and dashboards can now be filtered by created_by (Pull Request 21199).
+• The Owner dropdown for charts, dashboards, and data sources now only shows active users (Pull Request 20837).
+• You can use the metrics labels to sort bars in bar charts V2 (Pull Request 21356).
+• You can visualize your data using a Latin America country map (Pull Request 21352).
+• Embedded dashboards are downloadable as CSV files (Pull Request 20416).
+`MetadataBar`
+`created_by`
+`Owner`

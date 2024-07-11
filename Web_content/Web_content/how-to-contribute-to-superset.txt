@@ -1,0 +1,92 @@
+**Contributing To The Superset Project - Github + Superset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Contributing to an open source project can seem incredibly overwhelming. This is speaking from first-hand experience. I wanted to make my first contribution in May 2020 but struggled to take the first step. Since then, I've:
+In this post, I hope to use what I've learned to pave the way for you or someone else you know to start contributing to the project. Most of the points below apply more generally to all Apache projects and (to some degree) to all open source projects.
+While Superset began life at an Airbnb hackathon, the project eventually found it its way to the Apache Incubator. The Apache Software Foundation provides a path for open source projects to get bootstrapped and come to life. The Apache Software foundation provides many things, but the main thing it provides is a loose philosophy of open, vendor-neutral, community-driven software development. This philosophy is often referred to as the Apache Way.
+
+The Apache way isn't a strict philosophy per say, and each project adapts and implements the values slightly differently. Internalizing the core values helps provide a foundation of context as you think about the type of contribution(s) you want to make and how to be a good community member.
+I'll start by first exploring ways to contribute that don't involve learning the Superset code base and contributing code. Then, I'll switch gears and zoom in a bit on how to contribute new code. You're welcome to skip ahead if you'd like.
+A very underrated but important way to contribute is by advocating for Superset. This usually takes the form in two key ways:
+The best content (either talks or blog posts) lies at the intersection of:
+Here are some concrete examples of topics that lie at this intersection for these authors:
+
+After you've written a piece of content or delivered a talk, you should add it to:
+To find places to give talks, we recommend the following resources:
+Besides the software itself, an open source project An open source project lives and dies by its community. Helping others with issues they're running into is an excellent way to make a dent.
+Slack
+In the Superset Community Slack, you can find community members asking questions in the following popular channels:
+Stack Overflow
+Questions on StackOverflow related to Superset are usually tagged with either:
+You can find new questions tagged with either tag using this URL.
+Github Issues or Discussions
+Github has two ways to have discussions around Superset:
+In these avenues, you'll find everything from bug reports to new feature suggestions.
+Documentation
+Superset is a fast moving open source project, which often means that documentation gets stale and out of date quickly as well. Because Superset is used by thousands of individuals and organizations, improving documentation is a very very high leverage way
+The documentation for Superset lives in the docs folder in superset.
+Here are some clear ways to contribute documentation:
+Setting up Environment for Development
+First, we recommend setting up your local environment for development. The setup is a bit more involved than the Docker approach, but will encourage you to learn all of the different components of Superset and let you iterate on code much more quickly.
+Unless you are a committer to Superset, to contribute code or documentation to Github you'll need to fork Superset on Github and create an origin and upstream git workflow.
+Superset PMC member Ville Brofeldt did an excellent workshop on the full contributor's workflow here from start to finish.
+Good First Issues
+Now that you're setup, how do you make your first contribution? A good place to start is with the good first issue label on Github issues.
+
+This tag is full of Github issues that are minor bugs, cosmetic chores, or enables optional functionality. They are small issues with training wheels!
+Fixing Bugs
+For medium sized contributions, you can always try tackling one of the bugs! The bugs label in Github issues provides a nice list for you. There are a few different bug types you'll see in Github issues:
+
+Larger Proposals
+Large changes to Superset usually require that you research and craft a proposal, known as a Superset Improvement Proposal or SIP for short.
+If you need help crafting a SIP, please use the #contributing channel in the Superset Community Slack or work with existing community members that you've built a relationship with.
+Many open source projects have a file named CONTRIBUTING.MD that details how someone can contribute to the project. The Superset project is no different, here's a link to that file on Github.
+
+This file is maintained and is the best place to stay upto date about how to contribute to Superset as the project matures.
+We'd also encourage you to join our Slack community and use the #contributing channel to get help!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• made many contributions to the documentation
+• become a committer to the Apache Superset project
+• helped re-shape the culture and organization of the Superset Slack community
+• and written over a dozen blog posts on Superset
+• Delivering talks & presentations on Superset
+• Writing unique blog posts about Superset
+• your unique insights, perspective, or voice
+• and what's not being discussed enough
+• Resources tab on the Apache Superset website
+• Resources on the Github README
+• #content-share channel in the Superset Community Slack
+• Papercall
+• Meetup
+• #beginner-questions: friendly place for beginners to ask questions
+• #customizing-superset: discussing how to tweak & customize Superset for your own needs
+• #using-superset: end-user focused channel, on topics like crafting charts & dashboards in Superset
+• #improving-superset: contribute to the discussion on how to improve Superset
+• #apache-superset
+• #superset
+• Github Issues
+• Github Discussions
+• Test and update documentation on connecting different databases to Superset
+• Improve the installation & getting started documentation
+• Document how parts of the Superset code base work and add to the documentation website
+• Add a new section on how to use each chart in Superset
+• origin will point to your fork. When you git push origin [branch-name] and open a PR on Github in your forked repo, a PR will be made in the upstream / apache/superset repo
+• upstream will point to the apache/superset repo. You can't direclty push to this repo unless you're a committer.
+`origin`
+`git push origin [branch-name]`
+`upstream`
+`apache/superset`
+`upstream`
+`apache/superset`

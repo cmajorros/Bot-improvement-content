@@ -1,0 +1,64 @@
+**Superset 2.1.1 - A more secure and stable patch release**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We’re proud to announce the arrival of Superset 2.1.1, the latest patch release for the Superset 2.x lineage, which remains the LTS (long-term support) release for Apache Superset. You can download the release on the official releases page.
+This follows on the heels of Superset 2.1.0, which came out in April (available here) with release notes also available here on the Preset blog. Since Superset follows a SemVer pattern, this is a patch release, intended to add essential bug fixes and security patches, providing a more stable release for those who need one for production use.
+It’s worth noting that Apache Superset 3.0.0 is out as of this writing, which includes numerous additional features and fixes. While that new major release has been tested fairly extensively, 2.1.1 is officially our “stable” release and will continue to receive patches alongside 3.0. Superset 2.X will continue to receive such patches at least until the release of Superset 3.1.0 or 4.0.0 in the future.
+Special shout-outs to Elizabeth Thompson for acting as release manager on this 2.1.1 release, and to Daniel Gaspar for leading the charge on the various security issues that it tackles.
+You can check out the full details (and code) of the 36 pull requests that made it into the release on the changelog, but in brief terms, the changes include:
+Like most patch releases, many of the fixes in Superset 2.1.1 involve security-related patches. The list of these Common Vulnerabilities and Exposures is tracked by Superset’s PMC (more on that process here), and each release now adds such CVEs in the Security area of Superset’s documentation. The CVEs published for this particular release are as follows:
+Moving forward, the Superset project will continue to ship feature-driven releases and provide additional patch releases for supported versions of Superset. It's important to note that Superset 3.0.0, which includes all the patches applied in this 2.1.1 release, is now available. We recommend checking out the release notes and considering an upgrade soon.
+If you wish to get involved in releases—whether through contributing, testing, or strategizing—you can join us on Superset Slack in the #operational-model-release-strategy channel, or participate in the Release Strategy working group syncs on the Superset Community Calendar. We’ll continue to keep you posted on new releases as they arise!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Improved serialization/deserialization of permalinks.
+• Better enforcement of required parameters for certain database engines.
+• Fixes a timestamp appearing erroneously on the X axis of ECharts-based time series when filters were applied.
+• Normalization of timestamps in SQL Lab results to fix an issue with negative timezone offsets.
+• Fixes an issue where dashboards might not load properly with a default filter applied.
+• Improved database connection URI validation/enforcement.
+• Updates font-awesome in Flask AppBuilder.
+• Fixes a bug where non-admin users couldn’t edit a dashboard.
+• Fixes a TypeError in the Handlebars plugin.
+• Fixes an issue where values of dependent dashboard filters were not updating properly when the parent/dependency filter changed.
+• Fixes an issue where filters with the "Dynamically search all filter values” feature enabled were erroneously selecting all values.
+• Brings back the (necessary) time range selector for the HeatMap visualization.
+• Fixes an issue with some legacy charts that were not properly receiving time ranges from the dashboard filters.
+• Improved handling of temporal columns in Presto partitions (fixes table preview queries).
+• Fixed an issue caused by certain mid-query SQL comments - they’re now properly skipped.
+• Disabling SHOW_STACKTRACE as a default setting, to be more “secure by default”.
+• Fixed required permissions for /api/v1/database/validate_parameters/ and /api/v1/database/test_connection/.
+• Improved permissions checking when importing assets (dashboards, charts, databases, datasets) or loading examples.
+• Fix for MSSQL to comply with the dialect’s preferred placement of the DISTINCT keyword.
+• Ensures that regular RBAC rules are applied when the Dashboard RBAC feature flag is enabled, that dashboard RBAC overrides regular RBAC rules, and that Datasource permission checks now defer to Dashboard RBAC access.
+• Fixes an issue where a false error message was triggered when importing dashboards containing references to their prior data source id(s).
+• Fixes an issue where legacy charts with time range controls enabled would get time filters doubly applied when GENERIC_CHART_AXES is enabled.
+• The Heatmap plugin now accounts for the possibility of receiving ad hoc columns as either the x or y axis.
+• Fixes an issue where time grains added to the TIME_GRAIN_DENYLIST would cause an error if they were not known/supported by a database engine.
+• Improves validation of queries rendered by Jinja templating.
+• Adds an option to use a custom codec for serializing/deserializing values in the SupersetMetastoreCache.
+• Cleanup/simplification of various API responses.
+• Improves the performance of /api/v1/explore by lazy-loading column/metric relationships, albeit with a tradeoff of slowing down /api/v1/dataset.
+• Pivot Table V2 now takes the full available width when enlarged in a dashboard.
+`font-awesome`
+`TypeError`
+`SHOW_STACKTRACE`
+`/api/v1/database/validate_parameters/`
+`/api/v1/database/test_connection/`
+`DISTINCT`
+`GENERIC_CHART_AXES`
+`TIME_GRAIN_DENYLIST`
+`SupersetMetastoreCache`
+`/api/v1/explore`
+`/api/v1/dataset`

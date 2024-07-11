@@ -1,0 +1,66 @@
+**Responding to Security Vulnerabilities in Open Source Project**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+A few weeks ago, a security vulnerability in Apache Superset™ was reported by a member of the Open Source community. In this post, we'll walk through:
+One of the benefits of being a member of an Open Source Software foundation is the ability to leverage the expertise of the governing organization, including security and incident response resources. As an (incubating) member of the Apache Software Foundation, Superset benefits from clear guidelines on how to respond to security vulnerabilities in the project.
+These guidelines provide:
+We'll use the recent vulnerability to highlight how our incident response process drives swift vulnerability remediation within the Open Source project, leveraging the guidance provided by the ASF.
+
+Our first priority in an incident like this is to patch the vulnerability as quickly as possible. We:
+Once the fix was reviewed by Preset engineers and merged to master, we were able to pull in the fix and deploy it in all Preset environments.
+The timeline from discovering the vulnerability to deploying the fix in Preset's production environment was under four hours.
+Once the vulnerability was patched and confirmed, our attention turned to investigating the potential impact. The Preset team held a brainstorming session with several senior engineers and executives to identify potential impacts and explore different avenues of exploitation. We collaboratively discussed "worst case" scenarios, then looked at the monitoring and observability tools we have in place in order to rule them out.
+Our investigation included reviewing:
+
+We also reached out to our security vendors to dig deeper into raw event data to look for any evidence of unauthorized access to our systems.
+Ultimately, the Preset Engineering team completed our investigation and found no evidence of any breaches. We determined that scope of the vulnerability was limited to workspaces the user already had access to, and we found no indication that the vulnerability was exploited.
+Once we had a clear understanding of the problem, the solution, and the impact, we let our customers and the community know about the issue. Our customers place a high degree of trust in us to provide a secure platform for their data needs. Clearly communicating security issues to our customers in a timely fashion is our responsibility, and we do not take this lightly.
+Following the Apache security guidelines, we collaborated with the Apache PMC to open a CVE for the issue and have shipped Superset 0.37.1, which includes the fix. Please upgrade to this version of Superset (or above), if you haven't already.
+We've also taken steps to improve security vulnerability reporting in the community, including updating the issue reporting options in Github to explicitly direct security reports to a private channel.
+
+We take security very seriously at Preset, and we are using this opportunity to continue to harden our infrastructure and improve both our internal incident response procedures and the community reporting and remediation processes.
+If you discover a security vulnerability in Superset, please follow the documented reporting instructions, and feel free to follow-up with us at security at preset.io.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• security guidelines for Open Source projects
+• the incident response lifecycle
+• the steps we take at Preset to ensure a secure product experience for the Superset community
+• security vulnerability reporting instructions for the community
+• process for creating CVEs for verified vulnerabilities
+• guidance on releasing patches and communicating with the public
+• the vulnerability was reported via a Github Issue in the Superset repository
+• the Github Issue was discovered by a Preset engineer a few hours later, and was verified as an active vulnerability
+• the issue triggered our internal incident response procedure and was immediately escalated to senior management
+• the team converged in a dedicated Slack channel to investigate the impact of the vulnerability
+• a collaborative incident post-mortem report was created to document the incident in real-time, and includes:
+
+timeline of events
+impact of the vulnerability
+root cause analysis
+immediate resolution
+learnings and follow-up work
+
+
+• timeline of events
+• impact of the vulnerability
+• root cause analysis
+• immediate resolution
+• learnings and follow-up work
+• quickly opened a PR with a fix
+• moved to redact and remove the public Github Issue
+• reported the vulnerability to the private Apache PMC list
+• log files
+• user and container privileges
+• application code
+• alerts in our cloud monitoring systems

@@ -1,0 +1,27 @@
+**Transitioning from Looker to Preset to Enable Organization-Wide Self-Serve Analytics**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Pipe Technologies (”Pipe”) is an alternative financing platform that enables entrepreneurs to grow their businesses on their terms. Since the company was founded in 2019, over 23,000 companies have signed up for Pipe and over $7 billion of ARR has been connected to its platform.
+Data is central to the operations of the company and plays a crucial role in guiding the workflows of various teams such as product, engineering, sales, marketing, and business operations. Prior to adopting Preset, Pipe utilized Looker and Redash (acquired by Databricks) business intelligence (BI) tools, but these presented some difficulties. By forcing data models to be defined in LookML, Looker made it difficult to maintain a consistent semantic layer with other data tools that also relied on the data warehouse. Additionally, Looker had a pricing plan that was not scalable and did not provide data access and self-serve analytics to the rapidly growing organization. The visualization library of Redash was also limited, making it unable to meet the specific needs of Pipe.
+Pipe chose to use Preset as its central source of truth for business intelligence (BI) over other alternatives for a few reasons. One, the Preset platform is powered by open-source Apache Superset, making it appealing to Pipe. Two, Preset's dataset-centric approach enabled the creation of physical datasets that mirrored those in Pipe's data warehouse (BigQuery). This approach allowed dashboard filtering to be pushed down to the data warehouse, improving query performance and reducing the need for "retrofitting" the queries behind each chart with extra dimensions for dashboard filtering.
+The flexibility and variety of visualizations available in Preset were also appealing. Preset's SQL Lab effectively converts SQL into visualizations, removing any obstacles for analysts familiar with SQL to use the tool without a steep learning curve.
+“The engineering mindset of Preset's founder and team is evident in their product. Dashboard filter management is made easier as the filters selected in the dashboards are automatically pushed down to the query engine.” - Faaez Ul Haq, Head of Data, Pipe
+Access to Preset is available to everyone at Pipe, with an estimated 40-50% of the organization using the tool each month. While the central data team at Pipe is responsible for maintaining data models, the business units create and explore their own charts and dashboards. Preset supports a variety of use cases across marketing, finance, business operations, and product:
+Pipe is excited to continue its partnership with Preset and looks forward to utilizing Preset’s integration with dbt’s semantic layer to consume metrics defined in dbt within Preset.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Marketing: Data and reporting for bi-weekly go-to-market reviews are powered by Preset, allowing for focused discussions on topics such as customer funnel performance and priorities for initiatives. The tool informs marketing efforts at the top of the funnel, such as identifying segments with higher conversion rates.
+• Finance: The accounting team uses Preset to report and visualize financial metrics.
+• Business Operations: Pipe monitors the performance and exposure of portfolios of their buy-side investors to optimize returns on assets originated on the platform.
+• Product: Preset centralizes the BI repository for tracking performance data on various product aspects, which is regularly reviewed by the product and engineering teams to assess user engagement.

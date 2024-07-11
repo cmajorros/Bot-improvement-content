@@ -1,0 +1,31 @@
+**Improving Business Ecosystem and Customer Satisfaction with Preset Cloud and Embedded Dashboards**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Bureau.id is a modern no-code decisioning platform. It delivers accurate conclusions about the trustworthiness of digital identities to prevent fraud and ease compliance, resulting in seamless digital journeys for legitimate customers. The single AI-architected platform provides banks, fintech, gaming, gig economy and e-commerce companies with the complete range of identity verification, fraud prevention and detection, and risk and compliance solutions. Bureau innovated the first Identity Bureau network, which supplies customers with a  feedback loop about digital identities based on contextualised linkages.
+Backed by tier-one investors Okta, Commerce Ventures, Quona, Blume, and Village Global, Bureau is headquartered in San Francisco, CA, with offices in Bangalore, India and Singapore. Visit www.bureau.id and follow Bureau on LinkedIn.
+Bureau was initially using Metabase to access data without writing SQL queries. However, the business intelligence (BI) solution was no longer sufficient to meet the organization’s business needs as the business grew at an accelerated pace. The company needed to make more precise forecasts about key metrics such as revenue, cost of burn, and growth rates.
+Bureau also needed better visualizations to provide internal stakeholders with the information they needed to perform their jobs effectively. Without this information, for example, the customer success team could not follow up with customers proactively to close out tickets, or the sales team could not take proactive actions to close deals.
+Bureau also wanted to help its customers who had questions about their invoices by giving real-time visibility to their usage data. This transparency in data would in turn help Bureau’s finance team, who could not raise or pay invoices time until its customers approved the invoices.
+Bureau evaluated various BI tools including QuickSight, Power BI, Tableau, and Mode. However, the team quickly realized that many of these tools were either too expensive for an early-stage growth company or lacked critical features. Bureau needed a BI tool that was cost-effective, easy to learn, and versatile in visualizations.
+
+Through the open-source community, Bureau discovered Preset, a hosted solution for a popular open-source BI tool, Apache Superset. After the free product trial, the team found that Preset met all of its requirements, including the ability to create multiple dashboards in one using tabs and virtual datasets in its semantic layer. The team also found that Preset was easy to use for anyone in the company through drag-and-drop navigations while allowing for more advanced analytics with SQL.
+Bureau has also embedded Preset’s dashboards in its core product offering so that the customers can see their usage data and how much they will be invoiced at any time of the day.
+
+Bureau democratized data access with over 90% of the organization using Preset. Preset enabled stakeholders at all levels to review, gain insights, and make informed decisions including:
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Executives can now review key business metrics on a daily basis without the heavy lifting of updating charts and dashboards.
+• The sales team can access the operational metrics in real-time, enabling them to proactively facilitate collaboration between customers and the finance team.
+• The embedded dashboards earned the trust of customers and reduced questions about invoices.
+• The finance team can also see the numbers at the end of the day and raise invoices without delay. Bureau can now reconcile supplier invoices easily, knowing exactly what they need to pay.

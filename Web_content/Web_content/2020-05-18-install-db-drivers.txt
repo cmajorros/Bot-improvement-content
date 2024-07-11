@@ -1,0 +1,67 @@
+**Getting Started - Installing Additional Drivers**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+If you haven't already done so, please check out the first post in our "Getting Started" series Installing Apache Superset to install Superset locally.
+Now that you have Superset up and running on your machine, along with some example dashboards, you'd probably like to point it at your own database in order to run some queries and visualize.
+Superset runs on Python and requires a database driver to be installed for each flavor of DB that you'd like for it to talk to. When setting up Superset locally via docker-compose, the drivers and packages  contained in requirements.txt and requirements-dev.txt will be installed automatically. As of the time of this writing, drivers for the following databases are included:
+If your database is one of these, you should be good to go! However, if you want to connect to something different, like MySQL, you would need to install an additional driver.
+This part can be a little tricky as it can require a bit of research. Typically, a good starting point is the Superset docs. If your DB isn't in this list, try searching Superset Issues for guidance by others in the community who might have set up your database type. Finally, the Superset community Slack channel is a great resource for asking general questions. In the end, you should be looking for a Python PIP package compatible with your database.  The other part that makes database driver installation tricky is the fact that local binaries are sometimes required in order for them to bind properly, which means that various APT packages might need to be installed before Pip can  get things set up.
+For the purposes of this blog post, we will describe the process of setting up MySQL, which is relatively straight forward.  According to the Superset docs (referenced above), we will need to run pip install mysqlclient in order to get MySQL up and running.
+As we are currently running inside of a Docker container via Docker Compose, we cannot simply run pip install xxx on our local CMD line and expect drivers to be installed for the containers to use. In order to address this, the Superset Docker Compose setup comes with a mechanism for you to install packages locally which will be ignored by Git for the purposes of local development.
+Create requirements-local.txt
+Add the driver selected in step 1 above
+Rebuild your local image with the new driver baked in
+Fire things back up
+Now that you've got a new driver installed locally, you should be able to test it out. Carrying our MySQL example forward, we can now create a Datasource that can be used to connect to a MySQL instance. Assuming the instance is running locally and can be accessed via localhost, the following connection string should work:
+For Docker running in Linux:
+For Docker running in OSX:
+Note: As drivers typically have DB connection string options that are specific to their options, it's not possible to list them all here. Therefore, you should read up on your specific driver's options in order to choose those that work best for you.
+If you'd like a more production-ready setup for Superset, you can sign up for a hosted Superset solution here. Influence our ambitious Superset roadmap, and access Preset’s expertise as an extension of your team.
+If you have any other questions, hit us up at contact@preset.io or join our community Slack channel
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Druid
+• Postgres
+• Presto/Hive
+• 
+Create requirements-local.txt
+# From the repo root...
+touch ./docker/requirements-local.txt
+
+• 
+Add the driver selected in step 1 above
+echo "mysqlclient" >> ./docker/requirements-local.txt
+
+• 
+Rebuild your local image with the new driver baked in
+docker-compose build --force-rm
+
+• 
+Fire things back up
+docker-compose up
+
+`docker-compose`
+`pip install mysqlclient`
+`Docker Compose`
+`pip install xxx`
+`Docker Compose`
+`requirements-local.txt`
+`# From the repo root...
+touch ./docker/requirements-local.txt`
+`echo "mysqlclient" >> ./docker/requirements-local.txt`
+`docker-compose build --force-rm`
+`docker-compose up`
+`mysql://mysqluser:mysqluserpassword@localhost/example?charset=utf8`
+`mysql://mysqluser:mysqluserpassword@docker.for.mac.host.internal/example?charset=utf8`
+`Note:`

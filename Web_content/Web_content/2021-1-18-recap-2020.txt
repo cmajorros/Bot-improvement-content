@@ -1,0 +1,95 @@
+**2020 Visual Recap of the Apache Superset Project**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The evolution of the Apache Superset project in 2020 can be summarized using 2 words: growth and maturity.
+Github Stars, PR's, and Interactions
+We'll start by looking at contemporary vanity metrics like number of stars, pull requests, and general interactions on Github. They don't convey the full picture, but help us establish a baseline of understanding of the growth that occurred in 2020 for the project.
+We can repurpose Max's handy template for a Github engagement dashboard. Why wouldn't we use Superset to understand the growth of Superset?
+
+The project saw 17.7% year-over-year growth in the number of people that starred the project and 46.9% year-over-year growth in pull requests.
+Ranking Among Top Github Projects
+The popularity and growth of the Superset project fueled its jump into the top 200 most popular projects on Github.
+
+Let's turn our attention next to the makeup of the contributorship to the project.
+Contributions
+Max had already helped create the Apache Airflow project and he witnessed first hand how "open and diverse communities enable writing better software, faster". The Superset project was initially created at Airbnb in 2015, when Max was part of a 3 day hackathon. It eventually grew in scope within Airbnb and at Lyft, where Max worked next (you can read more about the story here or watch Max talk about it). Preset, the company, was started by Max to help accelerate the pace of innovation.
+With this context in mind, let's take a look at how the makeup of the contributorship changed throughout 2020.
+
+Preset, Airbnb, Lyft, and Dropbox employ almost all of the committers to the Superset project and consequently are attributed with driving the majority of the PR's. On the other hand, we're very very excited to see the percentage share of PR's from outside of this organization increasing from ~15% to nearly ~30% (almost a 2x improvement).
+
+When I write the 2021 Superset Recap, I would love nothing more than this percentage to increase again! Diversity of contributions is critical to the success of open source projects like Superset.
+Slack Community
+Let's now turn to the core metrics of the Superset Slack community. Part of the analysis is based on work I did earlier in 2020 that documents how to build a Slack Community Superset dashboard using open source tools (Part 1, Part 2, & Part 3).
+The number of members in the Slack community for the project grew meteorically by 126.2% in 2020, from ~1.16k to 2.64k members.
+
+Growing a community takes sustained effort over the long term. You'll notice that there aren't any weeks or months with signup spikes (even though the rate of new members joining did increase slightly over 2020!).
+While the community has grown in pure numbers, the average weekly number of community members posting messages stayed relatively stable around 50 to 60. With more research and investment in the Slack community, we can help make members in the Superset Slack community feel more comfortable posting, discussing, getting help, and contributing to the Superset discussion.
+
+If you're new to the Apache process, read this excellent page on the ASF site. Open source projects that seek to join the Apache Software Foundation (as a top-level project) first must enter the incubator as a podling. The incubator provides some structure, infrastructure, and mentorship to to help foster the project into a successful meritocratic community.
+To graduate from the Apache Incubator, the foundation provides a suggested list of requirements in their maturity model. While these aren't hard requirements to be met, the PPMC or podling project management committee seek to evaluate project maturity against this framework.
+ASF Graduation
+Thanks to the hard work of the community and the core contributors, the Superset project graduated on November 19th, 2020 from the Apache Incubator. This is a key milestone for any Apache incubated open source project.
+
+Product Quality
+At the start of 2020, Superset had a beautiful core. It offered something for all personas looking to work with data:
+So, what was missing? Superset needed some TLC in 2 areas:
+Superset went through multiple minor and major versions in 2020 to help close the gaps.
+
+Of course, Superset was also missing features that other BI tools had but this is a given for any fast moving technical specialty! Stay innovative and relevant, or die. In this post, I will focus on the design evolution of Superset in 2020 because there are concrete ways to demonstrate the progress.
+Design: Toolbar
+The toolbar at the top of Superset evolved to become a place that attempted to solve many jobs-to-be-done. These jobs included navigating Superset (data analysts & busy stakeholders), configuring users and security (data & infrastructure engineers), and configuring CSS templates (data analysts).
+
+The first and most striking thing you'll notice when opening the latest version of Superset is how focused and clean it is. Nearly all of the same previous features and settings that lived in the toolbar are still available in Superset, but the job of the toolbar really converged around navigation!
+
+Design: Adding Database Workflow
+In version 0.35.2, the add database workflow resembled a classic CRUD (Create Read Update Delete) design that you'd typically see from Flask App Builder.
+
+After lots of user interviews and design research from Designers and Product Managers at Preset, the following design was proposed (and eventually implemented).
+
+This new workflow avoids overwhelming personas less familiar with the ins and outs of database connections and instead focuses on the most common configuration settings (with room for advanced configuration). This design was a win-win situation and no features or settings were removed!
+Design: Browsing Dashboards
+BI tools like Superset celebrate charts, visualizations, and dashboards. To improve discoverability and the aesthetics of Superset, the Dashboards list view now has an option to view a gallery of thumbnails (instead of just a list of dashboard names). Here's how the dashboards list looked like in version 0.35.2.
+
+In the latest version of Superset, you can experience the following, higher definition visual experience. Pay close attention to how Superset now better utilizes the full browser window to render elements.
+
+Design: Explore View
+The Explore view is a very important of Superset and it's one of the key workflows that makes Superset loved by data analysts. The Explore view lets end-users create advanced visualizations very quickly from their data without having to write any code. The design in Superset version 0.35.2 laid an excellent foundation for this superpower.
+
+After multiple rounds of design research, the new Explore view:
+
+Design: SQL Lab
+We'll end this section by observing how SQL Lab evolved in 2020. SQL Lab was already considered a state-of-the-art SQL IDE.
+
+As part of the general design unification push, SQL Lab got a nice face lift!
+
+This was just a preview of the many technical & design refactoring work that happened in 2020. While we don't have a 2019 recap post to reference, 2020 witnessed the biggest step forward in the Superset project!
+2020 was a momentous year for the Superset project and it's been incredible to be a committer and community member.
+If you're excited for 2021 and want to join the community, here are some helpful links!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Data & infrastructrure engineers: Superset was designed from the start to be cloud-native and was an easy tool to POC, test, and evaluate. They could start with a 2 minute install of the humble standalone Python library and eventually level up to a custom, scalable Docker configuration
+• Data analysts & data scientists: For most charts,
+• Non-technical analysts
+• Busy stakeholders: Superset had a compelling experience for busy stakeholders to consume metrics, charts, and dashboards made by their more technical
+• technical: increased stability, more test coverage, and more predictable releases
+• design: a design process, which lead to consistency in terminology and metaphors, and a major coat of paint
+• is significantly cleaner and more aesthetically pleasing
+• unifies many of the settings and options for customizing charts across chart types
+• adds a Dataset tab to help provide metadata context
+• adds a Data view at the bottom of the chart to help you understand the state of the data being queried (helps you get closer to your data)
+• and many other quality of life improvements!
+• Slack community
+• Dev Mailing List
+• Superset Meetup
+• How to contribute to Superset

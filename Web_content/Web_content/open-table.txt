@@ -1,0 +1,24 @@
+**Empowering 400 colleagues to self-serve data and springboard insight-driven decisions at OpenTable**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+OpenTable is a global leader in restaurant technology, helping 55,000 restaurants, bars, wineries and other venues worldwide and seating 1.6 billion diners a year.
+Data plays a central role in OpenTable’s business operations. OpenTable’s account teams use data insights to help restaurants build and grow their business, while internal teams use data to make key business decisions and monitor industry trends and changes in real time.
+The Global Strategy, Operations, and Analytics Team, responsible for sales operations and data analytics for business teams, has a vision to make data analytics as self-service as possible. They aim to help turn data into insights and collaborate with business stakeholders to formulate strategies. While OpenTable was using several BI tools, they looked for a one-stop shop reporting solution that was flexible for a variety of users from customer-facing professionals to analytics and engineering teams.
+Because the team had experience with a similar home-grown tool from work at its sister company, KAYAK, they were drawn to the flexibility and customizability of Apache Superset. The team also appreciated its query performance and variety of chart types. The team ultimately chose Preset, the hosted solution for Superset, as it was ready to use out of the box.
+The migration process from the previous business intelligence tools to Preset was thoughtfully planned and executed. OpenTable initiated change management strategies to ease the transition for hundreds of users. Training curricula were developed to ensure a smooth shift. The widespread use of  Google Sheets at OpenTable and Preset’s support to ingest them as databases made the transition to Preset smooth and eliminated having ad-hoc Google Sheet analyses floating around.
+Preset is the primary BI tool for business users at OpenTable because of its self-service analytics capabilities. - Belinda Eg - VP, Global Strategy, Operations, and Analytics
+Preset played a critical role in OpenTable's data centralization efforts. The combination of data model cleanup, consolidation of data sources, and standardizing reporting through Preset, enabled OpenTable to establish a single source of truth and enhanced data democratization. This shift has empowered more team members to access, interpret, and leverage data for decision-making, allowing for more time and resources to be spent driving actionable strategies supported by data-driven insights.
+Preset offers flexibility. Within a single dataset, you can easily switch between various visualizations. I can define my own metrics using custom SQL. - Jakub Bartoš - Director, Global Strategy, Operations, and Analytics
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

@@ -1,0 +1,32 @@
+**Announcing Preset Cloud Beta!**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Today, we are really excited to announce the availability of Preset Cloud Beta, our fully managed, secure, and hassle-free service for Apache Superset!
+At our core is Apache Superset, the leading open source data exploration and visualization platform loved by hundreds of data driven organizations around the world. The recent release of Superset 1.0 further solidifies the maturity of the platform as an enterprise ready solution that offers features, guarantees, and a modern approach that existing business intelligence (BI) vendors can't match.
+While it’s easy for just about anyone to set up a basic Superset environment on their laptop, it has proven to be fairly complex to run a robust, secure, and enterprise ready cluster to take full advantage of all the rich features that Superset has to offer.
+Preset cloud offers an extremely easy way to get up and running with Superset on a highly scalable, highly performant, and secure cloud service. As the leading contributor to the Superset project and the main driver of the roadmap, Preset is best positioned to operate the software. We abstract the complex architecture behind a reliable service that just works, while balancing cutting edge improvements and maintaining stability through continuous releases and upgrades.
+Preset Cloud always runs the latest, battle-tested version of Superset so you have access to all the best features that Superset has to offer. No more manual installs, configuration, driver maintenance, upgrades, and unexpected downtime. We manage and maintain a reliable state-of-the-art Superset installation including the underlying message queue, asynchronous Celery workers, multiple caching layers, SMTP email server for supporting alerts & reports, and a well-monitored observability solution.
+
+Need different environments for your teams? In Preset Cloud, you can now deploy multiple Superset workspaces and scale up as many users on the platform as you need. Each workspace is a separate, isolated instance of Superset to support different projects and teams, and can be deployed with a single click.
+
+Security is a major concern for every organization, and we have made it a top priority when developing our service. Preset Cloud comes with flexible role based access control at the workspace level, user management and authentication through SSO via SAML, and we're SOC2 compliant.
+
+We want to make it as easy as possible for new users to get started and be successful with Superset. Preset Cloud comes with in-product tutorials and guides to help you navigate all the features of Superset, from establishing connections to your databases to building your first chart,  so you can get from zero to dashboard in minutes. We have also built an extensive library of end user documentation and continue to add more tips and tricks so you can get the most out of Superset.
+
+Existing BI solutions are deployed on propriety, legacy software, with predatory licensing models made to be difficult to switch off. In the last decade, we witnessed a major shift towards open standards and open source technologies throughout the data stack . We want to maintain that spirit and believe that users should have full control of their data and data technologies.
+That is why we make sure to maintain full compatibility with the open source version so you never have to worry about vendor lock-in. Our team’s contribution towards the import/export framework in Superset allows you to easily migrate your existing Superset workloads onto Preset Cloud and vice versa.
+Our team of in house Superset committers and data experts are available to answer support questions, help you with any onboarding needs, and capture all of your feedback so we can continually improve your product experience.
+You can click Request Access below to start your free trial of Preset Cloud.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

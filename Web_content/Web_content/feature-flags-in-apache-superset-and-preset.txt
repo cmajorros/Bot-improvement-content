@@ -1,0 +1,64 @@
+**Feature Flags in Apache Superset and Preset**
+**Feature Flags in Apache Superset and Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+A feature flag, in the simplest of terms, is a software development technique that allows developers to turn features or functionality on and off at runtime without deploying new code. Apache Superset is full of these feature flags, enabling developers (and sometimes customers, in the case of Preset) to control the enabling or release of new features to specific deployments or groups of users. This allows developers or test new functionality, and easily roll back problematic changes.
+In Superset, we have a whole slew of settings available to those who maintain or deploy instances of Superset. These are all found in the config.py file and are available for you to experiment with. We’ll go into the different types of flags, the philosophies around creating/maintaining/removing them from the codebase, and define some of the key ones you should be aware of.
+Superset has a whole slew of configuration options, some of which are feature flags, while some are not. So what exactly is the rubric for deciding what’s a flag, and what’s simply a configuration setting? Well, there are two key characteristics:
+Feature flags are boolean. We’re simply flipping things on and off. If there’s some more detailed configuration object, parameters to set, etc., then it’s simply not a flag.
+Flags affect the user experience. This is to say that there are plenty of boolean settings elsewhere in the config, but these are used to configure how Superset operates under the hood, usually to change how Superset is deployed, rather than how it’s presented to the end user.
+As you’ll see when looking through Superset’s configuration, the feature flags themselves are defined in there in DEFAULT_FEATURE_FLAGS. If you manage a Superset instance and simply want to flip a flag, you can certainly just change the value here. However, this is really just the core of the feature flag onion in Superset. These flags (and settings, therefore) can be overridden in a few ways.
+If you’re using Docker, you’ll find that /docker/pythonpath_dev/superset_config.py contains a FEATURE_FLAGS object that gets merged onto the aforementioned DEFAULT_FEATURE_FLAGS, so you can make overrides here as well.
+If you prefer to start up Superset via the command line, you can also set a flag via an environment variable by simply prefixing the flag name with SUPERSET_FEATURE_. For example, you could enable/disable the ENABLE_TEMPLATE_PROCESSING flag by setting SUPERSET_FEATURE_ENABLE_TEMPLATE_PROCESSING as an environment variable before starting Superset.
+You’ll also find some additional functions to leverage these feature flags when if you’re developing or customizing Superset, but that’s beyond the scope of this article.
+While it was mentioned previously, it’s worth mentioning again that the more flags there are in any codebase, the more combinations there are. The number of code paths enabled or disabled by various flags can get quite complex in nature. I would advise you to test and enable features incrementally, and if you do encounter any bugs or edge cases that seem relevant to a given feature flag, please report which flags you’ve changed when filing or reporting any issues. It helps more than you would think!
+Now that we’ve covered all that, you’re probably here to understand what these things really are, so let’s get right to it!
+There are a few main types of feature flags that we support in Superset. These categories and all of the feature flags that go into them can be viewed in FEATURE_FLAGS.md 🔗 in the codebase. That said, I’ll lend a little more color to those category definitions here, and then we’ll get into the flags themselves further below:
+These flags are often added to the codebase without much fanfare or official process. Their purpose in life is to get a larger feature into the world more smoothly by acting as a feature release gate. This allows developers to merge several pull requests for a feature without having as much concern about an individual change negatively (or confusingly) affecting the user experience since the new feature should have no impact on the UX unless the feature is turned on. You might not want to enable these flags, unless you want to try alpha-stage features, or contribute to their development — enable at your own risk!
+These flags should be considered non-permanent in nature. The flag can be implemented at the beginning of a feature’s development and kept in effect as long as needed. Once the bulk of the feature is built and stabilized, it can go one of two routes for its end-of-life. If the flag was introduced and removed between official Apache release cycles, it can be considered a non-breaking change to simply delete it. If, however, the flag is released as part of an Apache release it would typically be most prudent to move it to the “In Testing” category and remove it as part of the next major version of Superset.
+Feature flags that are in testing fall into two camps - they’re either sure-to-be-mainstream features that are in a “beta” phase of testing/feedback, or they’re up for consideration to see if they make the cut in terms of product adoption. Use these flags with a modicum of caution… they should be safe to use, but might have edge-case bugs, or might not be around for the long haul.
+While non-permanent in nature, these flags should be created and released sparingly, as they tend to create an exponential degree of difficulty in testing/shipping deployments or releases of Superset. Different combinations of these flags can cause unexpected complexities, so once a feature is deemed ready for general adoption, it should be removed by Apache consensus. This consensus will typically happen via Superset’s dev mailing list as we approach a major version, wherein it will be moved to the “Stable” category and potentially defaulted to “True” or removed from the codebase.
+These are flags that are battle-tested by Preset and/or other organizations and individuals deploying Superset and are generally considered ready for production. They’re here because not everyone managing Superset might want to enable or support these features. in other words, these are most likely here for the long haul.
+These flags also pose a combinatoric risk factor - the more they are, the more likely we are to encounter edge cases with various combinations. Efforts may be made in major version release windows to consolidate these flags, change their defaults, or (in some cases) remove them, but these instances are rare.
+These are flags that are being phased out. By placing these flags here, we’re hoping to provide ample notice that these flags will be removed in the next (or an upcoming) major release of Superset (e.g. X.0.0) since removing them otherwise would constitute a breaking change and violate our semantic versioning (SemVer) policies.
+These removals are in most cases agreed upon by official Apache consensus. Their removal does not necessarily herald the removal of a feature - many times flags are removed to cement a feature in place. Whether the flag is permanently sent to True or False, this categorization warns anyone managing deployments that these settings will no longer be available at all once the logical forks and related code paths have been removed.
+Preset ships a highly-tuned and customized version of Superset, making every attempt to bring its latest and greatest features to our customers, meaning many of Superset’s in-testing feature flags are enabled for our customers by default. We have extensive automated and manual QA processes that make sure our configuration of supported flags is stable and production-ready. If you happen to be an Enterprise Plan customer and need to many any adjustments to suit your business’ use case, you can open a ticket with our customer support team. For example, many customers recently wanted to help us beta-test GENERIC_CHART_AXES, and thanks to this testing and support, we’re happy to announce is now enabled by default for all our customers, and is being defaulted to True on the Superset repo as of today! Also note that certain features like EMBEDDED_SUPERSET incur an additional cost due to the added configuration and infrastructure overhead.
+Preset ships with numerous feature flags enabled (along with related configuration and infra) and ready to roll. Here are just a few examples
+
+Similar to the way FEATURE_FLAGS.md 🔗 attempts to track the category/state of the flags, many of them have simple notes and definitions in config.py 🔗. That said, some of these are worth highlighting here with a little explanation of their purpose, and some additional links and context. Some of these are stable enough to warrant experimentation if you feel so inclined, while others represent in-progress feature development efforts we’re excited to make you aware of.
+The following list is not an attempt to be comprehensive in documenting Superset’s feature flags. This is an attempt to help you discover some of the most-frequently-discussed flags — some of which are stable enough to warrant experimentation, and some of which represent in-progress feature development efforts we’re excited to make you aware of.
+There are, of course, MANY more feature flags to explore in Superset. If there are any you think should make this list, any of the above need further documentation, or any other flags that should be added or removed, I’m happy to continue updating the post, or taking up a broader discussion in the #customizing-superset channel on Slack. If you have questions or feelings about the lifecycles of these flags, and their presence in upcoming major versions of Superset (e.g. 3.0) then please join us in the Superset Town Hall and/or the Release Strategy working group, both of which are open to the community as part of the Superset Operational Model.
+In looking ahead a little bit, it's also worth mentioning that the Superset community is marching down the road toward Superset 3.0! With that release, some old and deprecated flags may be removed, and the categorization and/or default setting of the above flags may change! Rest assured, we'll be blogging about all these changes (and many others) when the release is out! Stay tuned!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Feature flags are boolean. We’re simply flipping things on and off. If there’s some more detailed configuration object, parameters to set, etc., then it’s simply not a flag.
+
+• 
+Flags affect the user experience. This is to say that there are plenty of boolean settings elsewhere in the config, but these are used to configure how Superset operates under the hood, usually to change how Superset is deployed, rather than how it’s presented to the end user.
+
+`config.py`
+`DEFAULT_FEATURE_FLAGS`
+`/docker/pythonpath_dev/superset_config.py`
+`FEATURE_FLAGS`
+`DEFAULT_FEATURE_FLAGS`
+`SUPERSET_FEATURE_`
+`ENABLE_TEMPLATE_PROCESSING`
+`SUPERSET_FEATURE_ENABLE_TEMPLATE_PROCESSING`
+`FEATURE_FLAGS.md`
+`GENERIC_CHART_AXES`
+`EMBEDDED_SUPERSET`
+`FEATURE_FLAGS.md`
+`config.py`
+`#customizing-superset`

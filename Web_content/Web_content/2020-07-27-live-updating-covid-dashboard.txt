@@ -1,0 +1,101 @@
+**How To Build A Live-Updating COVID Dashboard Using Google Sheets and Apache Superset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+While reading clickbait news articles on COVID can be exhausting, it's very hard to avoid being out of the loop entirely. Getting a calmer and more data informed digest can help you  stay in the loop without feeling overwhelmed.
+A dashboard can be one such informational digest, but there are some challenges to making this happen. Creating a live updating dashboard usually involves:
+
+In this post, we'll discuss an alternative way to build data dashboards very quickly. Essentially, we can use Google Sheets to handle the data acquisition, cleaning, and storage part of the pipeline and use Apache Superset to handle visualization and deployment.
+
+Apache Superset is an open source dashboarding tool that supports most databases and data engines. Traditionally, Superset users integrate with one of the supported data stores and have to jump through the code-heavy process described earlier. However, Beto Dealmeida's excellent work on the gsheets-db-api plugin lets us empower Superset to talk to Google Sheets. (Note: under the hood, Superset saves the data in it's local SQLite instance).
+To complete this tutorial, you'll need 2 things:
+The standard way to interface with data hosted on another website is through a REST API. API's provide a clean, programmatic way to send or receive data with other web services without needing to understand how those services work. The meteoric rise in web services in the last decade has caused some to declare that API's are eating the world.
+The website covid19api.com provides an API that returns the latest COVID data when you send a GET request.
+
+Out of the box, Google Sheets doesn't know how to request data from an API like this nor does it know how to handle the common data type that's returned (which is JSON). Thankfully, Google has added support for running custom scripts that allow us to extend the functionality of products like Google Sheets.
+The engineer Brad Jasper has written and open-sourced an excellent script called ImportJSON that we can add to Google Sheets. This script will expose functions like ImportJSON() that we can use as a spreadsheet formula to fetch JSON data from the COVID 19 API and correctly structure the data in spreadsheet form.
+Before we geek out about the power of Brad's script, let's add it to Google Sheets. When we add a Google Apps Script, it's linked to a specific spreadsheet in Google Sheets. So first things first, create a new Google Sheet.
+Step 1. Navigate to Google Drive, select +New, and then select Google Sheets.
+
+Step 2. Open Script Editor from Tools > Script Editor.
+
+Step 3. Delete the default code that's there, copy and paste the full text from ImportJSON.gs, and then save the script. Optionally, you can rename the .gs file to ImportJSON.gs.
+Step 4. Create a new script by selecting File > New > Script file. Copy and paste the code from this code snippet into the new script file and save it as triggerAutoRefresh.gs.
+
+Step 5. The last step is to rename the first sheet (found on the bottom bar) to Data and the second sheet to DoNotDelete (the triggerAutoRefresh.gs script looks for this sheet name, so this one is important).
+Step 6. Once you've added both the ImportJSON.gs and triggerAutoRefresh.gs scripts, add the following formula to cell A1 in the Data sheet.
+
+When you press Enter or click outside of the cell A1, Google Sheets will run the ImportJSON() function from ImportJSON.gs and display the text Loading.. until it's done. This function:
+If everything worked correctly, you should see the following data populated.
+
+To make sure the COVID data is up to date, we need to setup Google Sheets to re-run the ImportJSON() code on some time interval. We can accomplish this using a time-based Trigger that runs the triggerAutoRefresh.gs script on a schedule we specify (say every 1 hour or every 4 hours).
+If you look at the code for triggerAutoRefresh.gs, you'll notice that it just sets the cell A1 in the DoNotDelete tab to a random integer. When this value is updated, Google Sheets will also re-run all formulas in all tabs. This means that =ImportJSON("https://api.covid19api.com/summary", , ) will run again and fetch the latest COVID data.
+Step 7. Navigate to Google Scripts, select ImportJSON, select the 3 dots on the right, and then select Triggers.
+
+Step 8. Select the blue button + Add Trigger and make the following changes (feel free to increase or decrease the Select hour interval option). Confirm by selecting Save.
+
+Step 9. Make your Google Sheet public so Superset can access it.
+We are all setup now to create dashboards! If Google Sheets fails to run triggerAutoRefresh.gs, it will email you.
+The last configuration step is to add this Google Sheet as a table in Apache Superset. Read ourtutorial post on learn how to connect Google Sheets with Apache Superset.
+Two important things to note:
+Step 10. In Superset, navigate to Sources > Tables and select the table you just added that corresponds to the tab in Google Sheet you want Superset to query.
+
+Step 11. You'll be taken to the Superset visualization UI, which is a no-code canvas for creating charts from a set of templates from the COVID data.
+
+Here's a Treemap example that uses the Countries Country column for the country name and the Countries TotalConfirmed column to visualize which countries have the most confirmed cases.
+
+Step 12. Once you've created a chart you want to save, you can create a dashboard and save the chart to it. When the Google Sheets data is updated, you can open that Dashboard and
+
+Here's an example dashboard we built using this tutorial.
+
+Here are some possible next steps for you to extend this workflow:
+If you'd like a more production-ready setup for Superset, you can sign up for a hosted Superset solution here. Influence our ambitious Superset roadmap, and access Preset’s expertise as an extension of your team.
+If you have any other questions, hit us up at contact@preset.io or join our community Slack channel
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Data acquisition: writing code (usually in Python or R) to query a COVID data API on some regular interval.
+• Data cleaning: writing code to prep and transform the data for visualization.
+• Data storage: writing code to store the data in a database or data store of some kind.
+• Data visualization: writing code to specify how the data should be visualized.
+• Deployment: writing code to deploy your pipeline, database, and dashboard to the cloud.
+• a Google account to create your Google Sheets
+• an instance of Apache Superset (installation is quick using Docker -- instructions here)
+• makes a GET request to our API of interest: https://api.covid19api.com/summary
+• parses the JSON data returned from the API
+• transforms the JSON data to tabular, spreadsheet data by making some assumptions on how that transformation should look
+• populates the spreadsheet with this transformed data
+• Each tab (sheet) in a Google Sheets document has a different URL (the URL is auto-updated in your browser when you switch tabs). When adding data sources to Superset, make sure you copy the URL corresponding to the sheet you want to work with.
+• The Google Sheets plugin for Superset sometimes fails to parse the header row properly when spreadsheet cells have formulas. To get around this, you should add ?headers=1 in the Google Sheets URL after ../edit. Here's an example: https://docs.google.com/spreadsheets/d/1eXru_ib0h8c_WwRP4DNKeJg8alWtre9VpJx3Mqs1SrE/edit?headers=1#gid=1393498242
+• Read the documentation on this API to learn more about what data you can fetch.
+• Tweak the =ImportJSON() formula to fetch other COVID data (for example, country specific data)
+• Find some other COVID19 API's to get more specific data attributes
+`ImportJSON()`
+`.gs`
+`ImportJSON.gs`
+`triggerAutoRefresh.gs`
+`triggerAutoRefresh.gs`
+`ImportJSON.gs`
+`triggerAutoRefresh.gs`
+`=ImportJSON("https://api.covid19api.com/summary", , )`
+`ImportJSON()`
+`ImportJSON.gs`
+`ImportJSON()`
+`triggerAutoRefresh.gs`
+`triggerAutoRefresh.gs`
+`=ImportJSON("https://api.covid19api.com/summary", , )`
+`triggerAutoRefresh.gs`
+`?headers=1`
+`../edit`
+`Countries Country`
+`Countries TotalConfirmed`
+`=ImportJSON()`

@@ -1,0 +1,39 @@
+**Build Customer Facing Data Applications Using the Preset Embedded Dashboard SDK**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Today, we’re excited to announce the Preset Embedded SDK. Using this SDK, you can craft dashboards in Preset and integrate them into external applications to create rich, interactive analytics experiences for your end-users or customers. Embedded Preset dashboards feel native to your application and users will enjoy a polished analytics experience.
+If you're interested in seeing this functionality in action, we recommend attending our Building Embedded Dashboards in Preset event on Tuesday, August 16th. Signup to attend here or to watch the recording.
+Add a few lines of code to your application where you want the dashboard to appear and pass in the guest token. Deploy your application and you now have an embedded dashboard where users don't need to login to access it. You can dive deeper into the technical details here.
+
+
+A Guest Token is used to grant access for your users so they don't need to login. This enables us to understand who the user is and what permissions they have access to.
+
+You can now integrate core, customer facing dashboards into your software development life cycle. Read more here
+
+Preset ships with a large number of beautiful, high performant charts for showcasing your customer's data.
+
+Visualize data either using Preset's SQL IDE or using our no-code data explorer.
+
+To get started with Preset Embedded, you can request access here.
+Preset is the leading provider of managed services for Apache Superset. Superset and Preset have both been incredibly popular for internal business intelligence use cases.
+If you’re not an existing Preset user but you’re instead running Apache Superset, then we can offer a quick migration path to getting your databases, datasets, charts, and dashboards into Preset. You’ll be able to start embedding dashboards soon afterwards.
+At Preset, we’re heavy contributors to the Apache Superset project. In Preset Cloud, we build on the core Superset experience in many ways:
+To get started with Preset Cloud, you can signup here.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• We test, deploy, and run bleeding edge Superset (we deploy from main branch every 2 weeks, while official Superset releases are every few months)
+• Preset is SOC2 compliant and we take privacy and security incredibly seriously
+• You can spin up multiple isolated workspaces in your team and define highly custom role based access controls (RBAC) from a friendly user interface
+• Integrate critical dashboards into your software development lifecycle using our powerful APIs. You can manage databases, datasets, charts, and dashboards as code
+• Quickly scale from zero to thousands of users through automated provisioning without compromising on dashboard speed and performance

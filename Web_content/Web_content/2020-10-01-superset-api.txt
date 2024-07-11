@@ -1,0 +1,40 @@
+**The Superset REST API**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Superset always had an API, but it didn't always have a public, RESTful, rigorous, type-safe API. Originally the API was a collection of automatically generated CRUD (Ceate Read Update Delete) endpoints that were provided by our web framework, Flask App Builder , as well as a growing set of endpoints catering to the need of the growing frontend React applications.
+Over the past year, we've been moving away from the auto generated CRUD web forms and onto a fresh new, rigorous and proper REST API that powers state-of-the-art React components. As we do so, we're exposing a new set of endpoints that share these properties:
+Find the API documentation on the Apache Superset website.
+
+More interestingly,  your own Superset environment offers an interactive version of Swagger UI where you can try and test calls. It lives under the /swagger/v1 endpoint. Here's a screenshot of a GET interaction on the dashboard/ endpoint.
+
+A lot of the work here has been done by Daniel Gaspar at Preset. Daniel isn't only the person writing the bulk of the public Superset API, but he's also the author of Flask App Builder, and has provided much of the scaffolding and that we've been relying on in this area.
+Building functional CRUD web forms is extremely effort intensive, and Superset took a fair amount of technical debt early on by using the automated/configurable forms offered by Flask App Builder. This allowed the early team to scaffold many features, and focus on building the real application logic.
+As the project moves forward, we're looking to move more and more endpoints to the public API. As we move endpoints from legacy private API to this new public API, we refactor and lift things up to this higher level of rigor and quality.
+Now that the pattern is well defined, it's mostly a matter of applying the pattern across the board.
+Clearly the GraphQL topic keeps coming back, and it's very likely that on the longer term Superset would expose a GraphQL that would overlap and/or complement the REST API.
+We also know that one day it's likely that we'll have to make backwards-incompatible changes to the API, at which point we'll start thinking about api/v2 and phasing out the current version (api/v1).
+We're also looking forward to see an ecosystem of integrations that will take advantage of this API. The community is always curious to hear about how people are using Superset, and we'd love to hear about what you are building in and around Superset. Please reach out through one of our many communication channels!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• schemas are defined and enforced using the Marshmallow library
+• implement Rison for GET requests, a simple, JSON-compatible data serialization format optimized for compactness and readability in URIs
+• is RESTful and respecting conventions
+• is public, versioned and change-managed, as opposed to the previous private API that wasn't meant to be used by anything else than Superset itself
+• offers good unit test coverage
+`GET`
+`/swagger/v1`
+`GET`
+`dashboard/`
+`api/v2`
+`api/v1`

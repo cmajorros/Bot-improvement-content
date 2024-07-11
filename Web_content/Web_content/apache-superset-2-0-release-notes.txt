@@ -1,0 +1,115 @@
+**Apache Superset 2.0: Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Join us for the Superset 2.0 Meetup on August 3rd! You can register for the event here or you can watch the recording at the same link after August 3rd.
+Superset 2.0 is a huge release and big step forward for the open source project in terms of user experience and stability. Superset 2.0:
+If you're a customer of either of our managed services for Superset, Preset Cloud or Preset Managed Private Cloud, note that you've had nearly all of these features for a while now. Here at Preset, we test, QA, and deploy the bleeding edge version of Superset (the master branch) every 2 weeks to our customers so they always have the latest and greatest experience.
+Enhanced Visualization Switcher
+In Explore, the no-code chart building experience, users can switch among the most commonly used visualization types extremely quickly while retaining chosen metrics and dimensions. (#20248)
+
+Horizontal Bar Chart
+You can now switch the orientation of a Time-series Bar Chart (v2) visualization from vertical to horizontal! (#19918)
+
+Drag and Drop in Table Charts
+The Table visualization now supports drag and drop for column rearrangement, making it easier to customize this chart type. (#19381)
+Improvements to Mixed Chart
+Mixed charts let you combine multiple charts in a single visualization container. The Mixed Chart visualization now supports Advanced Analytics (#19851), non-time-series x-axis (behind feature flag), and the display of both queries(#20277).
+Dataset Filtering Experience
+You can now filter datasets in the Datasets list view by their certification status. (#20136)
+
+More consistent results panel
+Accessing the results panel for a chart in a Dashboard has a significantly improved user experience, more consistent with what's shown in Explore.
+New Jinja Macros
+Jinja in Superset got an upgrade! 2.0 introduces the dataset macro, which lets users reference both virtual and physical datasets, as well as their attached calculated columns and metrics. (#15241)
+2.0 also introduces the where_in filter, for a better experience defining multiple values (e.g. in a WHERE clause) (#19574):
+Lots of Quality of Life Improvements
+In quick succession, here are some of the quality of life improvements that Superset users can now enjoy:
+Edit Dataset modal now doesn't close when you click away (#20278)
+When editing the label in the Metrics popover, pressing Enter now saves what you typed (#19898)
+When adding new chart from the dashboard view, the dashboard name will now pre-fill (#20129)
+Annotations now have an improved empty state (#20160)
+Confirmational modal is now shown if user exits Explore without saving changes (#19993)
+Explore popovers now close when the Escape key is pressed (#19902)
+Run and Save buttons are redesigned for improved usability (#19558)
+Superset 2.0 fixed an immense number of bugs. Here's a preview of some of them:
+You can read the full changelog here on Github.
+
+Native database driver for Databricks (#20320)
+Time grains for SQLite are now simplified (#19745)
+Multiple upgrades to the Trino database engine (#20152)
+Switch from sqlalchemy-trino to trino-python-client (#19957)
+Apache Pinot now supports more time grains in Superset (#19724)
+You can read more extended Release Notes here, including the changes to config and feature flags.
+As usual, you have a few different options for upgrading to v2.0:
+We also strongly recommend reading UPDATING.MD, which contains a full list of deprecations, database migrations, and more.
+Join us for the Superset 2.0 Meetup on August 3rd! You can register for the event here or you can watch the recording at the same link after August 3rd.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• eliminates lots of tech debt by deprecating lots of old feature flags and code paths
+• unifies the user experience in many areas of the product
+• adds new features like the horizontal bar chart and revamped viz picker in Explore
+• continues to improve the database experience for popular databases like Databricks, Trino, Pinot, etc.
+• and much more
+• 
+Edit Dataset modal now doesn't close when you click away (#20278)
+
+• 
+When editing the label in the Metrics popover, pressing Enter now saves what you typed (#19898)
+
+• 
+When adding new chart from the dashboard view, the dashboard name will now pre-fill (#20129)
+
+• 
+Annotations now have an improved empty state (#20160)
+
+• 
+Confirmational modal is now shown if user exits Explore without saving changes (#19993)
+
+• 
+Explore popovers now close when the Escape key is pressed (#19902)
+
+• 
+Run and Save buttons are redesigned for improved usability (#19558)
+
+• fixed a bug where dataset owners sometimes couldn't explore their own datasets
+• fixed a bug where a big number gets cut off in Dashboard view
+• fixed a bug where a dashboard can't be downloaded as an image if there's an image embedded in Markdown
+• fixes a bug with the minute and second time grains in BigQuery
+• fixed a bug where multiple dashboards with the same name fail to export
+• fixed a broken link to the legacy viz gallery
+• 
+Native database driver for Databricks (#20320)
+
+• 
+Time grains for SQLite are now simplified (#19745)
+
+• 
+Multiple upgrades to the Trino database engine (#20152)
+
+• 
+Switch from sqlalchemy-trino to trino-python-client (#19957)
+
+• 
+Apache Pinot now supports more time grains in Superset (#19724)
+
+• Python package: PyPi
+• Source release from Github
+• Source release from the Apache Software Foundation
+`master`
+`dataset`
+`SELECT * FROM {{ dataset(42, include_metrics=True, groupby=["ds", "category"]) }} LIMIT 10`
+`where_in`
+`SELECT * FROM some_table
+WHERE
+    action IN {{ filter_values('action_type')|where_in }}`

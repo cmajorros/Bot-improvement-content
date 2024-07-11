@@ -1,0 +1,53 @@
+**Announcing Our Partnership with Databricks**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Preset is excited to announce our partnership with Databricks. Starting today, Preset Cloud is available on Databricks Partner Connect!
+Databricks users can launch a new free instance of Preset Cloud from within their Databricks account with database connection details pre-configured, even if they don’t have an existing Preset Cloud account.
+While both Apache Superset and Preset have supported Databricks for a while, this integration cuts down the number of steps needed to connect Databricks to Preset from 20 steps down to just 6 steps.
+Databricks Partner Connect makes it easy for you to discover validated data, analytics, and AI tools directly within the Databricks platform – and quickly integrate the tools you already use today. With Partner Connect, you can simplify tool integration to just a few clicks and rapidly expand the capabilities of your lakehouse.
+Databricks and Preset (powered by Apache Superset) are both built on popular open source projects and have a shared DNA in the modern data ecosystem.
+Using Databricks and Preset, you can:
+Here’s a quick walkthrough of how to launch Preset Cloud from within your Databricks Lakehouse.
+Within Databricks, slide open the left hand tray and select Partner Connect.
+
+Scroll down to the BI and visualization section and select Preset or type “Preset” into the search bar.
+
+Next, enter your email and click Sign In.
+
+Next, enter your email and click Sign In.
+
+If you have an existing Preset account, you should be able to choose a workspace you want the Databricks connection added. Otherwise you’ll be taken to the signup page.
+
+After creating an account, you’ll find your Databricks SQL warehouse registered in Preset Cloud.
+
+Correspondingly, you’ll find the Preset tile in Databricks updated with the relevant details.
+
+New to Preset?
+Preset Cloud is a modern business intelligence platform that enables all personas in an organization to analyze, visualize, and consume data. While Preset’s no-code chart builder generates queries on the analyst’s behalf, Preset’s SQL editor and Jinja templating features enables SQL power users to build highly dynamic queries and charts.
+Built on top of Apache Superset, Preset extends the core Superset experience by adding a multi-workspace manager, single sign-on (SSO), SOC2 compliance, world-class support, an embedded offering, a powerful SDK, and more.
+Here at Preset, we believe the future of BI is Open Source. We recommend reading the following posts to learn more about our perspective:
+New to Databricks?
+The Databricks Lakehouse Platform combines the best elements of data lakes and data warehouses to deliver the reliability, strong governance and performance of data warehouses with the openness, flexibility and machine learning support of data lakes.
+We’re thankful to all of the hardworking folks at both Preset and Databricks who helped make this partnership and integration happen.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• unify your data science and analytics needs on a single platform (the Databricks Lakehouse),
+• enable end-users to use Preset’s no-code chart building experience to craft charts & interactive dashboards without having to know SQL,
+• create responsive dashboards backed by Databricks and embed them in your application using the Preset SDK,
+• and much more!
+• The Case for Dataset Centric Visualization
+• The Future of Business Intelligence is Open Source
+• How the Modern Data Stack is Reshaping Data Engineering
+• What is a Lakehouse?
+• Databricks SQL

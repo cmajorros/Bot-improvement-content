@@ -1,0 +1,20 @@
+**Unlock Value From Your Data Lake with Dremio and Superset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Companies are constantly looking for quicker and better solutions to get value out of their data lakes. Oftentimes with many petabytes of data collected, there is undoubtedly a need for a modern toolset to process, query, visualize, and make those data valuable.
+At Preset we’re committed to open source, and appreciate that our friends at Dremio maintain a DBAPI-compatible Python database driver and a SQLAlchemy dialect that enables Superset to connect. Better yet, they blogged about connecting the two, so you can follow along to set up the Dremio-Superset combination for your own data lake.
+Check it out: Unlocking Advanced Data Analytics on The Data Lake Using Apache Superset and Dremio.
+If you prefer to skip all the steps of installing and managing Superset, sign up for a hosted Superset solution provided by Preset (in alpha), connect it with Dremio, and start getting value out of your data right away.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

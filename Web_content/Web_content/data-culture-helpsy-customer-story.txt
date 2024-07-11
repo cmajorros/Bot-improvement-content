@@ -1,0 +1,32 @@
+**[Testimonial] Building a Custom Data Stack — Data Culture Team x Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+This post was originally published by Data Culture.
+Data Culture helps organizations solve their challenges through data. We're passionate about what we do and (most importantly) how we do it, and that's why we believe people are what really matter to empower businesses with data. We truly believe we're on the right path to helping companies on their journey toward data maturity. Check this out to discover more about us and get in touch!
+Helpsy is a for-profit B Corp with an environmental mission to radically change how people think about clothing recycling. They make reusing and recycling your clothes and shoes more convenient than ever. Through their steady growth, they identified the need for easier access to their data and ultimately found that Preset allowed them to do just that.
+Let’s dive into what that process looked like and how we ultimately ended up recommending Preset as the tool of choice.
+For the first phase of work, we (Data Culture) were committed to running an audit on Helpsy's Data infrastructure. Through this audit, we got the opportunity to submerge ourselves into their business to understand the company’s goals as well as the complexities and tweaks behind their existing operational processes. Firstly, we had to get the state of their Data Infrastructure right! The downstream success of our engagement depended on the correct reading of the links between the company's operations and running platforms. Afterward, having in mind their needs and business goals, we were going to work on and come up with a plan for what would be Helpsy's:
+We were able to accomplish this through multidisciplinary teamwork! That assessment required expertise in Data Strategy, Analytics & Data Engineering, and Project Management, and we made it. Data Culture's cutting-edge team will be glad to help you by making your mission ours.
+It is common and expected that many businesses (small and medium-sized ones, especially) do not have much time and resources to invest in Data Infrastructure or Visualization projects. That is one of the reasons why some companies opt for a shorter initial engagement of about three months, usually designed as the first phase of a longer-term project. As consultants responsible for a project's implementation and development, we always feel it would be better to have a little more time to get deeper into the business and optimize processes, but time is indeed scarce. That's why we need MVPs - we don't have all the time we wish we had, and we need testing and iteration!
+During that time, we did come up with a goal: a dashboard that would give a high-level view of the company sales from three e-commerce sale channels and profit over a broad time frame. Of course, we would achieve that also by following data visualization best practices and with the proper filtering and drilling down options. That was going to be their first view. Therefore, it had to be a role model for further development! After setting up the infrastructure, getting the SQL gears cracking, and building the data models, we still needed a Business Intelligence (BI) tool.
+With the plethora of tools on the market, the question quickly became: what tool can provide immediate value for the Helpsy team but also provide them space to grow as the organization matures? After several conversations with various tools, it quickly became clear Preset would be a fantastic fit for the Helpsy team, and that's what their current best-in-class data stack looks like:
+
+Preset is a cloud-hosted data visualization platform built on top of an open-source project, Apache Superset. At Data Culture, we found it a quick-win and easy-to-implement option for Helpsy use cases. Honestly? We could start it for free, and with a single analytics database, we've managed to set up, create the connections and start exploring within a day!
+Preset also offered functionality suitable for Helpsy's data infrastructure implementation. We were vetting and evaluating analytics tools before we even knew what schema tables would look like. We also wanted to ensure that Data Analysts and Business Managers could run custom queries and create pre-defined metrics without altering raw data. In these cases, Preset Semantic Layer came in handy along with Preset’s Virtual Datasets and Metrics features.
+Preset serves self-service users like Business Analysts and data-heavy users well while providing a single source of truth for a team responsible for centralizing analyses and reporting on the business's results. The ease of implementation accelerated user adoption, allowing Helpsy to discontinue, in tandem, a manual process of report generation. Data governance is also important. Preset's “Dashboard Certification” functionality helps dashboard owners and creators stay accountable for keeping their dashboards up to date with what's relevant and what should be deleted (e.g., deprecated visualizations).
+Preset’s documentation is easy to digest by tech and non-tech users. With Preset, you don't need to be working in the data industry for five years to access your data and unlock valuable insights into your business, nor invest all your money in it if you can't. Your willpower is enough!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Short-Term & North Star Data Infrastructure (with Recommendations) and
+• Roadmap - the actual method of how we would get there!

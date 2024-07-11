@@ -1,0 +1,25 @@
+Sure, here's a more detailed summary of the transcript:
+
+Robert Hodges introduces Evan Rosakis as the host for the OSACON talk, highlighting Evan's role as a developer advocate and member of the Apache SuperSet Committee. He acknowledges Evan's instrumental contribution to setting up the conference.
+
+Evan begins his talk titled "Open Source BIFTW: Building Compelling Dashboards with Apache SuperSet" by explaining that "FTW" stands for "For The Win," clarifying it for those unfamiliar. He expresses his enthusiasm for Apache SuperSet and outlines the agenda for the session in three parts.
+
+First, Evan discusses how the Apache SuperSet project operates within the Apache Software Foundation (ASF), emphasizing its adherence to the Apache Way. He notes SuperSet's status as one of the largest ASF projects by metrics like GitHub stars, commit volume, and Slack membership. Evan mentions the Apache eCharts framework and the project's aim to achieve the top position in its category.
+
+He elaborates on ASF's governance model, highlighting the community-driven nature where contributors play a vital role beyond code contributions, such as improving documentation, testing releases, and participating in discussions. He explains the roles of committers and the Project Management Committee (PMC), responsible for security and project policies.
+
+Evan details the SuperSet operational model, which includes various working groups focusing on software quality, security, developer experience, and more. He introduces SuperSet Improvement Proposals (SIPs) as a roadmap tool, emphasizing community consensus in design and implementation.
+
+Moving to a live demo, Evan demonstrates SuperSet's capabilities starting with database connection setup using SQL Alchemy. He showcases SQL Lab, the SQL IDE within SuperSet, where users can run queries and manage query history. He explores dataset creation and visualization using charts, demonstrating features like historical data retrieval and real-time analytics configuration.
+
+Evan presents a case study involving Pokémon card data and beer festival analytics, illustrating how SuperSet enables complex data exploration and visualization. He highlights interactive features like cross-filtering and custom dashboard components, emphasizing the flexibility and scalability of SuperSet in handling large datasets.
+
+Discussing deployment options, Evan mentions Preset, a managed version of SuperSet that simplifies infrastructure maintenance and scaling. He compares Preset's capabilities with off-the-shelf SuperSet instances and discusses use cases for multi-instance deployments based on organizational needs.
+
+Evan addresses the advantages of open source BI solutions over proprietary ones, emphasizing community-driven development and flexibility in feature customization. He encourages audience engagement and contributions to the SuperSet ecosystem, emphasizing the project's growth through community-driven integrations and plugins.
+
+In response to audience questions, Evan discusses SuperSet's competitive positioning against BI tools like Power BI and Tableau, highlighting SuperSet's adaptability and open-source advantages. He explores topics such as implementing GitOps for managing dashboard definitions and the potential for AI features in SuperSet and Preset.
+
+Finally, Evan invites attendees to explore SuperSet and Preset, outlining installation options and community resources for further engagement. He emphasizes SuperSet's ongoing development and stability, inviting feedback and collaboration from the audience.
+
+Overall, Evan's talk provides a comprehensive overview of Apache SuperSet's features, community dynamics, and strategic advantages in the BI landscape, showcasing its capabilities through practical demonstrations and use cases.

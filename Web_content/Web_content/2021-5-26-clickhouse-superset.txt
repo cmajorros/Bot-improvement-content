@@ -1,0 +1,188 @@
+**Visualizing ClickHouse Data - ClickHouse SQLAlchemy**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+This blog post was originally published on the Altinity blog in two parts: part 1 and part 2.
+Apache Superset is a powerful business intelligence tool that offers creative ways to view and explore data. It is also increasingly popular among ClickHouse users.
+The article you are reading reflects shared open source community work to improve Superset connectivity to ClickHouse. Altinity recommends the clickhouse-sqlalchemy driver maintained by Konstantin Lebedev, as it is well-maintained and supports TLS encryption on connection. We help maintain the driver and test Superset compatibility regularly. We also work jointly with Superset maintainers at Preset.io to improve support.
+Now let’s head straight into the weeds.  We’ll cover 3 ways to install Superset and then show how to connect from Superset to your first ClickHouse database. Code examples are based on Ubuntu 18.04, Superset 1.1.0, and clickhouse-sqlalchemy 0.1.6. Data is from the Altinity.Cloud public ClickHouse endpoint.
+The first method installs Superset directly on your host. We’ll start by creating a Python virtual environment. Here are the usual commands, including upgrading pip to the latest and greatest version.
+Follow the instructions to install Superset from the documentation. Here are the commands I use for work on Superset connectivity to ClickHouse. You may need to adjust these slightly for your environment.
+They should complete successfully, at which point you can add the ClickHouse driver.
+There are currently two ClickHouse SQLAlchemy drivers: clickhouse-sqlalchemy and sqlalchemy-clickhouse.  As noted at the beginning, the clickhouse-sqlalchemy driver is the more robust and well-maintained.  Let’s therefore install the clickhouse-sqlalchemy driver as recommended.  This will pull in the clickhouse-driver module, which is the standard Python ClickHouse native TCP driver.
+Check versions once you are done.  To ensure full TLS connection support including Server Name Indications (SNI),  the clickhouse-driver version must be 0.2.0 or higher.  This supports SNI, which is required when connecting to ClickHouse clusters in services like Altinity.Cloud. The clickhouse-sqlalchemy driver should be 0.1.6 or greater, which has bug fixes to improve Superset compatibility.
+It’s time to start Superset.  Run the following command:
+Now point your favorite browser to the following URL: http://localhost:8088.  You’ll see a login screen like the following. Enter the admin login and password you defined during the Superset installation (e.g., admin/secret).
+
+Well, that was fun! But perhaps you don’t want to wrestle with Python versions, virtual environments, and pip. Fortunately there’s another way. Let’s bring up Superset in Docker.
+You’ll start by installing docker followed by docker-compose. This varies considerably by platform so we’ll assume you can install using the install documentation links. You should see results like the following once this is done.
+From here we can bring up Superset using docker-compose in short order.  See the Superset installation docs for more details.  Here are the commands that I use.
+This will print a raft of messages. Note: If you run into errors pulling down docker images, run docker login. I was unable to download the Redis container until I did this.
+Once Superset is running in docker, you can login at http://localhost:8088/ as before.  The default login/password is admin/admin.
+If you don’t want to bother with local Superset installation at all, Preset.io offers a nice alternative: Preset Cloud. This is a managed Superset installation that takes care of all dependencies, including loading the proper clickhouse-sqlalchemy driver version.
+The following example shows a ClickHouse workspace that I have been using to test Preset connections to Altinity.Cloud. You just open the workspace and start using Superset.
+
+Preset Cloud incidentally works great with Altinity.Cloud.  Contact us or request a trial Altinity.Cloud environment to learn more.
+Regardless of your chosen installation method, you are now ready to connect to your first ClickHouse database.
+After login you’ll see a screen with your recent work as well as current dashboards.  Select the Data tab at the top right and press Databases. A page will appear with your current database connections.  Press the + Database button to add a new database.
+
+Note: If you don’t see the + Database button it means your account lacks privileges to configure database connections. This is possible if Superset was installed by someone else.  Check with the owner to add privileges to your account.
+Enter the following values for the fields.
+The URL points to a public ClickHouse endpoint in Altinity.Cloud. It is read-only and contains interesting datasets. Your screen should now appear as follows.
+
+Press the TEST CONNECTION button.  You should see the message “Connection looks good!”  Press ADD to save the connection.  You now have a connection to ClickHouse and can start creating graphs and dashboards.
+Some readers like to understand what happens under the covers when Superset connects to ClickHouse. This section is for you. We’ll look at the connectivity and dig into the URL format.
+Superset is written in Python. It uses SQLAlchemy, a general purpose API for connecting to ClickHouse, as well as many other databases.  Here’s a quick sketch of the architecture.
+
+SQLAlchemy connections use a specialized URL format that supports multiple drivers.  To connect to ClickHouse, you provide a URL like one we showed previously:
+SQLAlchemy will poll the available drivers to find one that accepts the URL It then uses that driver for requests to the database.
+ClickHouse has two main wire protocols for ClickHouse: native TCP and HTTP.  The clickhouse-sqlalchemy driver supports both, but we recommend the native protocol as the project maintainer has deprecated HTTP.  Native wire protocol URLs look like the following. Options are passed as key-value pairs.
+The example URL we gave above connects via native TCP protocol with user demo, password demo, using an encrypted connection (secure=true option). It will use port 9440 by default, which must be exposed to make a successful connection.
+If you are using ClickHouse server on your laptop, you can get away with a native protocol URL like the following. It uses the default user without a password, and does not encrypt the connection. It will use port 9000, which is default for non-encrypted connections.
+The native protocol driver accepts a rich set of options.  See the clickhouse-driver documentation for more information. Here’s an example of a connection that limits the secure connection timeout to 10 seconds and forces use of TLS 1.2 encryption.
+Note that the behavior of Superset and ClickHouse in the above cloud services is identical to the open source build from their respective community sites. Just ensure the software versions are current and you have the clickhouse-sqlalchemy driver correctly installed.
+Tne Minimum recommended versions are:
+I used ClickHouse 21.1, but earlier and later versions should also work.
+Superset has a layered architecture that divides the responsibilities for visualization into reusable components. A key feature is the “semantic layer” that provides an abstraction layer between dashboards containing charts and the underlying database itself. Here’s a picture to show how the plumbing works.
+
+When you login to Superset, the home page has tabs and submenus to enable quick editing of components. Here is a typical example.
+
+We will now walk through the process of creating charts from physical and virtual datasets, then link them into a dashboard.
+It’s often possible to create displays directly on individual fact tables, especially those that are denormalized to include lots of interesting columns. Superset physical datasets are perfect for this: they map directly to a single ClickHouse table. In this section we’ll show how to create the dataset and build a chart that uses it.
+First, let’s create the dataset.  Press the Data tab again, and select the Datasets submenu.  A list of datasets will pop up.  Press the + DATASET button.  A dialog will pop up with drop-downs for dataset information.  Select clickhouse-public as the connection, then choose schema default and table ontime. The dialog should now look like this.
+
+Press ADD to save the dataset. The new dataset will appear at the top of the list.
+Once you have a dataset, it’s trivial to create your first chart.  Just click on the dataset name on the Dataset page.  Superset will switch to a screen to define a chart, which looks like the following.
+
+Let’s create a time series chart that shows airline traffic by carrier and by month for 2020.  Fill out the page as follows.
+Once you have the values set, press the “RUN QUERY” button to see what the chart will look like.  You should see something like the following.
+
+Feel free to play around to get graphics you like using the CUSTOMIZE tab at the top of the panel. Personally I think stacked bar charts look nice for this type of display. When you are done, save the chart by pressing SAVE. Give it a nice name like Flights by Carrier 2020.  Here’s an example of the save dialog.
+
+You can even put new charts straight into a dashboard by typing a name in the ADD TO DASHBOARD field. I typed in the name Demo Dashboard before saving the chart.  This automatically creates a new dashboard and adds the chart to it.
+Attentive readers will notice that we created this chart without writing or even seeing a line of SQL. Superset does the right thing, but as trained database devs we would really prefer to see the SQL for ourselves. Fortunately it’s easy to get the SQL text. Just press the three-lined property button next to .CSV on the upper right side of the panel.  There’s a “View query” submenu item.  If you press it you will see the generated query.
+
+This is a nicely formed query and quite satisfactory. It shows the convenience of Superset datasets. They completely encapsulate the underlying table, including logic to generate SQL to access data. Once the dataset is available, you can visualize its data without recourse to SQL. This greatly expands the audience of users who can create imaginative data visualizations.
+At some point it is necessary to write SQL if you want to join information from multiple tables or arrange data in interesting ways. Virtual datasets are perfect for this purpose–they work off a query instead of a table.
+For this example we will reach back to our ontime dataset and provide daily aggregates for number of flights, number delayed, and number cancelled. Plus, we’ll add location information for the origin and destination airports, specifically latitude and longitude.  Here is the query:
+Our example query illustrates a trick that Superset–or any other code generator–would not know how to do automatically, namely moving the join outside the base aggregation query. This is a standard optimization to improve performance by reducing the amount of data to drag along during the full table scan. It’s a good example how virtual datasets can also help with display latency.
+The first step to turn our query into a dataset is to verify it in the Superset query editor.  Press the SQL Lab tab and select the SQL Editor submenu.  Superset will show a query window panel.
+To test the query, perform the following steps.
+Here is the result you can expect.
+
+The SQL Editor restricts the number of rows returned, so the output is just a sample. If you are happy with the result, press the EXPLORE button, which will pop up a dialog to save the query as a virtual dataset. Fill in a meaningful name and press SAVE & EXPLORE, as shown in the following example.
+Superset will automatically pop you into a chart panel, so that you can begin building a chart on the new dataset. The default panel uses a Table display, which is not very interesting.  Instead, let’s create a graph that shows destinations from San Francisco. Fill in the panel information as follows.
+IMPORTANT NOTE: To use deck.gl Arc and other map displays you will need to have a MapBox API key. Preset Cloud configures this automatically, but for home installs you’ll need to obtain it yourself. See the Superset documentation for instructions. It’s free.
+Press RUN QUERY to see the result. You should see something like this–an arc graph showing flight paths from SFO to all destinations last year.
+
+Once you are pleased with the chart, you can save it for future use.  Press the SAVE button and give the chart a memorable name like SFO Destinations. As before, you have the option to add the new chart directly to a dashboard.
+Once again it’s interesting to see the SQL our new chart uses to select data from a virtual dataset. Let’s indulge our curiosity! Just press the three-lined property button on the upper right side of the panel and select View query. Superset shows the generated SQL code for us.  The virtual dataset SQL is in a subquery.
+
+If you have used ClickHouse previously, you are most likely familiar with subqueries. This approach is pretty much what you would expect. ClickHouse is smart enough to push filter conditions down into the subquery, so the performance is quite good.
+To view charts you need to assemble them into a dashboard. Select the Dashboards tab to see a list of existing dashboards.  You can make  new ones with the + DASHBOARD button.  Here is the view when you enter.
+
+Since we added the new charts to Demo Dashboard when saving them, that dashboard already has our charts.  Just press the Demo Dashboard link in the dashboard list and you’ll see a dashboard like the following.
+
+You can edit the dashboard by pressing the pencil icon on the upper right. The dashboard editor allows you to reposition or resize charts, create new rows and headers, and add more charts if you have them. Once you are satisfied with your dashboard, press the Draft button at the top.  This will publish your dashboard so that it is visible to other users.
+This blog article barely dipped into the many ways Superset can display ClickHouse data. For more information on Superset including additional chart types (there are dozens), dataset configuration, and specialized features like clustering and caching, check out the Apache Superset documentation as well as the extended docs available at Preset.io. For configuration specific to ClickHouse, check out Altinity documentation.
+You can also ask questions about Superset and ClickHouse on either of the following Slack workspaces:
+Finally, Altinity offers managed ClickHouse clusters via Altinity.Cloud. Preset similarly offers managed Superset in Preset Cloud. As noted at the beginning, I used both services for the examples in this blog article.  Altinity and Preset have been working together to improve support for ClickHouse as well as provide secure communication options between our services.
+For more information, don’t hesitate to contact us at info@altinity.com. Meanwhile, enjoy using Superset and ClickHouse together to visualize your data. If you do something interesting, let us all know.  We hope to see you out in the community Slack channels!
+It takes a village to integrate open source projects. On behalf of ClickHouse users worldwide I want to thank Konstantin Lebedev and the Superset community team at Preset.io, especially Maxime Beauchemin, Eugenia Moreno, and Srini Kadamati.
+Thanks also to my colleagues Eugene Klimov and Mikhail Filimonov at Altinity for help with testing!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• DATABASE NAME: clickhouse-public
+• SQLALCHEMY URL: clickhouse+native://demo:demo@github.demo.trial.altinity.cloud/default?secure=true
+• Superset 1.1.0
+• clickhouse-sqlalchemy 0.1.6
+• VISUALIZATION TYPE — Press the Table icon and select ‘Time-series Chart’ from the list of types.
+• Time — Select the time range to show.  Here are good values.
+
+TIME COLUMN — Select FlightDate if it is not already chosen.
+TIME GRAIN — Select Month.
+TIME RANGE — Use the wizard that pops up to select the previous calendar year.
+
+
+• TIME COLUMN — Select FlightDate if it is not already chosen.
+• TIME GRAIN — Select Month.
+• TIME RANGE — Use the wizard that pops up to select the previous calendar year.
+• METRICS — Select COUNT(*), which should already be the default.
+• GROUP BY — Select Carrier.
+• On the upper left side of the panel, select clickhouse-public as the database.
+• Select default as the schema.
+• Paste the query into the editor query window.
+• Press RUN to try the query out.
+• VISUALIZATION TYPE — Press the Table icon and select ‘deck.gl Arc’ from the list of types.
+• Time — Select the time range to show.  Here are good values.
+
+TIME COLUMN — Select FlightDate if it is not already chosen.
+TIME RANGE — Use the wizard that pops up to select the previous calendar year.
+
+
+• TIME COLUMN — Select FlightDate if it is not already chosen.
+• TIME RANGE — Use the wizard that pops up to select the previous calendar year.
+• QUERY — Select the location data.
+
+START LONGITUDE & LATITUDE — Select Origin_Longitude and Origin_Latitude.
+END LONGITUDE & LATITUDE — Select Dest_Longitude and Dest_Latitude.
+
+
+• START LONGITUDE & LATITUDE — Select Origin_Longitude and Origin_Latitude.
+• END LONGITUDE & LATITUDE — Select Dest_Longitude and Dest_Latitude.
+• FILTERS — Use the popup to select Origin = ‘SFO’.
+• Superset Slack - Apache Superset online community
+• Clickhouse Slack — ClickHouse online community
+`python3 -m venv clickhouse-sqlalchemy
+. clickhouse-sqlalchemy/bin/activate
+pip install --upgrade pi`
+`export FLASK_APP=superset
+pip install apache-superset
+superset db upgrade
+superset fab create-admin
+superset load_examples
+superset init`
+`pip install clickhouse-sqlalchemy`
+`pip freeze |grep clickhouse
+clickhouse-driver==0.2.0
+clickhouse-sqlalchemy==0.1.6`
+`superset run -p 8088 --with-threads --reload --debugger`
+`$ docker --version
+Docker version 19.03.4, build 9013bf583a
+$ docker-compose --version
+docker-compose version 1.29.1, build c34c88b2`
+`git clone https://github.com/apache/superset
+cd superset
+touch ./docker/requirements-local.txt
+echo "clickhouse-driver>=0.2.0" >> ./docker/requirements-local.txt
+echo "clickhouse-sqlalchemy>=0.1.6" >> ./docker/requirements-local.txt
+docker-compose -f docker-compose-non-dev.yml up`
+`docker login`
+`clickhouse+native://demo:demo@github.demo.trial.altinity.cloud/default?secure=true`
+`clickhouse+native://<user>:<password>@<host>:<port>/<database>[?options…]`
+`clickhouse+native://localhost/default`
+`clickhouse+native://demo:demo@github.demo.trial.altinity.cloud/default?secure=true&connect_timeout=10&ssl_version=PROTOCOL_TLSv1_2`
+`SELECT FlightDate, Origin, Dest, 
+  oa.Latitude as Origin_Latitude, oa.Longitude AS Origin_Longitude, 
+  od.Latitude as Dest_Latitude, od.Longitude AS Dest_Longitude, 
+  Flights, Cancelled, DepDelayed, ArrDelayed
+FROM (
+  SELECT FlightDate, Origin, Dest, count() Flights,
+    sum(Cancelled) Cancelled, 
+    sum(DepDel15) DepDelayed,
+    sum(ArrDel15) ArrDelayed
+  FROM ontime
+  GROUP BY FlightDate, Origin, Dest ORDER BY FlightDate, Origin, Dest
+) AS o 
+INNER JOIN airports AS oa ON toString(o.Origin) = oa.IATA
+INNER JOIN airports AS od ON toString(o.Dest) = od.IATA`

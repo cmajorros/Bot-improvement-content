@@ -1,0 +1,43 @@
+**Apache Superset 1.2: Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We're excited to announce the release of Apache Superset 1.2!
+In this release post, I will focus on the biggest and most interesting tangible, end-user features. If you want to learn more about progress made on experimental features, I recommend reading the official community release notes for 1.2.
+As a data exploration & visualization, new chart types are always a welcome addition.
+Mixed timeseries charts let you mix multiple timeseries objects in a single visualization. Currently, this chart type requires two queries that each map to their own timeseries object.
+Here's an example that mixes a line chart and a bar chart:
+
+You can read more about how and when to use this chart recently released post on new chart types.
+A radar chart lets you visualize a parallel set of metrics across multiple groups or categories. Here's a quick example of a simple radar chart that visualizes parallel funnel metrics across 3 holiday seasons.
+
+Here's a more complex example that visualizes max monthly temperatures for six hypothetical cities:
+
+You can read more about how and when to use a radar chart in our recently released post on new chart types.
+Improvements to the pivot table chart are a frequent request from the community and the committers have answered! n addition to the classic pivoting of rows and columns, you can now enable heatmap and bar chart visualizations within the pivot table itself.
+Here's an example of a pivot table of popular male baby names in the United States that uses column oriented heatmap coloring:
+
+You can read more about how and when to use a radar chart in our recently released post on new chart types.
+Besides chart types, being able to query more data sources are new superpowers for a data exploration tool. This release also adds support for two new databases.
+CrateDB is a distributed, time-series focused data store that has an existing Python DB API 2.0 driver with a SQLAlchemy dialect.
+
+If you've read our previous post on adding new database connectors in Superset, you know that we're already 90% of the way there to querying CrateDB from Superset.
+To showcase how easy it is to support new databases in Superset, we actually ran a community event and accomplished this live! You can watch that recording here.
+Not sure what the difference between a time-series data store and a real-time data store is? We wrote about that recently too. You can read the code needed to support Crate here.
+Superset and Preset Cloud now both support Databricks Cloud, using the pyhive library. If you're curious, here's the relevant Github PR.
+To learn how to connect to Databricks in Preset Cloud, check out this documentation article.
+Thanks in part to the semantic versioning schema adopted by the community, Superset 1.2 doesn't contain any backwards incompatible changes! 🎉
+You can read the full list of PR's that made it into this release in CHANGELOG.MD.
+
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

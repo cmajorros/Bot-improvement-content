@@ -1,0 +1,67 @@
+**Discovering the World of Third Party Plugins**
+**Interesting specimens**
+**Where this might lead...**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We recently started a blog (and corresponding meetup) series about how developers can enhance their custom Superset visualization plugins, to make them more feature-rich and ready for adoption by the Superset community. We’ll be continuing to go down this road, but I (and many others, via requests on Slack) have become eager to take stock of some of the plugins that are already out there in the wild, and try to bring order to things a bit.
+In this initial exploration is attempting to tackle a few things:
+I started exploring in the simplest way I could... just searching npm for plugins that happen to follow our usual naming convention. I don’t know the vast majority of these developers and I don’t know how active they are in these projects. Here are some of the lenses I'm looking through to narrow the field of potential candidates:
+At the end of the day, I’m just here to prove the point that people ARE building cool stuff that you can leverage today, and get more people fired up about making and sharing these plugins, whether or not they want to contribute them to the Superset’s codebase (more on that below).
+All of the plugins from this blog post are now available on the Superset Plugins Directory on the Superset Wiki. We hope that anyone looking for additional Superset capabilities will find this useful. Whether you’re a plugin developer or not, we’d love help in continuing this effort. You can submit any plugins that you build or encounter for consideration by filling out this form. Please reach out to me or any other Superset Committer on Slack to provide feedback on how we can improve  this resource or this process. We hope to see it flourish!
+
+In this little experiment, the biggest problem I encountered are incorrect descriptions and instructions! The vast majority of plugins out there don’t edit the stock ReadMe file, meaning the installation instructions are incorrect. An explanation of a plugin, and proper installation instructions will go a long way to foster adoption.
+Last but not least, keep building upon your work, especially if the goal is to contribute the plugin to Superset! Any new feature is great, but if you want the community to adopt and maintain your work, you’ll want to continue following our blog series about adding additional features, stability enhancements, and best practices in code and UI patterns. Stay tuned for more on that front.
+OK, here's the juicy bit! Let's dive into some of the plugin modules I found when scouring npm. Again, there are surely more worth noting, so consider this a starting point rather than a comprehensive listing.
+There are times where you just want to see lat/long points on a map. On top of that, clustering these is a great way to keep your browser from choking when doing so, and get an idea of numeric stats rather than a mess of point markers. This chart is simple and effective, but may require editing Superset's Content Security Policy (CSP) in your config to allow the tiles to load.
+
+There are a few charts in here, but I wanted to highlight a couple of them for some cool design choices. One of the most interesting aspects is that some of them include a json editor that allows you to add ECharts configuration overrides. Truth be told, I couldn’t get it to actually /work/, but it’s an idea I’ve been wanting to experiment with. Being able to tweak a chart with a little JSON configuration is a nice stop-gap along the way to having a full ECharts wizard that lets you select properties from the API and get the appropriate input to play with.
+Superset has bar and column charts (the main difference being orientation. The main reason I wanted to highlight this chart is the interesting scrubbers for both the X and Y axis, which allow you to narrow down the field of view to the smaller or longer bars… I just wish these pesisted, but it’s some handy UI for exploration!
+
+While I found some issues with this one in terms of layout/alignment (the vertical bars overlap in peculiar ways), I think those are solvable bugs. Perhaps more importantly, where people have had a difficult time with Superset’s built-in Sankey charts' complexity. this does a pretty amazing job of keeping it simple. It lets you just define a dimensional hierarchy by dragging columns and letting it rip. This shows great promise.
+
+There are actually several different table plugins floating around out there... I haven't had time to try them all yet. While this one seems early in its development, I'm picking it for inclusion here because it demonstrates two points of promise. First, it illustrates using a different table library (Handsontable) than Superset... there are a lot of these out here (some free, some not) and you CAN implement your preferred table library. Secondly, formatting columns (like left/right alignment) is a bit tedious in Superset's Table chart controls... this brings the alignment contrls to the forefront, which is a nice usability touch.
+
+Nothing could be simpler than just dropping a number on a page, and that’s what this “statistic” plugin does. However, it also lets you take each component of the text layout (illustrated in different colors) and change the color and size to your liking. People often request ways to customize the Big Number chart's individual bits like this, so here you go! No Custom CSS templates needed! Note that the readme is incorrect - you need to import {StatisticChartPlugin} from ‘@sspingme/superset-ui-plugin-statistic’;. Nonetheless, it's quite simple, but also quite flexible.
+
+This is pretty great if you want to just have a whole bunch of line charts, based on your selected dimension(s). The author included pagination and scrolling, which makes this pretty usable. I wish there were a few more controls for chart height, font settings, color, etc. But it works, and I know some folks out there have been clamoring for exacty this sort of chart.
+
+OK, OK... the link above is a user account, not a plugin. Pardon the inconsistency but that user is Amit Miran (a Suprerset PMC member) and therein lie the plugins built by our friends at Nielsen. Nielsen was one of the early pioneers of building custom visualizations, and even joined us for a webinar on how they deploy these very plugins. While these haven’t seen many updates lately, they’re still solid plugins that have been tested in their production environment. Let's highlight a few of these!
+While Superset now has an official ECharts based Waterfall chart, this Recharts-based option was previously the best - if not only - game in town. It comes with some good options to customize axis labels but doesn’t remove overcrowded ticks or bar numbers automatically, so make sure everything fits onscreen to be readable like in this (admittedly not useful) example I’ve mocked up.
+
+If things DO get too crowded, and you want to remove the numbers from the tops of the bars, I came across a variant of this plugin without them here:
+
+While forking and modifying code like this is perfectly fine, I'm showing both examples here to illustrate a point — that forking/tweaking is an easy way to modify software, but it might be even nicer to open PRs on each others' codebases and make improvements in the name of configurability. A checkbox to hide/show labels might be better than picking between plugins based on preference.
+This chart allows you to select multiple metrics to plot on a timeseries. For each of these, you can select how you want to plot things (bar/line/scatter) with various display options for each. Pretty cool, when you can mix and match!
+
+Superset’s bubble chart does quite a bit, but if you’re looking for an alternate solution with a different control design (dimension for coloring, entity for displayed name, and “z-axis” effectively for bubble sizing, then this might work nicely for you!
+
+There is still have a laundry list of plugins I'm planning to go through, but it's a time-intensive process to install and troubleshoot a huge number of plugins. While I reserve the right to expand this post, it's more likely that if I find something cool, I'll add it to the new directory. Please join me in this effort!
+Now that we have found some specimiens, and set up a directory and a process to add things to it, where might this all go?
+If you use a web browser or an IDE to write code, you probably LOVE the ability to add plugins on-the-fly, rather than installing and restarting the application. This is plausible for Superset, too, though it requires some architectural thinking. With alignment among Superset contributors and a plugin developer community, we can architect a world where people can add a plugin via Superset's UI rather than Superset's codebase, and add/remove plugins quite easily.
+The logical extension of the above idea is to expand on our plugin directory idea, and include any javascript bundle URLs, metadata, or other machine-readable resources so that Superset can easily find and load approved plugins with a simple click. We'll have to work around quality/security issues, but again, this is plausible
+Now that you have a place to share your work, and can see what others are working on, I hope that this initiative fosters more collaboration on these plugins' respective codebases, and gets you fired up to contribute your own to the pool! With all of the dataviz toolkits/libraries out there, and all of our imaginations combined, I hope we can build a buzzing ecosystem of Superset viz plugins going forward.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• See what the landscape looks like - even if we’re likely to just scrape the tip of the iceberg in finding a few interesting specimens.
+• Share some of the interesting plugin finds - not just for the sake of this blog post, but in the forms of a long-lasting, maintainable community resource.
+• Give developers a means to spread the word about their plugins, and connect with one another to collaborate on their efforts.
+• Discover and share some common patterns that plugin developers can adopt or avoid to make their creations easier to discover and utilize.
+• Ease of installation: If a plugin doesn’t install properly, I’m not going to go troubleshooting dependencies. I’m only testing what installs painlessly.
+• Baseline compatibility: 	Plugins should work with the stock core packages, to maintain compatibility with stock Superset. If there are custom controls and whatnot that require further customization of Superset, I’m considering it out of scope for this effort.
+• General candidate selection: Anything that looks like a riff on the “Hello World” examples from tutorials, or simple forks of Superset’s official plugins, probably aren’t getting looked at. I’m looking for things with an intriguing name on the box.
+• Bug tolerance:  Many of these plugins aren’t perfect in terms of UI design or even bugginess. I’m not here to stop and point out all the bugs, but at the very least, I need to get the chart working.
+`npm`
+`core`
+`npm`
+`import {StatisticChartPlugin} from ‘@sspingme/superset-ui-plugin-statistic’;`

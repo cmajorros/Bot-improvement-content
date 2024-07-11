@@ -1,0 +1,26 @@
+**Superset Virtual Meetup -- May 2020 Edition**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The Apache Superset hosted its first virtual meetup last week. Like many communities, going virtual  is part of our ongoing effort to adapt and adjust to all the COVID-19-induced changes that have now  become part of daily life. We wanted to keep our community vibrant, engaged, and growing, however we can.
+The turnout was fantastic, far exceeding our expectations. More than 60 people joined our Zoom webinar  from around the world, along with more than 10 Superset committers. The whole sessions was recorded for  you to watch (see below), but here are some highlights:
+The session started off welcoming the newest committer to the project: Bogdan Kyryliuk (GitHub: @bkyryliuk) from Dropbox!  We then did a round of self-introduction from all the Superset committers, because this is the first community-wide  event we've hosted. Even though that part pretty much took up the whole first 15 minutes, it was time well spent  because the whole community got to literally see who are the people behind Superset, strengthening some much-needed  human connections. (It's always good to put a face to the GitHub handle.)
+Max (@mistercrunch) and Ville (@villebro) then delivered the main presentation, going over the highlights and major  improvements in the latest 0.36 release,  like Row Level Security [SIP-29]. They also shared more  details on some of the major roadmap items as we look to the 0.37 release and beyond. Two of the items that many  community members are looking forward to are: new UI design improvements [SIP-34] and the visuzlation plug-in re-architecture [SIP-38].
+We highly recommend you watch the entire recording to get all the details and colors.  Please subscribe to our channel as well;  we will have many video content to share soon.)
+
+During the Q&A, the project committers answered many questions related to the roadmap,  ways that the community can contribute more to the project, and the connection between Preset  the company and Superset the open source project. We are taking in all the feedback and suggestions,  and will have more to share in the not so distant future.
+While the Q&A was happening, there were many questions asked and answered in the Q&A tab in Zoom  that unfortunately could not be recorded. Sorry about that. Lesson learned!  We are still learning as a team how to create the most accessible, transparent, and useful virtual  experience for our community. Future virtual gatherings will be better and better.
+If you have any questions, thoughts, comments, and suggestions about anything related to the Superset community,  please engage with us on our community Slack channel. You can also join our global community meetup page to get notifications of future events.
+See you soon and happy dashboarding!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

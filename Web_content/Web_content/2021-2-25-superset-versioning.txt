@@ -1,0 +1,43 @@
+**Semantic Versioning Starting in Apache Superset™ 1.1**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset is a fast growing open source project. That growth hinges on both organizations like Preset and individual contributors engaging in the process of building things together in the open. I want to provide a glimpse into what that process is like and explain a recent change designed to support the continued growth of the project.
+With the much anticipated release of 1.0 behind us and wide open plains of possibility ahead, it's a great time to be thinking about the future of Apache Superset. While my mind tends to gravitate towards exciting new features on the horizon, the community has been investing considerable effort into ensuring future releases uphold the new standard 1.0 set for quality. As part of that effort, the community has voted on a SIP to adopt semantic versioning.
+
+But why semantic versioning? What is a SIP? How do changes like this come to be? Keep reading to find out.
+Semantic versioning is the most widely used versioning scheme in the world of open-source software. Many package managers, such as PyPi, understand semantic versioning and use it to specify dependencies. In the semantic versioning scheme, a version number consists of three values: X.Y.Z
+X denotes major versions, and any breaking changes merged into the main branch require X to increase by one. An increase in Y denotes new, backwards-compatible features have been added. Z denotes patches, which are fixes and other backwards-compatible changes to the codebase and/or API.
+Some examples:
+Semantic versioning makes clear at a glance if a newer version of Superset will be compatible with the plugins and data environment surrounding an existing Superset deployment. The move to Semantic versioning also further discourages the introduction of breaking changes, as any such change will demand a major version bump.
+In this case, Preset's own Elizabeth Thompson saw something that needed to be done and took the initiative to write a Superset Improvement Proposal (SIP). The SIP process is a way for anyone to create a detailed proposal for changes to Superset.
+The SIP process roughly consists of three phases:
+Collaborative decision-making makes developing open-source software both great and sometimes challenging. The tough part is although a move like this was obvious in the minds of many Superset committers, there was no executive with the power to make such a change unilaterally. The great part is that ultimately, the software and its users benefit from the discussion and refinement that goes on during the SIP process.
+If you (yes you!) have an idea for an improvement to Superset, get the ball rolling! Contributions don't always have to take the form of code. Consider writing a SIP for your idea. The original SIP (SIP-0) provides an straightforward template to base your proposal on.
+
+You can view a list of all current and past SIPs here.
+We also have some resources on the Superset Github with information about recent releases:
+Join our community! Get involved!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Superset 1.0.1, 1.1.1, and 1.2.0 would all be fully backwards compatible with 1.0.0. Upgrade without fear!
+• Superset 1.0.0 -> 1.0.1 introduces no new features. Superset 1.0.0 -> 1.1.0 has at least something major that is new.
+• Superset 2.0.0 will be the first upgrade that could potentially cause backwards compatibility problems for a deployment of 1.0.
+• Superset versions 0.X were all pre-1.0 and do not follow semantic versioning.
+• Creation of the original proposal as an 'issue' on GitHub.
+• Discussion on GitHub and, if necessary, modification of the SIP to address the discussion
+• A vote on the Apache Superset mailing list.
+• The release notes provide a quick summary of big changes in major versions.
+• The changelog lists all the changes since the last release.
+• UPDATING.md tracks breaking changes and provides special updating instructions if needed.
+`X.Y.Z`

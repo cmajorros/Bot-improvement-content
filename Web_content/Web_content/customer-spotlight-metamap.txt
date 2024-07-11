@@ -1,0 +1,41 @@
+**Customer Spotlight: MetaMap**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+MetaMap is the digital trust and reputation layer that powers borderless growth. MetaMap offers solutions to builders across the spectrum, from developers tackling high-trust online services to enterprises bolstering their user verification and reputation processes. Founded in San Francisco in 2017, MetaMap now operates globally and is trusted by 400+ customers worldwide.
+In MetaMap’s customer identity platform, MetaMap makes it available for its merchants to access real-time usage and verification metrics. The embedded solution provides merchants with more valuable insights, as it makes it possible to bring together multiple data sources from the data warehouse, to create metrics, and to perform data transformation. Furthermore, it enables MetaMap’s customer success and data teams to address questions and issues related to the merchant usage metrics more quickly.
+Before Preset, MetaMap used another third-party business intelligence (BI) vendor’s embedded analytics solution, which saved its engineering team from having to spend a significant amount of time creating custom charts and dashboards. However, as licenses with the prior embedded analytics provider were approaching the renewal date, MetaMap became concerned about the increasing license costs, which could get in the way of delivering data to their customers efficiently and transparently. This concern prompted the MetaMap team to seek an alternative solution with a better benefit-to-cost ratio.
+After evaluating several BI tools, MetaMap opted for Preset's embedded dashboards, which offered core functionalities, simplicity, and the best benefit-to-cost ratio. MetaMap also appreciated Preset’s simple and transparent pricing model and no vendor lock-in option, which was enabled by easy migration to open-source Apache Superset.
+Many of the functionalities were on par with the previous BI provider's solution. However, MetaMap specifically found the following features to be useful compared to the predecessor.
+Reusable charts and datasets: Users can use the same charts and data sets across multiple dashboards. This functionality is useful when there is a chart or some metric (e.g., account-level revenue) that is shared across multiple dashboards (such as a revenue dashboard and a customer success dashboard). If a user ever has to make a change to a metric definition or change the chart itself, the same change would apply to all the dashboards that the change is associated with, ensuring that everyone is seeing the correct and up-to-date data.
+Thin semantic layer: It's helpful that Preset has a thin semantic layer because MetaMap manages its data models outside the BI tool, and all that logic built in a repo can be synced to Preset, avoiding the need to replicate definitions both in the data warehouse and the BI tool.
+SQL user-friendly: Preset is easier to use for SQL-savvy data analysts and data scientists.
+More visualization options: Preset offers a wider range of visualization options out of the box, providing users with more flexibility in presenting their data.
+Because we do a lot of data modeling outside the BI tool, the fact that all the logic we're building in a repo can easily sync with Preset. It prevents us from having to go and replicate the definitions in two places. -Paxon Fischer, Data Engineering & Tooling Manager at MetaMap
+The most significant impact of transitioning to Preset is the substantial cost savings of over 50%. The transparent pricing structure of Preset made it clear to the MetaMap team that the benefits they are receiving from the product outweigh the costs.
+Preset's embedded dashboard has also enabled merchants and MetaMap's team to access more reliable real-time data, eliminating the need for manual data retrieval and delivery. Each customer success rep can efficiently handle a greater number of assigned merchants.
+Looking ahead, MetaMap envisions enabling self-service analytics in which users have ownership of their data’s logic, calculations, and metrics. This approach would allow sales and customer success teams, those closest to the merchants, to evaluate data and extract more valuable insights for the benefit of the merchants.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Reusable charts and datasets: Users can use the same charts and data sets across multiple dashboards. This functionality is useful when there is a chart or some metric (e.g., account-level revenue) that is shared across multiple dashboards (such as a revenue dashboard and a customer success dashboard). If a user ever has to make a change to a metric definition or change the chart itself, the same change would apply to all the dashboards that the change is associated with, ensuring that everyone is seeing the correct and up-to-date data.
+
+• 
+Thin semantic layer: It's helpful that Preset has a thin semantic layer because MetaMap manages its data models outside the BI tool, and all that logic built in a repo can be synced to Preset, avoiding the need to replicate definitions both in the data warehouse and the BI tool.
+
+• 
+SQL user-friendly: Preset is easier to use for SQL-savvy data analysts and data scientists.
+
+• 
+More visualization options: Preset offers a wider range of visualization options out of the box, providing users with more flexibility in presenting their data.
+

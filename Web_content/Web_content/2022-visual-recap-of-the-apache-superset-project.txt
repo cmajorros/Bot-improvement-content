@@ -1,0 +1,114 @@
+**2022 Recap of the Apache Superset Project**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The Superset Community has been growing steadily since joining the Apache Software Foundation in 2017. 2022 is no exception to that rule, as the  Superset project and the community surrounding it have continued to grow and mature in a number of ways we're excited to share.
+
+As we publish this, Superset's Github repo has hit the landmark achievement of 50K stars! While this metric is admittedly a little dubious in what it means, a milestone is a milestone! We’re a big deal!
+In 2022, the repo had 1963 PRs merged, compared with 2543 in 2021. As any engineer can attest, neither the number of PRs nor lines of code are an ideal measure of progress. The point here isn’t to compare year over year, but to illustrate that the repo continues to move FAST!
+In 2021, the community opened 2265 issues, and closed 1683 of them. In 2022, there were 1178 issues opened, and 540 of them were closed. One interpretation of this is that the project is improving in stability (about half the issues overall) but that the community didn’t do as well this year in addressing opened issues - this is an area we can strive to improve in 2023.
+
+The Superset Slack community has again nearly doubled, from ~5500 at the start of the year to ~8600 members! As expected, the following metrics all doubled or more in lock step:
+We’re excited to see a growing number of faces in the Slack community, many of whom are growing increasingly engaged in discussions, and leaving fewer and fewer questions unanswered. We hope to see this trend grow as we enter 2023!
+
+
+
+2022 had no shortage of important Superset releases. We shipped Superset 2.0, for starters! Along with that major release, we shipped significant minor releases (new features!) and patch releases (fewer bugs!) including:
+In particular, we’re excited to cap off the year with our 2.0.1 patch release. This contains a slew of bug fixes and security patches, meaning anyone who’s been waiting to take the leap to Superset 2.0 can now do so more safely and securely than ever. Read more about the 2.0.1 release and why it’s so important.
+We want to extend a warm welcome to all those who were voted into the official roster on the Apache Superset project. This brings our count for Committers (who can approve and merge code, essentially) up to 54, and Project Management Committee (PMC) members (with additional responsibilities and a “binding” vote) up to 33!
+New Committers: Diego Medina, Stephen Liu
+New PMC members: Kamil Gabryjelski, Diego Pucci, Hugh A. Miles II, and Michael Molina
+There is SO MUCH in store for 2023 and beoynd, and we’d love to have you involved. If you're not already a part of the Superset community, join us!
+Thank you all for for your hard work in helping to grow and support the Superset product and its community. We’ll check back in a year and see how we’ve grown! Meanwhile, we look forward to working with you all in 2023 as we move toward many exciting new frontiers.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Weekly Active Members
+
+~300 at the start of 2022 to ~600 at the end of 2022 with spikes related to significant Superset releases or changes!
+
+
+• ~300 at the start of 2022 to ~600 at the end of 2022 with spikes related to significant Superset releases or changes!
+• Weekly Members Posting Messages
+
+~50 at the start of 2022 to ~125 at the end of 2022 with activity changes at similar times as the Weekly Active Member changes!
+
+
+• ~50 at the start of 2022 to ~125 at the end of 2022 with activity changes at similar times as the Weekly Active Member changes!
+• 1.4.0
+• 1.5.0
+• 1.5.1
+• 1.5.2
+• 2.0.0
+• 2.0.1
+• Embedded SDK
+
+Superset now has support to embed your dashboards in 3rd-party applications with a “guest token” implementation, RLS security, and more.
+
+
+• Superset now has support to embed your dashboards in 3rd-party applications with a “guest token” implementation, RLS security, and more.
+• Data exploration
+• Viewing data from a chart as a table to see the exact data points they display
+• Drilling to Detail from charts to see the granular data that powers them
+• Faster, more responsive filters
+• RLS for SQL Lab
+• Dataset, chart, & dashboard creation
+
+A chart picker retaining configuration when switching visualizations
+More seamless workflow from SQL to visualization and dataset creation
+Color consistency when navigating from dashboards into Explore
+Handlebars Chart - a veritable Swiss army knife for turning your data into ad-hoc HTML layouts. Expect a detailed blog post about how this works in the new year!
+
+
+• A chart picker retaining configuration when switching visualizations
+• More seamless workflow from SQL to visualization and dataset creation
+• Color consistency when navigating from dashboards into Explore
+• Handlebars Chart - a veritable Swiss army knife for turning your data into ad-hoc HTML layouts. Expect a detailed blog post about how this works in the new year!
+• Global experience / easier workflows
+
+Cross-referencing between charts and dashboards
+Horizontal filter bars
+“Featured” badges, and general improvements to usability in the Visualization gallery
+Implementation of Business Types (SIP-78)
+Additional chart implementations, bug fixes, and performance enhancements for Advanced Analytics
+Generic Chart Axis (a.k.a. categorical/temporal X axis). This feature is still behind a feature flag, but reaching a level of maturity that will allow us to set it as default soon, and head toward the deprecation/removal of several legacy NVD3 charts
+Chart/Dashboard cross references now visible throughout the product
+
+
+• Cross-referencing between charts and dashboards
+• Horizontal filter bars
+• “Featured” badges, and general improvements to usability in the Visualization gallery
+• Implementation of Business Types (SIP-78)
+• Additional chart implementations, bug fixes, and performance enhancements for Advanced Analytics
+• Generic Chart Axis (a.k.a. categorical/temporal X axis). This feature is still behind a feature flag, but reaching a level of maturity that will allow us to set it as default soon, and head toward the deprecation/removal of several legacy NVD3 charts
+• Chart/Dashboard cross references now visible throughout the product
+• Developer experience, stability and performance
+
+Visual regression testing to improve cosmetic UI stability
+Explore moved into the main React application for improved performance
+Various performance/speed improvements throughout the product
+Metadata Bar component, to show relevant details for a view, added the UI, and developed as a key example in Superset’s burgeoning Design System
+New AntD-based table component - currently used in Drill to Detail, but coming to other areas of Superset in the new year!
+
+
+• Visual regression testing to improve cosmetic UI stability
+• Explore moved into the main React application for improved performance
+• Various performance/speed improvements throughout the product
+• Metadata Bar component, to show relevant details for a view, added the UI, and developed as a key example in Superset’s burgeoning Design System
+• New AntD-based table component - currently used in Drill to Detail, but coming to other areas of Superset in the new year!
+• Azure Data Explorer
+• DuckDB
+• DynamoDB (docs)
+• Superset Dev Mailing List (join by emailing dev-subscribe@superset.apache.org
+• Superset Slack Community
+• Superset Community Calendar (including Superset Town Hall meetings)
+• Global Apache Superset Community Meetup

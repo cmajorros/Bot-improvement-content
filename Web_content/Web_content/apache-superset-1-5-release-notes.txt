@@ -1,0 +1,80 @@
+**Apache Superset 1.5: Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset 1.5 is out! Thank you to everyone who contributed to this fantastic release.
+Note that Preset Cloud has been running Superset 1.5 plus some add-ons for a few months now!
+Faster Loading of Complex Dashboards
+Previously, it wasn't uncommon for dashboards with lots of native filters and charts to take 15 seconds to render. Note that these changes only apply to dashboard native filters (not the soon-to-be-deprecated Filter Box component).
+Would you like some proof? Check out the before and after videos for the same, complex dashboard!
+Before (~11 seconds)
+
+After (~3 seconds)
+
+Cleaner Design for Buttons in Dashboard Filters
+Dashboard native filters now sport a cleaner design, with the most notable changes being the relocating of the Apply Filters and Clear All buttons to the bottom of the filter panel.
+
+Dependencies for Dashboard Filters
+Dashboard filters just become more aware. Of each other! You can now restrict the exposed values in a filter based on the selected values of other filters in the same dashboard.
+
+More Support for Custom SQL in Explore
+In addition to being able to write custom SQL for adhoc Metrics and Filters in Explore, the Column control now also features a Custom SQL tab. This makes it possible to write custom expressions directly in charts without adding them to the dataset as saved expressions.
+
+Improvements to the Caching Experience
+Superset 1.5 introduces SupersetMetastoreCache, which makes it possible to cache data in the Superset metadata store without relying on an external cache like Redis or Memcached. You can read more in the Superset caching documentation.
+Dashboards with lots of filters used to cause errors because the filter state lived in the URL itself, which resulted in the long URL problem. Now, Superset stores Dashboard and Explore state in the cache (instead of all in the URL).
+Building on both of the above features, permanent URL's to Dashboard and Explore pages now store state in JSON objects in the Superset metadata store (instead of the URL). In addition, URL's incorporate hashes instead of numerical id's for added security.
+
+Superset 1.5 contains an incredibly long list of bug fixes and we recommend reading the Fixes section in the changelog to get the full picture. Here's a preview of some of them!
+
+DuckDB
+DuckDB is like SQLite, but optimized for OLAP (column-oriented) operations! Here's a link to the PR.
+Azure Data Explorer
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more.
+Here's a link to the PR.
+Existing supported databases got nice upgrades as well in 1.5!
+Trino
+Microsoft SQL Server
+Teradata
+Apache Drill
+You have a few different options for upgrading to v1.5:
+Changelog
+As usual, you can read the full changelog over in the Superset Github repo.
+Notes on Updating
+You can find all of the breaking changes, potential downtime changes, deprecations, and other crucial changes in updating.md.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Superset 1.5 introduces SupersetMetastoreCache, which makes it possible to cache data in the Superset metadata store without relying on an external cache like Redis or Memcached. You can read more in the Superset caching documentation.
+
+• 
+Dashboards with lots of filters used to cause errors because the filter state lived in the URL itself, which resulted in the long URL problem. Now, Superset stores Dashboard and Explore state in the cache (instead of all in the URL).
+
+• 
+Building on both of the above features, permanent URL's to Dashboard and Explore pages now store state in JSON objects in the Superset metadata store (instead of the URL). In addition, URL's incorporate hashes instead of numerical id's for added security.
+
+• Fixes occasional blank state issue when only one column is selected (#19651)
+• Fixes issue with dashboard crashing when Big Number chart overflows (#19688)
+• Fixes issue where a jinja macro wasn't accessible from Metrics in Explore (#19565)
+• Remove gap from bottom of SQL Lab results (#19138)
+• Fixes to dataset search during chart creation workflow (#19065)
+• Support for server certificates (PR #16346)
+• Support for alternative authentication methods like Kerberos, JWT, and custom auth (PR #17593)
+• Supports using common table expressions (CTE's) in virtual tables (PR #18567)
+• Supports TOP syntax (PR #18746)
+• Supports TOP syntax (PR #18240)
+• User imperation now possible through another driver (PR #19252)
+• Python package: apache-superset
+• Source release from Github
+• Source release from the Apache Software Foundation
+• Docker Image

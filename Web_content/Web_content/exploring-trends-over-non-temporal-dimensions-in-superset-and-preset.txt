@@ -1,0 +1,38 @@
+**Exploring Trends Over Non-Temporal Dimensions in Superset and Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Time series charts, such as line charts, scatter plots, and area charts, are commonly used to display how variables change over time. However, in some cases, it is necessary to explore trends and patterns over categorical dimensions. We are excited to announce that non-temporal X-axes are now available for general availability (GA) in many of Preset's charts, which were formerly known as the time-series charts. In Apache Superset, you can continue to access the non-temporal x-axes through the feature flag, GENERIC_CHART_AXES.
+
+This blog post explains the 3 key updates that have been made to the time-series charts and time-filter interactions using the Preset interface.
+Teams frequently want the ability to use bar charts, line charts, and other types of charts with non-temporal x-axes to carry out analyses such as:
+X-axes that support both temporal and non-temporal dimensions have been available in beta in both Superset and Preset for some time, but we have recently released them for GA in Preset.
+The time-series charts have been renamed to reflect their support of non-temporal dimensions. The visualization picker in Preset (or Superset) and documentation have been updated to reflect these changes.
+Preset’s visualization picker
+
+We have made improvements to the drag & drop "Chart Builder" interface to provide an intuitive chart configuration experience. These improvements include:
+
+Time-based filters are now configured in the "Filters" section of the Query panel. Since Superset and Preset dashboards use charts’ time filters as their dashboard filters, at least one time filter must be selected to create or update a chart. By default, a time filter with No Filter value will be applied to a chart. Multiple time filters can be added if desired.
+
+In the “Dashboard” view, you can dive into segments of your visualizations using dashboard filters or cross-filters. Time filters you set up during chart creation are available for dashboard filter configuration.
+Note that even if a chart contains multiple time-based filters, you can only specify one time range for all filters in the dashboard view. In other words, if you set up a time range for ‘last week,’ all of the chart’s time filters are set to ‘last week.’
+Create your charts with more versatile x-axes in Superset or Preset. Our documentation provides detailed instructions for how you can create and customize your charts. If you are new, create an account in just a few steps. Preset’s Starter plan gives you access to the hosted version of the open-source Superset for free forever.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Evaluating correlations between variables (e.g., the correlation between revenue and subscriber growth)
+• Quantifying user research data (e.g., evaluating mean scores across survey questions)
+• Measuring business and functional performance metrics (e.g., customer acquisition cost by channel)
+• The ability to specify the x-axis dimension in the "Query" panel (the former "time filter" panel is displaced).
+• The "Time Grain" field will only appear when a temporal column is selected as the X-axis variable.
+`GENERIC_CHART_AXES`
+`No Filter`

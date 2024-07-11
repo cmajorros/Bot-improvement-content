@@ -1,0 +1,43 @@
+**Apache Superset vs Metabase**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Data visualization and BI tools are essential for any modern organization to make fast, data-driven decisions. With a wide range of visualization tools available to choose from, it's important to know what makes each platform unique. After Databricks acquired Redash, Metabase and Apache Superset were the last two popular open-source business intelligence platforms left.
+Although most BI platforms allow you to create data visualizations, perform complicated data analysis, and build interactive dashboards, open source BI tools offer even more benefits. Whether you're looking for cost effectiveness, customizability, wide-spread community support, enhanced security, or future-proofing features, open source BI is the way to go. And, with that in mind, Apache Superset is the most popular open source BI tool in the world (by Github stars).
+In this post, we'll showcase where Metabase shines and struggles in comparison to Preset Cloud / Superset.
+Preset's founder and CEO is Max Beauchemin, the original creator of Apache Superset. At Preset, we're the experts of Superset and are proud to be the leading vendor offering Apache Superset as a cloud hosted service. In addition to all of the features that Superset has out of the box, Preset Cloud offers the following:
+The Superset community enjoys the benefit of being a project housed in the Apache Software Foundation. The barrier to contributing is low and the Superset community has added support for new databases at a breakneck pace.
+ Evaluate popular analytics software tools such as Apache Superset, Tableau, Looker, and more.
+Both Metabase and Superset have no-code interfaces for crafting SQL queries.
+Business intelligence tools are only as good as the visualizations they enable.
+Similar to how the Superset community helped drive support for over 20 databases, they've also been the driving force behind the large array of visualizations in Superset. This is no surprise, since Superset's contributor community is significantly larger than Metabase's.
+Both Metabase and Superset ship with a powerful SQL editor and a lightweight semantic layer.
+In the no-code chart builder (Explore), metrics, columns, and virtual datasets all inherit the power that physical database tables have in Superset.
+Superset is widely known for the beautiful charts and interactive dashboards you can create quickly. Here's an example that's a community favorite:
+
+While you can customize enterprise features on Superset, Preset Cloud makes it easier to configure them from its UI. Below makes the comparison of key enterprise features between Metabase and Preset Cloud.
+Preset extends Superset by adding powerful enterprise features. The following graphic helps visualize the differences:
+
+Whichever BI vendor you end up choosing, we strongly recommend choosing one that's built on open source.
+If you'd like to try Superset, Preset Cloud offers a free-forever tier for you to try out all the bells and whistles in a hassle-free way.
+Preset Cloud is now generally available for anyone to use and we're excited to launch with a free-forever tier. You can get started  for free here! 
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Preset Manager: The admin layer that lets you deploy multiple Superset workspaces in one click and manage user access permissions using role-based access control (RBAC).
+• Documentation & Training: The Preset team maintains high quality end-user focused documentation and offers live training and office hours.
+• Authentication, Data Security, and Network Security: Preset Cloud is SOC2 Type 2 compliant and offers security features such as single sign-on (SSO), SSH tunneling, SCIM integration, row-level security, and Managed Private Cloud for paid teams.
+• World-class Support: teams on a paid tier get access to our dedicated email and chat support.
+• Aggregate values across multiple columns and publish as Metrics.
+• Metrics can be certified as authoritative by a specific user.
+• Transform specific columns and publish as Calculated Columns.
+• Write arbitrary SQL queries and publish as a Virtual Dataset.

@@ -1,0 +1,311 @@
+**Build a Slack Dashboard (Part 1): Extracting Data Using Meltano**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Slack is one of the most popular community tools out there. Even though it was originally conceived as a tool for teams to communicate and coordinate, Slack embraced a free tier that lets community organizers create workspaces with unlimited members and unlimited channels.
+
+This lead to the meteoric rise of thousands of Slack communities across the world. You can find Slack communities for many of your professional interests, personal interests, social causes, and many more. In fact, the website Slofile will even help you discover new Slack communities to join.
+Slack and Open Source
+Here at Preset, we're the experts of Apache Superset (incubating) and we invest a lot in the Superset Community. The Superset community is spread across many channels, but a lot of discussions and conversations happen in the community Slack.
+As an organization focused on enabling insights through data exploration, visualizations, and dashboards, we're always interested in finding productive ways to use data to help us understand the growth of the Superset project and the health of the Superset community.
+Wouldn't you love to have a dashboard like this for your community?
+
+In this blog post series, we'll explore how we can leverage a few different open source tools to build an awesome dashboard for a Slack community:
+Dbt stands for data build tool and is the key workflow for writing data transformation scripts using SQL. We'll focus on Singer taps and targets in this blog post.
+
+Meltano is an open source ELT platform for data integration that facilitates:
+Under the hood, Meltano elegantly combines two open source projects -- Singer and dbt.
+Singer is open source and the community has created hundreds of data extractors, called Singer taps, to easily pull out data from 3rd party SaaS tools like Gitlab, Google Analytics, Hubspot, and Slack. Using Singer targets, Meltano can load data to destinations like Google BigQuery, Google Sheets, PostgreSQL, and Amazon S3.
+Meltano packages both of these tools into a single platform and provides a command line interface and a graphical user interface to interact with everything very easily.
+Once you have everything setup, you only need to run a single command to sync your data incrementally from your community Slack into a Postgres database:
+But we're getting ahead of ourselves 😃
+Slack provides an API that's accessible even for workspaces on the free tier (albeit with more limitations). Unfortunately, it's not as simple as getting access to the API. You actually have to create a Slack app, set up permissions, and add the app to the channels you want to extract data out of.
+In the following steps, we'll walkthrough how to get the access you need.
+If you're not a Workspace Admin, I recommend getting permission from a Workspace Owner first for this project. Then, ask them to elevate your permissions to the Admin level.
+Open the Slack workspace and navigate to [Workspace name] > Setting & administration > Customize [Workspace name].
+
+
+
+
+
+
+
+Once it's installed, you'll see a Bot User OAuth Access Token. This is what we need for the Meltano system to be able to extract data from our workspace. Before Meltano can extract useful data from the Slack workspace, we need to add our app to all of the public channels we want to pull data from.
+Open each public channel in your community Slack and run the following command:
+If your app was named meltano, you would type the following to add the app to the channel:
+To wrap up this section, save your OAuth Access Token in a safe place. We'll need this later in this tutorial.
+Meltano's website has the full instructions on how to install Meltano and their documentation is amazing! We'll cover the abridged version here!
+Meltano is a Python 3 library that can be installed using pip (or pip3 based on your setup). First, create a directory for your Meltano projects and cd into it.
+Using a Python virtual environment local to this project folder is highly recommended (use python3 instead if that's linked to your Python 3 version).
+Install the Meltano library.
+You now should have the meltano command available in your command line now. We're now ready to initialize a Meltano project.
+You should see a flurry of output. Take a look at the files Meltano created.
+This is one of the reasons Meltano works really well with version control, CI/CD, and other common web development workflows.
+To extract data from a 3rd party API, Meltano needs extractor libraries. These are Python libraries that target the Singer spec and can usually be installed using pip.
+Meltano comes with a few extractors out of the box, but not one for extracting data from Slack.
+First things first, open the folder that Meltano created for our project.
+We'll need to install the community extractor library for Slack, called tap-slack. Adding any library or capabilities to a Meltano project is done using the meltano add command:
+Meltano will launch a step-by-step wizard that lets us provide the necessary context (upto date Meltano documentation here).
+We recommend the following options:
+Here's a summary screenshot for your convenience:
+
+
+By default, Meltano will instruct extractors like tap-slack to extract all of the entities and attributes specified in the extractor's catalog.
+You can run the following command to list all of the attributes Meltano will extract by default:
+
+To finish up configuration, we need to set the token and start_date parameters that we specified to Meltano during the extractor setup wizard.
+If you run meltano config tap-slack, you'll notice that these values are set to null:
+Before configuring the token value, we recommend instructing Meltano to save this OAuth token in .env instead of as plain-text in meltano.yml (which is recommended practice). This can be accomplished by opening meltano.yml and editing the settings section to match the following:
+Now, let's set the token value, use the following command:
+Recall that the OAuth token comes from the Slack App page from earlier in this post.
+Finally, you need to set the start_date value. This represents the earliest datetime value you want for data like messages and channels synced (all users will be synced regardless of this value).
+We recommend picking a recent start date (2020-09-01 at the time of writing is the start of the current month) to test the pipeline.
+Now that we have all of the pieces setup, we just need to configure the destination for the data extracted from Slack. To test the extraction, let's load the data as JSON to a local folder.
+To recap on Singer and Meltano vocabulary:
+Meltano comes with target-jsonl out of the box, which stands for JSON lines. Let's use this for testing our pipeline.
+You can add target-jsonl using a single command:
+Create a directory called output for target-jsonl to dump to.
+To test our pipeline we can run the following, beautiful command and watch as Meltano coordinates the orchestra of commands needed for this pipeline.
+Let's break down the different components of the command while we wait for the data pipeline to finish:
+The Meltano library will output a lot of logs to the terminal as it's running. The most common error we ran into was a timeout error because the Slack API couldn't be reached.
+Slack will pretty aggressively throttle lots of inbound API requests (especially on the free plan), but thankfully the Meltano system was designed to gracefully back off and try again with a time delay. With some patience, you should see the delightful success logs once the data is finished extracting and finished loading (to the folder locally).
+You should see lots of colorful output from Meltano as it runs through the full data pipeline.
+
+The data you're looking for will live in output/:
+
+In this post, we performed a deep dive into how to configure Meltano extracting data from Slack and loading into a local folder of JSON files.
+In part 2 of this blog post series, we discuss how to build the Superset dashboard we teased earlier in the post.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Meltano for ELT (or extract-load-transform)
+• Postgres for data storage
+• Superset for creating views, visualizations, and dashboards
+• the extraction of data from 3rd party SaaS services
+• the loading of data into data stores
+• the transformation of the data
+• 
+If you're not a Workspace Admin, I recommend getting permission from a Workspace Owner first for this project. Then, ask them to elevate your permissions to the Admin level.
+
+• 
+Open the Slack workspace and navigate to [Workspace name] > Setting & administration > Customize [Workspace name].
+
+• In the new browser page that opens, navigate to Menu > Configure apps.
+• Select Build in the top right corner.
+• Read the Terms of Service agreement and select I agree (if you agree!). Then select Create new app, give your app a memorable name, and select the workspace you want the app to have access to.
+• Let's now give this app some permissions. Under Add features and functionality, select Permissions.
+• We recommend giving the following permissions to this app.
+• Then, let's add the app to the workspace by clicking Install App to Workspace.
+• 
+Meltano is a Python 3 library that can be installed using pip (or pip3 based on your setup). First, create a directory for your Meltano projects and cd into it.
+mkdir meltano-projects
+cd meltano-projects
+
+• 
+Using a Python virtual environment local to this project folder is highly recommended (use python3 instead if that's linked to your Python 3 version).
+python -m venv .venv
+source .venv/bin/activate
+
+• 
+Install the Meltano library.
+pip install meltano
+
+• 
+You now should have the meltano command available in your command line now. We're now ready to initialize a Meltano project.
+meltano init slack
+You should see a flurry of output. Take a look at the files Meltano created.
+Created slack
+Creating project files...
+Created slack/meltano.yml
+Created slack/README.md
+Created slack/requirements.txt
+Created slack/.gitignore
+Created slack/model/.gitkeep
+Created slack/extract/.gitkeep
+Created slack/load/.gitkeep
+Created slack/transform/.gitkeep
+Created slack/analyze/.gitkeep
+Created slack/notebook/.gitkeep
+Created slack/orchestrate/.gitkeep
+Creating system database...
+This is one of the reasons Meltano works really well with version control, CI/CD, and other common web development workflows.
+
+• 
+First things first, open the folder that Meltano created for our project.
+cd slack
+
+• 
+We'll need to install the community extractor library for Slack, called tap-slack. Adding any library or capabilities to a Meltano project is done using the meltano add command:
+meltano add --custom extractor tap-slack
+Meltano will launch a step-by-step wizard that lets us provide the necessary context (upto date Meltano documentation here).
+We recommend the following options:
+
+(namespace): tap_slack
+(pip_url): git+https://github.com/singer-io/tap-slack.git
+(executable): tap-slack
+(capabilities): catalog,discover,state
+(settings): token,start_date
+
+Here's a summary screenshot for your convenience:
+
+• (namespace): tap_slack
+• (pip_url): git+https://github.com/singer-io/tap-slack.git
+• (executable): tap-slack
+• (capabilities): catalog,discover,state
+• (settings): token,start_date
+• For a visual confirmation, you can inspect the meltano.yml file.
+• 
+By default, Meltano will instruct extractors like tap-slack to extract all of the entities and attributes specified in the extractor's catalog.
+You can run the following command to list all of the attributes Meltano will extract by default:
+meltano select --list --all tap-slack
+
+• 
+To finish up configuration, we need to set the token and start_date parameters that we specified to Meltano during the extractor setup wizard.
+If you run meltano config tap-slack, you'll notice that these values are set to null:
+{
+  "token": null,
+  "start_date": null
+}
+Before configuring the token value, we recommend instructing Meltano to save this OAuth token in .env instead of as plain-text in meltano.yml (which is recommended practice). This can be accomplished by opening meltano.yml and editing the settings section to match the following:
+plugins:
+  extractors:
+  - name: tap-slack
+  namespace: tap_slack
+  pip_url: git+https://github.com/singer-io/tap-slack.git
+  executable: tap-slack
+  capabilities:
+  - catalog
+  - discover
+  - state
+  settings:
+      - name: token
+        kind: password
+      - name: start_date
+
+• 
+Now, let's set the token value, use the following command:
+meltano config tap-slack set token xoxb-22342-oauth1-token2-etc
+Recall that the OAuth token comes from the Slack App page from earlier in this post.
+
+• 
+Finally, you need to set the start_date value. This represents the earliest datetime value you want for data like messages and channels synced (all users will be synced regardless of this value).
+meltano config tap-slack set start_date 2020-09-01
+We recommend picking a recent start date (2020-09-01 at the time of writing is the start of the current month) to test the pipeline.
+
+• data extraction from an API: Singer taps or Meltano extractors
+• data loading to a destination: Singer targets or Meltano loaders
+• 
+You can add target-jsonl using a single command:
+meltano add loader target-jsonl
+
+• 
+Create a directory called output for target-jsonl to dump to.
+mkdir -p output
+
+• meltano elt: ELT stands for Extract-Load-Transform and this command lets us specify we want an ELT job to run
+• tap-slack: extract data from Slack, using the associated credentials and settings we specified
+• target-jsonl: load data to a local folder, as JSON files
+• --job_id=blogpost: Meltano pipelines often generate state and that state is linked to the job_id we specified. To re-run the data pipeline in an incremental fashion (only sync the changes), we can just re-run the same exact command using the same exact job_id.
+`meltano elt tap-slack target-postgres --job_id=daily_update`
+`/invite @[app_name]`
+`/invite @meltano`
+`pip`
+`pip3`
+`cd`
+`mkdir meltano-projects
+cd meltano-projects`
+`python3`
+`python -m venv .venv
+source .venv/bin/activate`
+`pip install meltano`
+`meltano`
+`meltano init slack`
+`Created slack
+Creating project files...
+Created slack/meltano.yml
+Created slack/README.md
+Created slack/requirements.txt
+Created slack/.gitignore
+Created slack/model/.gitkeep
+Created slack/extract/.gitkeep
+Created slack/load/.gitkeep
+Created slack/transform/.gitkeep
+Created slack/analyze/.gitkeep
+Created slack/notebook/.gitkeep
+Created slack/orchestrate/.gitkeep
+Creating system database...`
+`pip`
+`cd slack`
+`meltano add`
+`meltano add --custom extractor tap-slack`
+`tap_slack`
+`git+https://github.com/singer-io/tap-slack.git`
+`tap-slack`
+`catalog,discover,state`
+`token,start_date`
+`meltano.yml`
+`tap-slack`
+`meltano select --list --all tap-slack`
+`You can exclude specific entities and attributes if you'd like using:`
+`    meltano select tap-slack <entity> <attribute>`
+`For example, the following command will instruct Meltano to not extract `teams.plan`:`
+`    meltano select tap-slack --exclude teams plan`
+`token`
+`start_date`
+`meltano config tap-slack`
+`null`
+`{
+  "token": null,
+  "start_date": null
+}`
+`token`
+`.env`
+`meltano.yml`
+`meltano.yml`
+`settings`
+`plugins:
+  extractors:
+  - name: tap-slack
+  namespace: tap_slack
+  pip_url: git+https://github.com/singer-io/tap-slack.git
+  executable: tap-slack
+  capabilities:
+  - catalog
+  - discover
+  - state
+  settings:
+      - name: token
+        kind: password
+      - name: start_date`
+`token`
+`meltano config tap-slack set token xoxb-22342-oauth1-token2-etc`
+`start_date`
+`meltano config tap-slack set start_date 2020-09-01`
+`2020-09-01`
+`taps`
+`extractors`
+`targets`
+`loaders`
+`target-jsonl`
+`target-jsonl`
+`meltano add loader target-jsonl`
+`output`
+`target-jsonl`
+`mkdir -p output`
+`meltano elt tap-slack target-jsonl --job_id=blogpost`
+`meltano elt`
+`tap-slack`
+`target-jsonl`
+`--job_id=blogpost`
+`job_id`
+`job_id`
+`output/`

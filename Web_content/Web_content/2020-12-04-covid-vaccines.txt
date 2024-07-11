@@ -1,0 +1,86 @@
+**A Visual Tour of the Global COVID-19 Vaccine Efforts**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+After nearly a year (although what feels more like a decade) of the COVID-19 pandemic wreaking havoc on all of our lives and connected systems, we seem to be on the cusp of some good news -- a vaccine.
+Most major pandemics in the last few years have ended with some sort of widespread vaccination efforts, but these efforts have historically taken many years to actually develop, test, manufacture, and disseminate. The world is hoping (and expecting) to shorten the usual vaccine development cycle by about an order of magnitude.
+Recently, the Moderna and Pfizer-BioNTech vaccines have made splashy headlines by announcing the effectiveness of their vaccine candidates.
+While these 2 might efforts may be the furthest along, many hundreds of other efforts have been seeking media coverage and offering their own vaccine promises.
+In this post, we'll visualize data on COVID-19 vaccine candidates to understand:
+It's important to note that the dataset we'll be working with is manually curated by a team of experts (in the US) but is still unlikely to be comprehensive. There is unfortunately not a global, centralized database of all vaccine candidates. Every tracker will offer slightly different views of the full picture. For example, the New York Times tracker tracks a different subset of the vaccines.
+We'll be working with a dataset that's maintained and updated by the Faster Cures center at the Milken Institute. Their landing page for this project is covid-19vaccinetracker.org.
+
+While the raw dataset is available here for download, there's no API or programmatic way to access it or easily incorporate the updated dataset into your data pipelines. Fortunately, the data doesn't change that frequently and you can manually upload the CSV file to Superset to overwrite the past state of the data (your charts and dashboards will update with the new data!). We at Preset will also be mirroring the dataset to this Google Sheet and keeping upto date. You're welcome to use this Google Sheet as a data source in Superset and you can read about configuring that in this post.
+The raw dataset doesn't include the country involved in researching and / or developing each vaccine candidate. We went through the list of organizations affiliated with each vaccine candidate and tried our best to attribute a single country to each effort. This is definitely an imperfect approach for a few different reasons:
+Whenever it was unclear which country deserved the attribution, we focused on which country was the most involved in the R&D side (vs the clinical trial and manufacturing stages). As an example, the now-famous Pfizer vaccine was actually researched by BioNTech in Germany so we attributed the R&D efforts to Germany (BioNTech SE is a German company based in Mainz).
+Here's a preview of the most interesting columns in the final dataset:
+
+All new vaccine candidates must go through multi-stage clinical trials to understand their safety and efficacy on a randomized sample of humans. In the United States, trials have different phases before they can be approved for more general use:
+Once a drug exits Phase III trials successfully, it will remain in Regulatory Review until it's approved for limited (and eventually widespread) use. Cancer.org has an excellent overview of the different clinical trial phases and CDC has a great overview on vaccine development.
+Let's start by counting the number of vaccine candidates in each phase of development. Note that there won't be any candidates in Phase IV yet since no vaccines are out on the market and available.
+
+Researching and developing a vaccine is hard work. From this data, it's clear that only a minority of trials have been tracked as entering even Phase I trials and even a smaller fraction made it to phase III.
+
+While the process and different phases of clinical trials laid out in the last section focuses on how the United States developes drugs and vaccines, it's a very similar process to how trials are run globally (just like with air travel, the standards set by the United States are some of the highest and they're exported globally).
+First, let's visualize all of the countries involved in researching / developing a COVID19 vaccine on a World Map, using color to highlight the number of candidates each country has been tracked as working on.
+
+In this map:
+The United States is an outlier, with the most number of vaccine candidates. China, Canada, and Russia seem to be up next. It's really energizing to see vaccine efforts on every single continent (except Antarctica of course) and across pretty much all economic development categories.
+Next, let's use a Tree Map to help us better understand the most dominant countries in the vaccine efforts.
+
+Unsurprisingly, the United States and China are the most involved in researching and developing COVID19 vaccines. After those 2, it was wonderful to see some countries traditionally not affiliated with pharmaceutical R&D, like Kazakhstan and Egypt, involve themselves with 4 and 5 vaccine candidates respectively.
+Somewhat surprisingly, Great Britain is only involved with 7 trials (including the famous Univ of Oxford / AstraZeneca vaccine).
+While the vocabulary around vaccine development ("a vaccine for COVID19") can suggest a singular approach, there are actually a multitude of approaches that scientists and researchers can take. The Moderna and Pfizer vaccines have been widely covered in the news for their mRNA based approach to vaccine development.
+mRNA based vaccine approaches are based on relatively recent scientific understanding. mRNA vaccines reuse the approach that cells in human bodies use to create proteins and direct them to build "spike proteins" that are unique to COVID19. Both DNA and mRNA based approaches avoid injecting a weakened form of the virus into the human body (which the polio vaccine does).
+How common is this approach and what are the other approaches companies and organizations are taking? You can read more about the different vaccine approaches here.
+
+We can see from this Partition Chart that:
+Now that we have a sense for the different approaches, let's understand which ones seem the most promising. We'll use the stage of development (the later the stage, the better the odds the vaccine works effectively and safely) as a proxy for "most promising". This is definitely an imperfect measure, since not all vaccine development efforts started at the same time.
+We'll use a Heatmap to visualize the intersection of approaches and development stages.
+
+To keep things simpler, we grouped vaccine candidates in both "Phase II" and "Phase I/II" into a single category (titled "Phase II or Combined I/II"). Some things to note:
+The next question naturally is -- which countries are involved in the most promising trials? We'll start with the following, somewhat busy heatmap:
+
+Here's a filtered view of the heatmap to just the candidates that have at least begun Phase I trials.
+
+If we focus on Phase III and beyond, the following countries have vaccine candidates still in the running:
+We hope you enjoyed this visual tour of COVID19 vaccines and gained more context on the different efforts. If you want to learn how to replicate this work and build your own vaccine tracker dashboard, follow us on Twitter and LinkedIn and we'll announce learning materials soon!
+If you have feedback on this post, please send it to srini at preset.io
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• all of the countries that were involved in creating vaccine candidates
+• the different approaches the candidates take
+• the different stages the vaccine candidates are in
+• the data quality challenges of tracking vaccines
+• there can sometimes be a separate organization for each major stage: researching the core IP, developing the vaccine itself, organizing clinical trials, and manufacturing
+• many vaccine development efforts involved organizations in multiple countries
+• Phase I (first round of testing on humans, often a smaller number of humans enrolled)
+• Phase II (assess the impact of factors like age, gender, and presence of antibodies)
+• Combined Phase I & II (sometimes done instead of separate phase 1 and 2 trials)
+• Phase III (compare safety & effectiveness of new treatment against standard alternative)
+• Phase IV (studies that seek to understand the long term impact of approved drugs)
+• the darker the green, the larger the quantity of vaccine efforts
+• the lighter the green, the lower the quantity of vaccine efforts
+• the most popular approach is protein subunit, the same approach that the hepatitis B vaccine takes
+• RNA-based vaccines (really mRNA) are the next most popular approach
+• multiple viral vector based approaches seem to be somewhat popular as well (read more here)
+• the weakened and inactivated virus approach is actually the least common approach this time around
+• The vaccine candidates in Phase II or Combined I/II span majority of the approaches
+• The vaccine candidates in Phase III are focused on Inactived virus, Live attenuated virus, and Protein subunit approaches
+• The vaccine candidates in the last stage are exclusively RNA-based vaccines (really mRNA)
+• Brazil
+• China
+• Great Britain
+• India
+• Russia
+• United States

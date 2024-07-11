@@ -1,0 +1,31 @@
+**Preset and MotherDuck: the easiest way to connect Apache Superset to DuckDB**
+**Connecting Preset to MotherDuck**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+DuckDB is an open-source in-process SQL OLAP database management system designed to provide fast, scalable, and efficient data processing for analytical and data-heavy applications, featuring a small memory footprint and powerful SQL querying capabilities. MotherDuck is a managed DuckDB-in-the-cloud service recently released that allows users to enrich their local DuckDB experience with cloud-based manageability, persistence, scale, sharing, and productivity tools.
+While Apache Superset has supported DuckDB since last year, the embedded database was still not available on Preset for security considerations, since it could potentially have access to the filesystem of the workspace. This changed with the release of MotherDuck, though, which allows users to run queries on the cloud. Because of this, we wanted to have DuckDB and MotherDuck available to our users in a secure and efficient way, from day one, and we’re proud to announce that you can now use Preset to access any MotherDuck manager database.
+The first step is creating an account on MotherDuck. After signing up and familiarizing yourself with MotherDuck you should copy the service token from your personal account:
+
+With the token in hand, go to Preset and under Settings → Database Connections add a new database. Choose DuckDB for the type, and the following for its URI:
+Where ${TOKEN} is your MotherDuck token, and ${database_name} is the name of the database you want to connect to. The database configuration in Preset should look like this:
+
+Now you can run queries from SQL Lab and create charts from datasets:
+
+
+And that’s basically all there is to it — we were not kidding when we said this was the easiest way! Once you’ve connected Preset to MotherDuck you can access all the databases and tables there, as well as use DuckDB extensions to query data stored in S3.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+`duckdb:///md:**${TOKEN}**@**${database_name}**`
+`${TOKEN}`
+`${database_name}`

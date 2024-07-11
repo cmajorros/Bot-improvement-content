@@ -1,0 +1,72 @@
+**How (and When and Why) to Update Apache Superset's Country Maps**
+**Part 1 - Cartography and Geopolitics**
+**Part 2 - Contributing to (and Adjusting) Maps**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Greetings Apache Superset users and developers! Today, we tackle a two-part subject regarding maps in Superset.
+Part 1: Cartography and Geopolitics: An explanation of a map regression that happened, and how an open-source project like Superset is trying to reconcile this and other boundary issues.
+Part 2: Contributing to (and Adjusting) Maps: An update on the Country Map’s workflow using Jupyter Notebooks, and how you can help contribute to and maintain the project’s mapping capabilities going forward.
+A couple of weeks ago, the Apache Superset community was made aware of a regression in the map of Ukraine. The issue centers on the Country Map plugin, a choropleth map used by many Superset/Preset users. It was a technical issue, not a political stance, but it got a lot of attention on 𝕏 nonetheless.
+
+In short, here’s what took place:
+This all led to a provocative conversation (and many angry comments), which in turn inspired this blog post. We’ve also patched the issue the correct way (by updating the notebook) so that this regression won’t happen again. This patch will be part of forthcoming Superset releases.
+It’s also worth saying that this is not the first time that lines on a map have caused a kerfuffle. Today, we’ll set the record straight on how we approach geopolitical border issues, and how to correctly contribute to Superset maps so that Country Map changes are maintainable and up to date.
+In a world of constant geopolitical unrest, things are not always clean-cut, and seldom fair. Apache Superset, however, or any BI tool for that matter, probably ought not to dabble in geopolitics, but rather solve cartographic problems in a way that’s as close as we can get to fair, while being above all consistent and erring on the side of inclusivity.
+There are numerous conflicts and disputes happening across the globe. Some violent, some seemingly tranquil. Some new, and some stretching back through history. Each has its own history, nuances, and level of concern. Whether it’s Crimea and Sevastopol in Ukraine, Jammu and Kashmir in India, the Åland Islands in Finland, or long-standing claims over the Falklands, Northern Cyprus, or the South China Sea, there is no shortage of contention over boundaries.
+The cartographic policy we’re currently using is this: if there is an ISO code for a disputed region, that region can be on multiple maps. Having a code means that by ISO standards, it's a distinct region. We may include that ISO code in multiple countries as a standard practice, despite the nature of that region's specific situation.
+In the case of Crimea and Sevastopol, these two ISO codes (UA-43 and UA-40) are part of the Russia map data provided by Natural Earth, and not part of the Ukraine map, despite the Ukranian ISO prefix. Natural Earth has their rationale (and plenty of GitHub issues) about that, so feel free to take it up with them, but all projects using their data downstream are unfortunately affected by this. In Superset, we simply copy these two regions from the Russia map into the Ukraine map, so it appears on both maps. No matter your stance on this conflict, you can map whatever needs mapping in both. While Crimea and Sevastopol are (by ISO standards and resounding international consensus) part of Ukraine, we allow people to map Crimean data points on the map of Russia even though few see that as a “de facto” viewpoint. We do this with other regions in other countries as well. Natural earth provides several “point of view” maps, but rather than accepting a point of view, we think it’s at least consistent to let both sides “win.” If you see a territory we’re not handling this way, we encourage you to file an issue.
+We’re by all means still open to improving/changing the above policy, as long as it’s one that can be applied globally. While the above approach is consistent, there are admittedly a few significant problems left to contend with:
+
+As you may be aware, Superset ships with not one, but four mapping plugins. Each has its merit and its own issues, but between the full collection, Superset is capable of handling most cartographic/geospatial needs. There are at least two more heading toward the codebase, so our approach should be generalized (as much as possible) in these different contexts.
+
+If you have ideas of how we can make maps in Superset more configurable, more fair, more inclusive, and less controversial, we're open to discussing ideas, or taking code contributions. And on that note, let's talk about how you can update these maps.
+Ok, so now for the part that’s far less controversial, and is nothing but good news! The country maps in Superset just became MUCH more comprehensive, and are now easier to contribute/improve than ever.
+As you may (or may not) have known, Superset maps are generated via this Jupyter notebook. It’s a long one, and full of myriad intricacies, which but in a nutshell, it does all of the following:
+As you can see, it does lots of stuff:
+
+To run the notebook, we’ll assume you have the repo checked out / forked from the Superset Github Repo. Then, using your terminal, cd into superset-frontend/plugins/legacy-plugin-chart-country-map/scripts. Then simply run the command jupyter notebook and you’ll see the following UI. Just double-click the notebook, and you’re in!
+
+At the top of the notebook, you’ll see some instructions (i.e. things you’ll need to pip install in your terminal) and, of course, the all-important “play” buttons to run the notebook from head to toe. Give it a once-over. You may (and probably will) find some countries that could use a brush-up, whether it’s moving some distant island closer to home, or who knows… even (re)adding a region to a country. Running the notebook generates all the TS you’ll need for an updated country list in the plugin’s control panel, and an updated country list in the documentation.
+
+Once you’ve made your additions or adjustments, feel free to open a PR! Be sure to include the updated notebook file along with everything else, so that others may build upon your work. If you find additional issues that need to be addressed on these maps, please feel free to open an issue on GitHub. Whether you contribute, or find issues that need addressing, thank you for literally helping us make the world a better place for all.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Part 1: Cartography and Geopolitics: An explanation of a map regression that happened, and how an open-source project like Superset is trying to reconcile this and other boundary issues.
+
+• 
+Part 2: Contributing to (and Adjusting) Maps: An update on the Country Map’s workflow using Jupyter Notebooks, and how you can help contribute to and maintain the project’s mapping capabilities going forward.
+
+• As part of Superset 4.0’s planning, we wanted to clean up some technical debt around maps and streamline the workflow of creating and maintaining them. Over the years, people have contributed GeoJSON files directly to the repo, making various touch-ups along the way, without maintaining these adjustments in the Jupyter notebook, found here, with official (albeit terse) official documentation here.
+• As part of that update to the workflow, almost all country maps received updated GeoJSON, pulled from the root source, Natural Earth. It’s probably worth noting here that we are but one of thousands of projects pulling from this repository of data.
+• Unfortunately, what went unnoticed is that as part of the Superset 4.0 release, we inadvertently overwrote some GeoJSON from a 2022 pull request that added Crimea to the Ukraine GeoJSON file. This means that Superset shipped without Crimea as part of Ukraine because in the Natural Earth dataset, it’s not.
+• Twitter noticed, and a lot of vitriol ensued, many assuming the worst.
+• People don’t always like it when “both sides win” - especially in disputes/conflicts where it’s easier to take a side or a “dispute” (admittedly not the right term in some cases) is violent, unjust, or oppressive. In this case, if you prefer not to opt for inclusion, forking Superset and deleting regions is certainly an option.
+• As they say in tech, “naming things is hard.” Even using the term “disputed territories” is an unacceptable generalization to many, when some feel there is no dispute, and it’s clear who’s in the right. We need a new collective noun for all these regions, whether in heated conflict or not. Contested regions? Regional conflicts? Input is welcome in how to generalize this discussion in an equitable and approachable way.
+• Country maps are one (relatively solvable) problem… but a choropleth map of the world? That’s another problem entirely, yet to be solved. This situation forces you to draw a line, and you cannot have a Venn Diagram of countries. It simply wouldn’t work. In these cases, we’ll defer to ISO conventions/coding as a default. By this measure, Crimea and Sevastopol are quite clearly part of Ukraine, and that’s what you see in our literal worldview.
+• Downloads map data from Natural Earth data
+• Makes various territorial adjustments to Natural Earth data (sigh)
+• Selects which countries to include from that data
+• Adjusts layout of various countries with “flying islands” for example moving Alaska and Hawaii closer to the contiguous US.
+• Generates various “regional” variations of certain maps (currently France, Italy, Philippines, and Turkey)
+• Generates previews of all maps
+• Strips out maps with only one region (these are not so useful as a choropleth)
+• Simplifies GeoJSON geometry
+• Saves out the JSON
+• Saves out the TypeScript file for the plugin’s control panel
+• Saves out the updated country list for the Superset Documentation.
+`cd`
+`superset-frontend/plugins/legacy-plugin-chart-country-map/scripts`
+`jupyter notebook`
+`pip install`

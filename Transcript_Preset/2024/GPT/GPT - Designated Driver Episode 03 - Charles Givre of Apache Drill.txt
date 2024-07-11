@@ -1,0 +1,49 @@
+Title: Designated Driver Episode 03 - Charles Givre of Apache Drill
+
+Summary:
+The podcast episode, "Designated Driver," hosted by Beto Almeida and Evan Rusakis, features a conversation with Charles Givre, the PMC chair for Apache Drill. The podcast is a casual, happy-hour style show where members of the database community are introduced, often over a beer or beverage of their choice. This episode dives into the world of Apache Drill, an open-source BI tool under the Apache Software Foundation, which is also integrated with Apache Superset.
+
+Host Introductions:
+
+Beto Almeida: A Superset PMC member who has been with the project for nearly seven years. He specializes in data visualization and ensuring Superset integrates with various databases.
+Evan Rusakis: Another Superset PMC member who works as a developer advocate for Preset. He is actively involved in the Superset community on platforms like GitHub and Slack.
+Guest Introduction:
+
+Charles Givre: The PMC chair for Apache Drill. He has been working with Drill for about six to seven years, co-authored a book on it, and uses Drill extensively in his cybersecurity and data analytics work.
+Discussion Highlights:
+
+Beer Choices:
+
+Beto brought a beer called "Space Camper," an IPA he connected to drilling by its name.
+Evan chose "Circular Dependency," an IPA from a local brewery called Cerebral.
+Charles opted for a Modelo Negra, a classic beer.
+Origin Story of Charles’ Involvement with Apache Drill:
+
+Charles discovered Drill while working on government contracts that involved cybersecurity data analytics. He encountered the challenge of dealing with data in various formats and found Drill at a conference recommended by Ted Dunning and Ellen Friedman.
+Initially, Drill's functionality was limited, but its potential for querying diverse data formats without extensive ETL processes intrigued Charles.
+A pivotal moment was the realization that Drill could query PCAP files (raw network traffic), a significant data source in cybersecurity.
+Integration of Drill with Apache Superset:
+
+Charles was inspired to work on integrating Drill with Superset, recognizing the powerful combination of Superset's visualization capabilities and Drill's flexible data querying.
+He contributed to developing the Drill SQL Alchemy connector to facilitate this integration.
+Apache Drill’s Unique Features:
+
+Drill can query a wide variety of data sources, including CSV files, JSON files, Splunk data, Dropbox, Google Sheets, and APIs like GitHub and Pokémon.
+Drill's schema discovery feature is particularly notable, automatically determining data schema without needing predefined structures, especially useful for non-relational data formats.
+Drill supports bidirectional data operations, allowing users to read from and write to various data sources.
+Real-Time Demonstration:
+
+Charles demonstrated Drill's capabilities by querying data from different sources, including local files, Dropbox, Splunk, and APIs.
+He showcased the versatility of Drill in handling diverse data formats and performing complex queries with SQL.
+He highlighted Drill's ability to parse and query PCAP files and perform network analytics.
+Challenges and Comparisons:
+
+Discussion on how Drill compares to other tools like Presto and Trino. Drill’s strength lies in its versatility and schema discovery rather than just being a query engine for data lakes.
+The hosts and Charles discussed the challenges of SQL dialect differences across databases and how tools like SQLGlot help bridge these gaps.
+Future Developments and Wishes:
+
+Charles expressed interest in enhancing the Drill SQL Alchemy driver and integrating more generative AI features into Superset for tasks like text-to-SQL query generation.
+The hosts mentioned upcoming features in Superset, such as hierarchical catalog support and improved access controls.
+Fun Segment:
+
+A light-hearted question about what cool items are on Charles’ desk, though this part was cut short in the provided transcript.

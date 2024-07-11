@@ -1,0 +1,63 @@
+**Apache Superset 1.4: Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset 1.4 is now released! This release contains:
+In this post, I will focus on the first three. You can always browse the full changelog on Github. Let's dive in!
+Certifiying Charts and Dashboards
+Understanding which charts and dashboards are reliable, useful, and up to date is a universal challenge in BI tools. To help address this, you can now certify charts and dashboards and attach your name to it.
+
+This lets other users quickly glean which charts and dashboards can be expected to be maintained and reliable, and even filter down lists to just the certified ones.
+
+Improved Dashboard Layout Capabilities
+Tabs in Superset enable dashboards to be more dynamic and help dashboard consumers focus. To expand the capability of tabs, Superset 1.4 adds the ability to add tabs within Columns. Rows and columns are powerful containers in Superset for organizing charts.
+
+More Variables in Jinja Templating
+Jinja templating lets you add more dynamic-ness to your dashboards. Superset 1.4 added support for referencing time_grain and time_column variables in your Jinja code.
+
+Parquet Upload
+Features like CSV upload enables last-mile data upload for visualization. Superset now supports the upload of Parquet files. You can find out more here.
+Alerts & Reports
+Alerts & reports in Superset received a few minor upgrades in user experience that make them more readable and digestable.
+Superset 1.4 contains the most number of bug fixes in recent history! I will include a sample of end-user facing bug fixes below, but you can see a full list in the changelog.
+Firebolt
+Superset now works with Firebolt! Firebolt is a high performance cloud data warehouse built for modern data teams.
+
+Read more over at Preset Docs or Superset Docs
+AWS Aurora
+Amazon Aurora is a MySQL and PostgreSQL-compatible relational database built for the cloud.
+
+Databricks
+Superset now supports SQL Endpoints in Databricks.
+Clickhouse
+Superset now includes function names in the auto-complete for SQL Lab.
+As usual, you have a few different options for upgrading to v1.4:
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• a very large volume of bug fixes (the largest in recent Superset history),
+• enhancements in supported databases,
+• upgrades to the core user experience,
+• and many upgrades to the developer experience
+• In SQL Lab, the tooltip on hover over table names only now shows when the table name is long and truncated. Link
+• Download CSV's after refreshing the cache now works reliably.  Link
+• Superset Explore URL's are shorter and no longer contain unnecessary parameters. Link
+• Viewing dashboards or charts while logged out no longer returns an undefined error to the user. Link
+• Less queries are sent to Superset backend when dashboard filter values are changed, lightening the impact on your database. Link
+• Fixed an issue where search wasn't working when adding a new dataset. Link
+• The visualization picker hides the bottom footer when no chart is selected, enabling you to browse more charts quickly. Link
+• Python package apache-superset
+• Source release from Github
+• Source release from the Apache Software Foundation
+• Superset 1.4 Docker image
+`time_grain`
+`time_column`

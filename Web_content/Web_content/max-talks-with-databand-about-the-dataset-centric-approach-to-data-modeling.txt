@@ -1,0 +1,31 @@
+**Max Talks with Databand about the Dataset Centric Approach to Data Modeling**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Max was recently on the  MAD Data Podcast , a podcast focused on data quality, data, ML, and AI hosted by the Databand team.
+In this two part episode, Max talks about:
+You can listen to both parts of Max's discussion on the podcast below!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• IBM's acquisition of Databand
+• Open source data tooling
+• Data Ops and DevOps
+• Why data modeling and analytics is a bit of a lost art
+• Tradeoffs of Normalizing and Denormalizing
+• How the dataset metaphor can help get us best of both worlds
+• Datasets as a high level abstraction / interface for humans vs. what's ideal for computers at a lower level
+• Shortcomings of semantic layers
+• Tableau extracts as datasets?
+• Entity centric visualization
+• Superset supports query centric, dataset centric, and semantic centric approaches
+• Does the transform layer offer enough features of semantic layer?

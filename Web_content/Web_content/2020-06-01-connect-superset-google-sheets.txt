@@ -1,0 +1,79 @@
+**Getting Started - Connect Superset To Google Sheets**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+This post is now slightly out of date. We recommend this post instead or to check out our documentation.
+Utilizing an external database such as Druid or Postgres requires that you have access to such a database or that you spin one up. Although docker makes this easier than ever, it can still require some technical knowledge and time that could be spent evaluating Superset. In this post, we'll cover how to install the gsheetsdb driver that can be used to query data in Google Sheets.
+If you haven't already done so, check out our previous posts in our Getting Started series: Getting Started - Installing Apache Superset and Getting Started - Installing Additional Drivers.
+Now that you have Superset up and running on your machine and know how to install some database drivers, let's query some data from Google Sheets.
+Most of the work making this blog post possible was contributed by Beto de Almeida, one of Superset's prolific contributors. Beto wrote the underlying DBAPI driver, the SQLAlachemy dialect as well as Superset's compatibility layer to make all of this possible. This blog post is simply showing how to make that integration work in your environment.
+As covered in Getting Started - Installing Additional Drivers we'll add a driver to the ./docker/requirements-local.txt file and rebuild the Superset docker container.
+Now that we have the required driver installed, we can add the database in the Superset UI. Navigate to add a new database connection (Source > Databases > +). Fill out the form by giving the database a name and entering the connection string gsheets://.
+
+Hit Save. You are now ready to start querying Google Sheets.
+With the Google Sheets connection created you can now query any publicly available spreadsheet. Head over to SQL Lab (SQL Lab > SQL Editor). The creator of the gsheets driver, Beto De Almeida, has made a few example sheets available for testing which we will use.
+Select Google Sheets (or the name you gave it in the previous step) from the dropdown list of available databases on the left.
+Enter the following query in the query editor
+and hit run. You should see results come back.
+
+You have now successfully queried from Google Sheets! You can now make a copy of this sheet, make edits, find other publicly available sheets, or you can create your own (just make sure the sharing settings allow anyone with the link to view).
+In order to create a Chart that uses Google Sheets as its datasource we will have to add the url as a datasource. Navigate to the Add Table form (Sources > Tables > +) and fill out the form by selecting the Google Sheets database and the url as the Table Name.
+
+Hit Save. You are now ready to start creating charts against this datasource.
+Head over to the chart creation page (New > Chart) and select the Google Sheets datasource and Bar Chart as the Visualization Type the hit Create New Chart, which should take you to the explore page. An error will appear on the right saying Control labeled "Series" cannot be empty, which is telling us that we must select a series. Find the Series control (which should be marked red) and select "Country", then hit Run Query and you should see a bar chart with the counts of each time a country appears in the dataset.
+
+You can change the metrics and series on the left to find other interesting stories in your data. For example, try removing the COUNT(*) metric and adding SUM(cnt).
+Congratulations you have now created a Chart from Google Sheets data! Using Google Sheets is an excellent way to get to visualizing something quickly, especially if you already have data stored in Google Drive or a csv file.
+If you'd like a more production-ready setup for Superset, you can sign up for a hosted Superset solution here.
+This post is now slightly out of date. We recommend this post instead or to check out our documentation.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• 
+Select Google Sheets (or the name you gave it in the previous step) from the dropdown list of available databases on the left.
+
+• 
+Enter the following query in the query editor
+SELECT * FROM "https://docs.google.com/spreadsheets/d/1_rN3lm0R_bU3NemO0s9pbFkY5LQPcuy1pscv8ZXPtg8/"
+and hit run. You should see results come back.
+
+`./docker/requirements-local.txt`
+`# Add the `gsheetsdb` driver
+echo "gsheetsdb" >> ./docker/requirements-local.txt
+
+# Rebuild your local image with the new driver baked in
+docker-compose build --force-rm
+
+# Fire things back up
+docker-compose up`
+`Source`
+`Databases`
+`+`
+`gsheets://`
+`Save`
+`SQL Lab`
+`SQL Editor`
+`gsheets`
+`SELECT * FROM "https://docs.google.com/spreadsheets/d/1_rN3lm0R_bU3NemO0s9pbFkY5LQPcuy1pscv8ZXPtg8/"`
+`Sources`
+`Tables`
+`+`
+`Save`
+`New`
+`Chart`
+`Bar Chart`
+`Visualization Type`
+`Create New Chart`
+`Control labeled "Series" cannot be empty`
+`Run Query`
+`COUNT(*)`
+`SUM(cnt)`

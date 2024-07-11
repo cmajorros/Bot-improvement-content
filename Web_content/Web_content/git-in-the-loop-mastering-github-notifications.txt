@@ -1,0 +1,82 @@
+**Git in the Loop: Mastering GitHub Notifications**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+In the fast-paced world of open-source software (or “OSS”), effective collaboration and timely communication are essential. This certainly holds true when working on Apache Superset, which has a very fast-moving Github repository. At any moment, there are a huge number of bug reports and code changes that are in flight. When people start asking each other for attention, the noise of it all can quuickly become daunting.
+In this article, we will explore various shortcuts, life hacks, and best practices for software developers in the Apache Superset community (or any open-source community) to better keep track of these GitHub notifications that are clamoring for everyone’s attention.
+By optimizing notification workflows, community members can enhance productivity, stay engaged, and foster a more vibrant and efficient collaborative environment. The two main improvements we want to make by paying closer attention to notifications are saving time and growing engagement.
+For Pull Requests (or “PRs”, i.e. code changes), time to response is a key factoring making contributors feel respected and engaged. It tends not only to make sure that authors follow up on comments and change requests, but feel engaged enough to open subsequent PRs. It also saves time, in that if PRs are reviewed quickly, they are less likely to run into merge conflicts, which can slow progress considerably.
+For Issues reported by community members it’s best to respond to new issues, and especially assignments/comments, while the author is still able and willing to reproduce or elaborate on the issue at hand. Responding swiftly not only yields a smaller backlog, but decreases the changes of an issue becoming “stale” and difficult to reproduce or even the possibility of an engaged tester/contributor becoming disgruntled and disengaging from the project.
+If community members stay on top of these ploys for their attention, it will not only make the authors of PRs and Issues feel heard and grow deeper roots in the project, but smooth out and speed up the entirety of the Superset project. If you're looking to solve your human habit-forming problems, I have a book I'd recommend... but for technical help, read on!
+GitHub notifications are triggered by a range of events that include, but are not limited to:
+In the Superset community, the main notifications we hope our contributors really pay attention to are the PR review requests, PR comments, and comments/assignments on GitHub Issues. These are the notifications that really grease the wheels of this whole operation.
+Perhaps the most obvious place to start is the GitHub Notifications page. It’s a centralized hub for managing all your notifications. Maybe you don’t know about it though, or maybe it’s a guilt-zone in which you need to declare bankruptcy. In either case, here’s how you can leverage it:
+Accessing the Notifications Page: Click on the bell icon in the top-right corner of GitHub to navigate to the notifications page.
+Cleaning the slate: You can bulk-select multiple notifications and mark them as read to declutter your notifications feed. If you’re overwhelmed and need to clear the slate, this is a great way to get rid of things you know you no longer care about (perhaps issues and PRs that have been closed, or you know you’re not concerned with), before trying to catch up on more important business.
+Filtering Notifications: In the left sidebar, you’ll see some quick filters to view notifications by type.  The Assigned, Mentioned, and Review requested ones are arguably the most important. Participating might include a lot of threads where you’ve performed any action (comment, reaction, etc), so that can be a bit noisy. Team mentioned isn’t used widely in our project.
+You can even click the gear icon and add your own filters. That can get a little intricate, but the docs are available here.
+In order to further, de-noise your feed, you may want to manage your subscriptions to specific threads, issues, or PRs, ensuring you receive relevant updates. Here’s how to do it:
+Click on the “Subscribe” button within the thread, issue or PR to receive notifications for all subsequent activity.
+You can click on the “Unsubscribe” button within the thread, issue, or PR to stop receiving notifications for it.
+For Issues and Pull Requests, you can also click the Customize link seen here.
+This will let you leverage the “Custom” subscription options, which will keep you in the loop but  make a bit less noise.
+Pro tip: Use the Notifications Screen Header! This is one part of the UI that I can’t advocate for enough. When you’re using the Notifications screen in Github, and click through to an Issue or PR, you also get a little bar at the top of the screen:
+This gives you the option to decide how much attention want to give an item:
+Note that there are also keyboard shortcuts for the above actions.
+Now that we’ve covered the basic ways to get your inbox wrangled, let’s talk about some other streams that might help you stay on top of things.
+GitHub provides email notifications as an alternative means of staying informed. To configure email notifications, go to your GitHub account settings and navigate to the “Notifications” tab. There, you can configure the frequency and types of notifications you wish to receive via email.
+But, here’s the catch: Getting nagged about everything in two places is painful! I admit that for a long time, I was trying to do this. Sure, I see my emails pop up as notifications, so if something important to me happens, I would see it and act on it. However, this came with two costs: a whole slew of email to delete and keep me distracted from other important things, and a lack of reliability in checking the Github Notifications page, since my feed was effectively duplicated. To be fair, GitHub marks notifications as "read" on your notifications page after you've clicked through to the thread by email.
+TL;DR: this might work well for some of you, but building a habit around the Notifications page is, in my opinion, a better bet to stay informed and be more reliable in acting on things.
+Everyone uses different tooling in their communities, but it’s safe to say that a lot of us live our lives on Slack these days. There are some great ways to integrate GitHub with Slack to streamline notifications and centralize communication. Luckily, these there is an official Slack + GitHub integration. The best feature of this (in my opinion) is that when you are mentioned on the repo, you get a Slack mention - so you get nagged in the right place that there's something to pay attention to.
+Once you’ve installed the GitHub bot on your Slack workspace, you can subscribe with a simple /github subscribe apache/superset command, and you’ll (at least by default) be subscribed to issues, PRs, and a lot more.
+On a repo like Superset, subscribing to everything can get overwhelming, so you might want to streamline that a tad. The integration ships with a lot of possible configuration options and filters you can use when subscribing to a repo’s feed. You can read all about those here.
+What I would recommend is to keep things more purpose-driven, by creating a separate channel for each notification type you care about. At Preset, we have three of these:
+By default, subscribing to a repo in a Slack channel subscribes you to issues, pulls, commits, releases, and deployments. After you do /github subscribe apache/superset you can narrow things down by unsubscribing unwanted features, e.g. /github unsubscribe apache/superset releases, deployments, commits. Much like notification emails, clicking these links/threads on Slack also marks the notification as "read" in your GitHub notifications page.
+By curating separate channels with only limited “features” — for example an Issues channel — you can pop in daily, and immediately scroll through your unread messages to see if there are any new Issues worth investigating. These threads also get updated (e.g. a PR thread gets a comment when the PR is merged) with @-mentions which helps further draw your attention.
+Apart from built-in GitHub features, you can enhance your notification experience using browser plugins and additional tools. Consider the following:
+Install GitHub-related browser extensions like Notifier for Github (available for Chrome and Firefox Firefox) to receive real-time notifications as a badge in your browser. Once you’ve added a new API key, you can adjust what’s included in this new badge, and how notifications appear.
+Note that you’ll want to “pin” the extension, so that the badge always appears (and yes, I've since caught up!)
+You can also configure GitHub desktop applications like GitHub Desktop which provides notifications on top of their other enhanced repo/code management features.
+Since the main drivers of attention are review requests, assignments, and mentions, it’s worth noting that the first two of these are only available to Committers (or people with write access to the repo, really - in Superset terms, Committers are contributors voted in through Apache processes to have write access to the repo). If you don’t have write access to the repo, you cannot assign issues or PRs, nor can you make requests for reviewers. In these instances, it’s best to mention your designated reviewer/assignee by name on the thread, so they can self assign. Or you can mention any other committers (including me!) to take this action on your behalf.
+Even if you do have write access to the repo, you can’t assign someone, or request their review, if they’re not also a committer. The workaround for this is to have them say something... anything, really... on the thread. This unlocks the possibility of their assignment. Just one more reason to engage in discussion on these threads!
+The squeaky wheel gets the grease! While nobody wants to be annoyed multiple times a day to perform a review or reproduce an issue, don't forget this old adage. It’s a /fantastic/ idea to mention people periodically, if you think something has fallen through the cracks. It happens! But, now that we’ve reached this part of the article, I hope we all have fewer excuses for that to occur.
+Play hot-potato! Don't have too much guilt about assigning people (or being assigned) to things. If you get assigned to something that you can't (or don't want to) handle, you can always re-assign it. It's better to attempt to steer a contribution toward someone's attention than it is to let it languish unassigned.
+Efficiently managing GitHub notifications is essential to foster collaboration, engage with contributors, and maintaining an active open-source community. By leveraging the above tools and techniques, developers in the Apache Superset community (or any open-source community) can stay on top of comments, reviews, assignments, and discussions. Embracing these shortcuts and best practices will contribute to a faster-moving, more reliable community where new contributors feel engaged and appreciated. Let’s optimize our workflows and create vibrant open-source ecosystems together.
+If you have additional suggestions on how to improve people's GitHub Notifications habits, please feel free to ping me on Slack!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Issue Activities: Notifications for new issues, comments, or issue assignments.
+• Pull Requests (PRs): Notifications for new PRs, reviews, review requests, comments, and approvals.
+• Repository Activities: Notifications for new commits, branch creations, branch deletions, and more.
+• 
+Accessing the Notifications Page: Click on the bell icon in the top-right corner of GitHub to navigate to the notifications page.
+
+• 
+Cleaning the slate: You can bulk-select multiple notifications and mark them as read to declutter your notifications feed. If you’re overwhelmed and need to clear the slate, this is a great way to get rid of things you know you no longer care about (perhaps issues and PRs that have been closed, or you know you’re not concerned with), before trying to catch up on more important business.
+
+• 
+Filtering Notifications: In the left sidebar, you’ll see some quick filters to view notifications by type.  The Assigned, Mentioned, and Review requested ones are arguably the most important. Participating might include a lot of threads where you’ve performed any action (comment, reaction, etc), so that can be a bit noisy. Team mentioned isn’t used widely in our project.
+
+• “Done” will take you back to the notifications list - you remain subscribed, but the notification is /removed/ from your list. The item will magically re-appear next time a notification is triggered.
+• “Mark as read” will leave the item in your notifications list, but show it in a dimmed state. If you’re the Inbox Zero type, you may not like the lack of resolution here.
+• “Unsubscribe” does exactly what you think - if the notification is irrelevant to you, this will squelch the noise.
+• The “Save” button simply keeps a copy of the notification. This is handy if you want to use your “Saved” list as a bit of a “To Do” list, so you can click “Done” or potentially “Unsubscribe” to get the notifications out of your inbox.
+`/github subscribe apache/superset`
+`issues`
+`pulls`
+`commits`
+`releases`
+`deployments`
+`/github subscribe apache/superset`
+`/github unsubscribe apache/superset releases, deployments, commits`
+`@`

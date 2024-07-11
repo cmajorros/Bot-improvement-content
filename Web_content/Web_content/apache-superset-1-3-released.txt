@@ -1,0 +1,40 @@
+**Apache Superset 1.3: Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset 1.3 is now out!
+In this release post, I will focus on the biggest and most interesting tangible, end-user features. If you want to learn more about progress made on experimental features, I recommend reading the official community release notes for 1.3.
+Improvements to the charting experience are always welcome additions to a data exploration and visualization tool. You can learn more about how to use all three of these chart types by reading this blog post.
+Funnel Chart
+Funnel charts are extremely common in sales, marketing, product, and operations teams. Here's an example of a sales funnel, visualized using this chart:
+
+Tree Chart
+A tree chart excels at visualizing hierarchy. In the following example, a people operations team visualizes the management tree structure in their organization:
+
+Redesigned Treemap Visualization
+Last but not least, the tree map chart has been redesigned to better handle visualizing counts from hierarchical categories.
+
+Ascend.io
+Superset now supports the Ascend.io database, which connects through the implya driver.
+
+IBM Netezza
+Superset now supports the IBM Netezza database through the nzalchemy driver.
+
+Chart Gallery
+Superset now ships with a radically redesigned chart gallery. This new gallery UI supports better discovery of charts to use
+
+New Database Modal
+Adding new database connections in Superset just got much more friendly. Instead of typing in a long SQLAlchemy string, you're presented with a step-by-step guide.
+
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

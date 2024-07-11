@@ -1,0 +1,53 @@
+**Chart Documentation for Superset and Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset and Preset ship with a large variety of visualization types. Paired with the powerful no-code chart builder, you can craft beautiful and useful charts powered by your own team's datasets. Here's an overview of some of the charts that are available:
+
+At Preset, we maintain world class documentation on all things Superset and Preset. Today, I'm excited to announce a big leap forward in our chart walkthroughs documentation!
+We now have detailed documentation for the 20 most requested and used charts in both Superset and Preset.
+
+Here's a full list of the charts that have detailed documentation:
+For each article, you will find:
+To showcase the documentation improvements, let's focus on a specific example.
+The graph chart is one of the 3 charts that helps you visualize links between groups or entities. In the chart documentation, we demonstrate how an individual row in your dataset maps to the visualization. We then go on to show how the shape of your data and the choices you made in Explore affect the generated SQL query:
+
+While we started with the most frequently requested chart types, we're not stepping there! We will be expanding the chart walkthroughs to eventually cover all of the charts.
+Subscribe to our blog to get notified when we expand and document more charts (I'm looking at you, geospatial charts). Happy charting!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Bar Chart
+• Big Number
+• Big Numer with Trendline
+• Funnel Chart
+• Gauge Chart
+• Pie Chart
+• Pivot Table
+• Table
+• Treemap
+• Mixed Time-series Chart
+• Time-series Area Chart
+• Time-series Bar Chart
+• Time-series Line Chart
+• Time-series Scatter Plot
+• Time-series Smooth Line Chart
+• Time-series Stepped Line Chart
+• Graph Chart
+• Radar Chart
+• Sankey Diagram
+• Tree Chart
+• a few examples of the chart type in action
+• the key settings in the no-code Explore experience and what they mean
+• how to structure your data and / or the SQL that is generated for you
+• options for Customizing your chart further
+• and more!

@@ -1,0 +1,35 @@
+**ALL SYSTEMS GO.**
+**The Origins of Superset**
+**Injecting Rocket Fuel Into Data Visualization**
+**What’s On The Horizon for Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+After months of working in stealth, I'm excited to announce Preset, a company dedicated to build in and around the open source project Apache Superset (currently incubating at the Apache Software Foundation).
+For those not familiar, Superset is the leading open source data visualization and analytics platform. Superset enables teams to explore, visualize and share data.
+While an early goal for Preset is to offer hosted, hassle-free Superset on demand, Preset's wider mission is to deliver modern, collaborative productivity tools for data professionals, enthusiasts and data driven organizations who rely on data to drive their core business.
+While working at Airbnb in 2015, I started an early version of Superset during a 3 day hackathon. Inspired by my experience using Scuba at Facebook, the goal was to build a fast-paced data visualization frontend allowing for zippy "slicing and dicing" on top of the Druid database.
+The project took root and grew within Airbnb while large investments were being made in Presto, Apache Hive and Apache Druid - none of which integrated well with solutions offered by business intelligence vendors at the time.
+Superset, on the other hand, integrated well with these database engines, leveraging the real-world advantages that justified the initial investment in these engines. For instance, Druid is blazing fast and serves real time data, Presto allows for complex and heavy queries, and Hive was unbreakable while carrying heavy data transformation workloads. Superset enabled everyone at Airbnb to take advantage of data platforms and see their data in a seamless, frictionless way.
+Engineers quickly realized that the openness of Superset enabled a broad range of extensions and integrations. Superset's data access layer provides authentication, permissions, auditing and caching to easily build internal data products. Superset was extended with new visualization types that supported the stories they wanted to tell.
+Superset’s embeddable data visualizations are leveraged to provide an analytics layer to existing  internal products. Additionally, Engineers integrated with Data Portal, an internal intelligent data catalog that offers search, discovery, and context in Airbnb's internal metadata graph.
+After leaving Airbnb, I spent a year at Lyft, the popular rideshare company based in San Francisco. During this time, we built similar integrations and extensions with a focus around geospatial visualization and real time use cases. By leveraging deck.gl, an open-source library out of Uber built on top of Mapbox, Superset became the solution of choice  for visualizing large  geospatial data sets.
+At Preset, we believe that open and diverse communities enable writing better software, faster. To align with that belief, we're committed to contributing to Superset, as well as other relevant projects within its dependency tree.
+We also believe that great and ambitious projects thrive when fueled by a healthy mix of passion and capital. We’ve seen key examples where creating a venture that couples its success with an  open-source project boosts the maturity curve of the open-source project  while maintaining an important presence and deep connection within the community.
+To date, Superset is sponsored by generous organizations like Airbnb, Lyft, and Twitter to name a few, and by the passion of many individuals across the world.
+It’s been a personal goal of mine to provide open-source the opportunity to truly compete in this space with external validation such as  raising capital, and more importantly, generating revenues as the best way to sponsor this project to the next level and beyond.
+The future of data is collaborative, visually rich, highly interactive, and frictionless and there is a huge opportunity to build data tools that are more reflective of the way modern teams want to operate. In a world where it’s difficult to hire and retain data professionals, we want to make data tooling more powerful without compromising on accessibility, and offer ways for everyone to use data creatively in their everyday workflows.
+While software - and data - are eating the world, having control over data tools is empowering for teams and strategic for organizations. It’s now becoming widely accepted that it’s critical for platforms and infrastructure to be open, and we certainly believe that the rational for that applies to analytics platforms like Superset as well.
+Preset is building towards that future and actively looking for people to join us on that journey. We are currently growing our team and looking for early customers to partner with our team and products. Jump aboard!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

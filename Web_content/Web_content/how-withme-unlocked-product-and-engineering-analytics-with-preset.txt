@@ -1,0 +1,23 @@
+**How WithMe Unlocked Product & Engineering Analytics with Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Together Labs, is a social networking and consumer software company that encompasses the IMVU, WithMe, and MetaJuice platforms. Together Labs has a big mission, to empower people to connect in the metaverse. While Together Labs is very well known for the IMVU social platform, they’ve also recently expanded to crypto NFT’s through MetaJuice. Together Labs is on the forefront of many key trends in the tech industry.
+Like most cutting edge tech companies, Together Labs seeks to infuse analytics into all of their key operations and decision making. Leveling up both product analytics and engineering analytics became a key priority for the company. Together Labs wanted to understand common product metrics like retention, funnel metrics, cumulative registrations, and feature specific metrics. Craig Murphey, an Engineering Manager, wanted to better understand important engineering metrics like failure rates from different clients and classify common sources of errors.  “So both from a product point of view and also from an engineering point of view, these are our main drivers”, Murphey states.
+Murphey along with some of his peers came from companies such as Uber and Facebook that opted for more self-serve pipelines. These systems pushed data into a data warehouse creating summary tables derived from raw data, further broken out into different charting, queries, and graphs.
+At Together Labs, however, the system started out much more traditional. Data was collected from clients running their software, transformed using simple ETL pipelines in Hadoop, and then finally made available using Tableau. However, WithMe, a division of Together Labs, was looking for a much more accessible and scalable alternative to Tableau to access, analyze, and visualize their data.
+After lots of trial and error searching for alternatives that would enable true scaling of BI for the organization, Craig decided to give Preset a spin. After lots of thorough testing, WithMe was able to easily switch most of the BI workflows from Tableau over to Preset and give access to the Product and Engineering organizations.
+“Manipulating data is up to us at this point, so having the control of doing that without much limitation [with Preset] - that’s pretty powerful”. - Craig Murphey, Engineering Manager for Backend Service Development & Deployment at Together Labs
+THe WithMe team has continued to use and scale Preset as their BI solution, resulting in huge improvements across the board in time, resources, cost, and most importantly accessibility. Murphey, reflecting on his time with Preset emphasized how the work with Together Labs is helping advance the product, and supports them wherever they need.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

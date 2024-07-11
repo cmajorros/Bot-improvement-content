@@ -1,0 +1,43 @@
+**Apache Superset vs Tableau**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Tableau is one of the most popular data integration and data visualization tools. The company originally started as a project of the Computer Science department at Stanford University. Tableau started life as a desktop application for Windows, but has now expanded to the web as well.
+Tableau Desktop used to be a pioneer in the business intelligence field, popularizing concepts like lineage and no-code chart building.
+
+Over time, Tableau grew in features to become the “Photoshop” of data visualization, but with it also higher complexity, price, and difficulty managing & scaling the tool.  However, in 2019, Salesforce acquired Tableau and massively slowed down product development. Naturally, the question we ask ourselves is how relevant is Tableau today when the data ecosystem has become cloud-native, web-first, and centered around open source primarily?
+Tableau is still a popular tool amongst existing organizations that have adopted Tableau. However, Tableau is falling prey to the Innovator’s Dilemma as newer organizations (even large ones) are choosing not to adopt Tableau so readily.
+To understand why, let’s compare how fast moving data teams would like to work with what Tableau offers:
+Apache Superset is an open source business intelligence platform that’s accessible for both business users as well as heavy SQL users. Superset is the most popular (by Github stars) open source business intelligence platform.
+Out of the box, Superset supports over 60 chart types and over 40 of the most popular databases.
+
+Because Apache Superset is an open source tool, you can also extend the functionality of Superset to support more databases, charts, custom roles and permissions, and so much more.
+Apache Superset As a Tableau Alternative
+Max Beauchemin originally created Apache Superset at Airbnb to serve as an alternative to Tableau. His team was struggling to scale the performance of and access to Tableau internally.  At the time, Tableau couldn’t natively connect to Druid or Presto, their preferred data engines. Tableau’s Live Mode was also misbehaving when we pointed it to our traditional databases and they were encouraged to use Extracts. Tableau extracts couldn’t handle the data volumes that Max’s team was handling.
+More importantly, the cost of individual Tableau licenses and the desktop centric approach didn’t scale to the thousands of users within Airbnb. You can read more about the limitations of Tableau that Max’s team ran into here.
+ Evaluate popular analytics software tools such as Apache Superset, Tableau, Looker, and more.
+Supported Data Sources
+Both Apache Superset and Tableau support a large number of data sources, but Tableau falls short when it comes to building custom database drivers.
+Supported Visualizations
+Both Apache Superset and Tableau provide a large gallery of visualizations out of the box and both provide the ability for the addition of new chart types.
+No Code Query Builder
+While Tableau pioneered the no-code interface, Apache Superset popularized it to the open source community.
+Enterprise features
+The benefits of Superset become further enhanced and easily adoptable through Preset Cloud. Preset Cloud eliminates the burdens of self-managing open source and also adds rich enterprise features around security, reliability, support, and embedded analytics.
+
+You can learn more about the challenges of managing Superset in this excellent post.
+When it comes to pricing, there is no comparison between Apache Superset and Tableau. Superset is free! Preset also comes with a generous free tier for any team to get started in just a few clicks, and with pay as you go tiers that are over 60% more cost effective than Tableau.
+Tableau was one of the original pioneers in this space and offers a lot of bells and whistles. However, this comes with a steep price tag and interferes with organizations’ ability to scale BI to the entire organization. Preset Cloud offers the power of open source BI with an accessible price tag. When comparing Apache Superset vs Tableau, it's important to understand the needs and values of your team to equip yourself with the best possible BI tool.
+Try Superset or Preset Cloud today to scale analytics to your entire organization.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

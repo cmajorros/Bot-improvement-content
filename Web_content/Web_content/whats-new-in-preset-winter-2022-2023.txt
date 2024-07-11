@@ -1,0 +1,40 @@
+**What's New in Preset - Winter 2022/2023**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We're thrilled to announce the latest product features and enhancements from our recent releases. Check out our quarterly recap or head to Preset's changelog for a comprehensive list of new features, improvements, and bug fixes from our bi-weekly releases.
+Click Subscribe next to this post's title to be notified of our future announcements!
+
+
+
+
+
+
+Visit and bookmark Preset’s changelog to keep track of all enhancements and fixes. Below are just a few!
+Excited to try out these features? Head over to your Preset workspace now and get started!
+1 Available on the Preset Enterprise plan only.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Establish a secure connection between your databases and Preset using SSH Tunneling1: You can now connect your databases to Preset securely via SSH tunnels using API or SQL Alchemy forms. SSH tunneling enhances security by routing data traffic through an encrypted SSH connection, offering an alternative to native data encryption.
+• Investigate the detailed data behind your visualizations using Drill-to-Detail. When you apply filters to your dashboard (e.g., filter for "contact form" as a campaign source), Drill-to-Detail will display the corresponding underlying data in a table format (e.g., leads generated from the "contact form"). Discover more about the example use cases of Drill-to-Detail and Preset’s vision for Drill-By here.
+• Create datasets and visualizations more quickly with UI/workflow enhancements: We’ve built additional logic to the navigation to make creating and locating datasets, charts, and dashboards faster and more intuitive. For example, after connecting a database, you can now immediately see the option to create a dataset in the "+" menu in the navigation bar.
+• Personalize your dashboard layout with the horizontal filter bar: You now have the option to arrange the dashboard filters above the visualizations. If you're embedding Preset dashboards into a custom application, the horizontal filter bar enhances the usability and readability of your tables and charts.
+• Connect to Databricks with no code: It is now possible to connect your Preset workspace to Databricks by simply supplying the necessary credentials, making it easier to connect the database.
+• Easily upload CSV files with an improved form: The process of uploading CSV files has been made simpler with a more organized and user-friendly form, including the added convenience of an expandable/collapsible grouping feature. Start uploading your CSV files now and collaborate with your team on data exploration!
+• Experience Preset's premium features without a credit card: All new users are granted access to the premium features in the Preset Professional plan for 14 days. These premium features are marked with a "sparkle" icon, making it easier to recognize them during the trial period. Upon completion of the 14-day trial, users can either choose to continue with the Professional plan by providing payment information or opt for the Starter plan with "free forever" access.
+• (API) Permission API allows INVITEE to be added as a grantee for a Data Access Role (DAR) permission2*.
+• (Database) You can now import Snowflake’s encrypted_extra field for authentication.
+• (Dashboard, SQL Lab) You can now ‘select all’ items in the dashboard filter dropdown menus.
+• (Various) We clarified error messages to make debugging easier (e.g., BigQuery error messages related to the service account’s roles and permissions).
+`INVITEE`
+`encrypted_extra`

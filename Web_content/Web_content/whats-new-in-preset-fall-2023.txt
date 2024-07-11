@@ -1,0 +1,45 @@
+**What’s New in Preset - Fall 2023**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Discover the new product features and enhancements from Preset's recent releases! Visit our changelog for full details.
+If you've been keeping up with the news on open-source Apache Superset, you've likely noticed that the latest version, Apache Superset 3.0, was released in September. Rest assured that you have access to all the latest features and enhancements included in this release on Preset!
+Organize charts and dashboards with content tags. Preset users can now discover charts, dashboards, and saved queries that are relevant for their projects, functions, and interest areas using tags. Each content can be assigned to multiple tags, making asset organization easier and more flexible.
+
+Troubleshoot issues and ensure regulatory compliance with audit logs 1. Admins can now track and review team activities in Preset, including workspace access, chart and dashboard updates (create/view/edit/delete), permission changes, and content and data downloads. Usage data is stored in Preset for 30 days and can be exported for longer-term storage.
+
+
+
+
+
+Below are just a few updates from the last quarter. Bookmark Preset’s changelog to keep track of all enhancements and fixes.
+Now, head over to your Preset workspace to try out new features!
+1 Available on the Preset Enterprise plan only.
+2 Available on the Preset Enterprise and Professional plans only.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Waterfall charts and bubble charts are now available in Preset! Try these chart types to visualize your insights from financial analysis, customer growth analysis, competitive landscape, and more!
+• You can now see the SQL queries in the results panel of SQL Lab, making it easier to identify the executed query.
+• Preset now supports the connection to MotherDuck, a cloud version of DuckDB, through SQLAlchemy. This follows the last update in which we announced Preset’s connection support for DuckDB.
+• Viewer and Dashboard Viewer workspace roles can now generate permalinks, allowing them to easily share charts and dashboards with others.
+• (Chart) You can now add column and row subtotals in pivot tables.
+• (Chart) Your legacy chart types are automatically updated to the new chart types when you import them into Preset from Superset (and vice versa).
+• (Chart) We added 5 Central Asia countries (Kazakhstan, Kyrgyzstan, Tajikistan, Turkmenistan, and Uzbekistan) to the country map chart.
+• (Chart Builder) We added currency controls in the control panels of the Chart Builder.
+• (Dashboard) When an existing RLS is updated, the changes are now reflected in dashboard filter configurations immediately.
+• (Dataset) We improved the performance of the dataset creation flow for database schemas containing more than 10,000 tables.
+• (Dataset) We improved the error messages for saving datasets for easier troubleshooting.
+• (Database) We now support the Spectrum-enabled Amazon Redshift driver, redshift+spectrum.
+• (Alerts and reports) We fixed the issue in which email notifications for scheduled alerts and reports were intermittently missed or sent in duplicates 2.
+• (Docs) We added README for database engine specifications which describe all their features and functionality. We also added a new command to test database engine specs, SQLAlchemy dialects, and database connections.
+`redshift+spectrum`

@@ -1,0 +1,413 @@
+**Superset 3.0 Release Notes**
+**Not just a release, but a reset.**
+**What’s in 3.0**
+**Upgrading to 3.0**
+**A note on security**
+**The Process of 3.0 A New Way to Build a Major Version**
+**Version roadmap**
+**Get involved!**
+**Wrapping up**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The eagerly awaited release of Apache Superset 3.0 is finally over - you can download it right here! This marks a significant milestone for our popular open-source data exploration and visualization platform. Following the recent version 2.1.0 and its most recent patch release, Superset 2.1.1 (available here), this latest iteration represents a “reset” release, offering a chance to clear up some old technical debt and clear a path for forthcoming improvements. Procedurally, Superset 3.0 also introduces a new release-building process, emphasizing consensus and thoughtful consideration of potentially breaking changes. We’ll go into more detail about that as well.
+Make no mistake, Superset v3.0.0 does include several new features and fixes not involved in prior releases. It’s a newer “cut” from the master branch of Superset’s GitHub repository, so there are a huge number of things coming along for the ride. We’ll go into all of these changes below, but these are only part of the picture.
+While there are numerous feature-driven updates in this release (for example, removing legacy charts, migrating APIs, and more), this release is largely driven by a need to remove deprecated code like feature flags and API endpoints, to better streamline the codebase and product for enhanced stability and smoother development. Perhaps more significantly, this release lines up the shot for Superset 4.0 by marking numerous bits of older code as deprecated. Since we follow a semantic versioning process, this release gives people deploying and maintaining Superset a full major-version release cycle to prepare for configuration changes and upgrades before any code is actually removed.
+The key areas of improvement we hope to tackle with this release are:
+Let’s get into (some of) the nitty gritty! There are a lot of changes that are in 3.0, so we’ll try to organize first by product area, and within those break things down by type of change (Features, Fixes, and Migrations). There are far too many granular changes to cover (bug fixes, small UI tweaks, and little code refactors, for example). For a complete list of changes, you can always go to the 3.0.0 Changelog, and from there dig into any of the 758 PRs individually for more context.
+3.0 will include some updated defaults as feature flags have reached maturity and been flipped to True. Other flags have been marked as deprecated or removed if previously deprecated or deemed unnecessary. There have also been several updates in categorization on the Feature Flags page in the repo. Feel free to visit our recent blog post for additional information about Superset’s feature flags.
+Much like the Feature Flags, this update is a chance to do a lot of cleanup with Superset’s APIs. While there are some new changes/fixes, there are also several API endpoints that have been marked as deprecated or removed. Here’s a breakdown of these changes:
+The following API endpoints (or parts thereof) were previously marked as deprecated and have been removed:
+Several APIs have been migrated to newer “V1” endpoints to support the above deprecations:
+A few additional updates have been made to fields/metadata in APIs that may affect your integrations with Superset:
+The following additional endpoints will be marked as deprecated in 3.0, and eligible for removal in Superset 4.0:
+Last but not least, these are the new Superset APIs that have been added,
+These APIs have been added, enabling the aforementioned deprecations
+Several other APIs also received additional bug fixes to mitigate errors/warnings and enhance use of types in the codebase.
+While not an API layer change per se it's also worth noting that Superset's getUiOverrideRegistry was removed in favor of getExtensionsRegistry, so if you're extending Superset with those hooks, you may be impacted.
+Visualization upgrades and updates have long been one of the key ingredients of any major release. Superset 3.0 is making big strides toward getting rid of aging “legacy” visualizations and embracing newer ECharts-based visualizations. In this release, we’re shipping migrations that will remove some of these old charts and convert them into their updated counterparts. The following is a breakdown of some of the noteworthy changes in 3.0:
+Superset has been undergoing a slow transition from several "legacy" charts to newer ECharts-based replacements. Many of these charts have reached a level of feature parity that warrants their migration and removal as part of this release. The following migrations have taken place in the release, and their legacy chart counterparts have been removed from the codebase:
+It's worth noting that for all of these charts, the migrations are not only run at upgrade time but are also run against imported dashboards that include instances of these legacy charts.
+This has been coming for a long time, but the Filter Box dashboard component, which is arguably a chart, even though it's no
+t a chart, is being deprecated and marked for removal in 4.0. With 3.0, there is a script available (docs here) that you can invoke by running superset native-filters upgrade to migrate your legacy Filter Box filters to the newer (and exponentially better maintained) Dashboard Native Filters (a.k.a. the filter sidebar). While the migration is optional for now, we'd recommend you do it sooner rather than later, so that your deployment (and your users) can adapt to these new workflows before the migration is forced in the next major version.
+Additionally, the Legacy Bar Chart has been deprecated and will be replaced completely in a future major version.
+One last deprecation was the viz.py file which provides backend support for some of the legacy charts. We've whittled at that file a bit in 3.0 (removing unused parts) but we'll continue to deprecate and remove those plugins over time until all plugins use the newer JavaScript-only architecture.
+You can now select a column and set multiple thresholds to apply a status color (red/yellow/green) on your big number charts (both with and without the trendline)
+
+The ECharts-based Series chart (formerly known as Timeseries, but now supporting a categorical X axis by default!) now supports a "stream" mode in addition to the usual bar/line/area modes. The stream graph can be displayed as bars, or in different line interpolations (e.g. stepped, smooth).
+
+New countries (or country border updates) frequently come into play in a release. This time we have a new map for Sri Lanka! If anyone wants to add more country maps to flesh out the rest of the globe, this is a great place for a new contributor to chip in.
+
+Superset's Geospatial game is heating up again! Some new layers/options are appearing on the repo, as well as a lot of forthcoming bug fixes and stabilization. In this release, we have a new Heat Map for you to try out.
+
+All of the ECharts-based Series charts now support sorting of the X-Axis according to aggregated metrics.
+
+Stacked variants of the ECharts Series charts now support more flexible sorting of their stacking order, bringing them up to parity with their predecessors. Whereas before things were sorted by name, you can now sort by min, max, total, and average series values, reverse the order, and see the sorting reflected in tooltips as well!
+
+Superset has long been able to support a little bit of HTML in the cells of the Table visualization (e.g. links), but with Superset 3.0, support for this is expanded to SQL Lab, the chart builder's Results and Samples tables, and in drilling features. You can not only use HTML links, but you can add simple HTML (like images) to a cell, or add a wrapping element with styles around a cell's content (e.g. a background or text color for a div tag).
+
+Legacy charts in prior versions of Superset had a not-so-discoverable feature of double-clicking legends in certain charts to invert the chart series selection. This version leverages the ECharts feature set to add simple "Invert" and "All" buttons to modify series selections made by chart legends.
+
+It's finally here! Superset users far and wide have been requesting "drill-down" functionality in Superset, and as of 3.0.0, Superset ships with "drill-by" which is an even more flexible option. The feature has been explored in depth in other venues (including a blog post and a meetup), but in a nutshell, you can right-click a chart element, and select a dimension you want to dive into. Superset will apply a filter (for what you clicked) and a "group by" (for the column you select), and display an overlay where you can see more granular results.
+
+Now that DASHBOARD_CROSS_FILTERS is enabled by default, we expect a lot more users will come to depend on this feature set to better comprehend their data. We've added several improvements to make the feature both more usable and more discoverable.
+In dashboards, charts emitting cross-filters have a new icon (with a tooltip) and charts that receive cross-filters display the applied filter(s) in the filter indicator popover.
+Additionally, cross-filters that have been applied to a dashboard now appear in the filter bar on the left side of the screen (along with the chart emitting it), and have an x button to remove the filter.
+
+All charts that support the other right-click operations (namely, drilling) also now support emitting cross filters via the menu, in addition to clicking the chart elements (e.g. a bar in a bar chart)
+
+While most charts receive cross-filters in dashboards, not all charts support emitting cross-filters. In this release, the Graph (or force-directed graph diagram) and World Map charts both now emit cross filters.
+
+Superset has removed support for legacy short URLs (“/r” URLs). The updated feature continues to work, but if you have any legacy URLs floating around on the web, they won't work after this upgrade.
+When the ALLOW_FULL_CSV_EXPORT feature flag is enabled, dashboard users can click the overflow menu on any Table chart and export the full dataset as either a CSV or Excel export. A word of caution though: depending on the size of that dataset, this may cause a meltdown for your database and/or your browser. That's why it's behind a feature flag (and off by default).
+
+When building a dashboard, there's a checkbox to narrow the list of chart options to those which you have access. While this checkbox is not new, it is now checked by default, allowing for more efficient dashboard creation in deployments where there are several users creating a potentially overwhelming number of charts.
+
+Thanks to the Scarf, we are finally able to get a better picture of product usage by gathering anonymized, aggregated data during installations of Superset (no PII is captured). This helps us not only know what versions of Superset people are using but also make sure we can prioritize patch version releases to keep those most-used versions secure going forward. It also lets us know about product/community growth, in hopes that we can help Superset take over the BI world! It's important to note that like any project, many of our users will want to opt out of providing telemetry data, and there are instructions to do so in the Superset documentation.
+
+Another area of constant evolution in the Superset codebase is the area of translations. In this release, we've seen improvements in translated string coverage in Spanish, German, French, Brazilian Portuguese, and Chinese (Simplified). If you want to see even more translation support, this is a great area to contribute!
+You can now configure both the default currency of your Superset instance, as well as a custom locale formatter. This will let you set not just the currency symbol (e.g. $, €, £), but also the default number formatter (how decimals, commas, and more are configured)
+
+You can now also use Superset's semantic layer (or the Dataset Editor) to implement specific D3-style formatters for specific columns of data. Currency-wise, we now support USD, EUR, GBP, INR, MXN, JPY, CNY or any other manually entered currency. Charts that support the display of these formatters now include Table, Pivot Table, Big Number (w/trendline), Series Echarts, Pie, Gauge, Funnel, Treemap, WorldMap, Heatmap, Sunburst and Mixed Chart.
+Despite all the support this adds to the product for supporting currencies, the current state of the feature has two limitations that might warrant it being considered a "breaking change"
+
+Superset is undergoing a large refactor, to unwind its early architecture and modernize the frontend application into a more modern, more performant app. What were once separate React-based applications bolted onto separate server-rendered views, are now becoming a single React application with shared state and shared code bundles. In 3.0, the RLS (Row Level Security) configuration UI is rolled into the Single Page App (SPA), and we're reaching the end of this tunnel. SQL Lab, one of the last big pieces, is undergoing this transition presently (for a post 3.0.0 release).
+
+Superset's SSH Tunneling feature now ships with a couple of extra features:
+Many of Superset's package dependencies (both frontend and backend ones) have been updated, for security reasons, feature support reasons, or just general upkeep and product hygiene. One of the most notable of these which may warrant singling out is that Superset's Python support has been bumped to version 3.9.
+Superset is on a trajectory to have better support for data catalogs. 3.0 adds the get_catalog_names method to the base DB engine spec, which is supported by Postgres, Snowflake, Presto, and BigQuery. This is foundational work toward dynamic schema support and SIP-95, which will allow proper catalog support in SQL Lab.
+Superset 3.0 ships with numerous fixes and enhancements to support the myriad databases that Superset has long supported. While those details are a bit granular for this blog (please see the changelog), this release adds two new databases: StarRocks and Ocient!
+
+This blog has to end at some point, so we won't go into all the details of every bug fix that made it into this realease... because there are over 300 of them! Just breaking it all into themes, however, these themes generally fall into a handful of categories:
+To get into all the gory details, you can comb through the changelog and dive into the corresponding PRs for more details.
+Orgs that run Superset at scale tend to build up quite a bit of content. That content (a.k.a. Superset "objects") such as charts, saved queries, and dashboards, can now be organized using tags! You can add any tags you'd like to these assets/objects, and use the new Tags page to search for your tagged content. Note that this feature requires the TAGGING_SYSTEM feature flag to be enabled. This feature is in "alpha" (testing) status as of the 3.0.0 release, and improvements are currently being added on the repo.
+
+While it's not part of Superset 3.0 per se, the Superset website and documentation are indeed part of the Superset codebase and are available on GitHub for anyone's contribution (we even have instructions).
+The Superset website has been redesigned and looks significantly better than its predecessor. It also includes the Superset Community Calendar, which you can view or subscribe to, in order to more easily participate in the Superset Operational Model.
+
+The update also includes a new means to help us keep Superset's documentation up to date with the latest features and tips. If you see something that you would like updated, you can let us know about it by clicking the "Send Feedback" button in the bottom right. Thanks to BugHerd for supplying this functionality, and thanks to the volunteers joining us in #documentation on Slack who will be helping keep things up to date!
+
+As with any Superset version upgrade, the process is simple in the broadest strokes, as outlined in the documentation. However, as with any upgrade, we expect to see numerous speed bumps along that path depending on your configuration, your infrastructure, your databases in use, and other customizations/configurations. To make a safe leap to this version, we'd suggest the following steps.
+Your mileage may vary depending on
+We wish you the best of luck and hope it goes smoothly, but if you do run into trouble along the way, I would suggest searching around and/or reaching out in #deploying-superset on Slack, and if you find a reproducible bug, filing a new issue on GitHub.
+To be more secure by default, Superset 3.0.0 ships with a default CSP (Content Security Policy) configuration via Talisman. Organizations that have needs to do things like pull in specific external content/styles/images, may need to adapt their configuration accordingly.
+Apache Superset has more people using it every day, and more people/organizations looking closely at it's security. We're excited that we've seen increased interest from external cybersecurity agencies. This increased diligence has been leading to a few changes in how we run security operations. Namely, we've changed the tooling and tracking methods we use as a project and shared them with Apache. This will allow us to enlarge our security team going forward. We're also continuing to ensure that configuration is secure by default wherever possible and that any CVEs are broadcast more loudly in more places. Most importantly, we plan to increase the cadence of patch updates so folks can upgrade often and patch things faster and more easily.
+This release of Superset is the first major version we’ve built around a new process of consensus gathering. Like all projects that are part of the Apache Software Foundation, Superset is built around the idea that changes (particularly larger changes or breaking changes) should gather consensus before implementation. Apache provides two means of gathering such consensus: voting, and “lazy consensus”. Either of these happen on official ASF mailing lists, mainly on the dev@superset.apache.org email list (which you can subscribe to by emailing dev-subscribe@superset.apache.org).
+This release was built largely around the process of Lazy Consensus which is the faster, lower-overhead means of gathering consensus. Essentially, when a change is proposed, if nobody objects, the change is ratified.
+When it was deemed to be time to start building Superset 3.0, PMC members in the Release Strategy working group and Town Hall meetings (both part of the Superset Operational Model), established a new workflow. This process itself was discussed among volunteering PMC members and then proposed to the Dev list for lazy consensus. The mile-high view of the process is:
+For the individual change proposals (most of which were either small breaking changes, or marking things as deprecated), the individual items on the kanban board followed the following process:
+While this process has certainly helped keep us organized, there are more lessons learned, and we hope to further iterate and streamline things so we can not only get out Superset 4.0 sooner rather than later but help get patch releases out more regularly. We'll keep you in the loop as the process evolves.
+dev-subscribe@superset.apache.org
+Patch releases (e.g. 3.0.1) will be more frequent.
+If you want to stay up to date on releases as they come out, you can also join the dev email list, join #apache-releases on Slack, or keep an eye on the official releases page.
+If you have questions or comments about this release, please feel free to join Superset's Slack workspace and either DM me or leave a message in the #release-strategy channel.
+If you'd like to be a part of future releases, please feel free to join Superset's operational model working groups - namely the Town Hall and the Release Strategy group. The times and Zoom links for these can be found on the Superset Community Calendar, available on the resources page of the Superset website.
+Contribute! There are both technical and non-technical ways that anyone can make Superset better. From improving documentation to answering questions on Slack, there are many ways you can help support and grow the Superset community. You can even add your name to our In The Wild page, since one of the best ways you can support open source is to just tell the world that you use it.
+Superset 3.0 marks a crucial release for the platform, focusing on stability, simplicity, and streamlined development. While not primarily focused on introducing new features, the release represents a significant step forward in improving the platform’s foundation. By deprecating legacy code, removing unnecessary feature flags and endpoints, and streamlining the codebase, Superset 3.0 sets the stage for future enhancements and empowers developers to contribute more effectively. With its renewed commitment to community consensus, Superset continues to evolve as a powerful and user-friendly data exploration and visualization tool. We look forward to continuing this in Superset 4.0, and all the fixes and features that will come in minor and patch releases in between. We’ll keep you updated on those, too!
+Aside from the myriad of contributors who have been submitting code on Github, testing release candidates, and engaging in a thousand useful discussions to make this happen, I'd like to to give special shout-outs to the following folks:
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Ease of Development: This release has a strong focus on developer experience. By simplifying maintenance and testing, and making it easier for developers to contribute to the project.
+• Removing Legacy Code: By removing outdated or redundant features, deprecated endpoints and unused feature flags, the codebase becomes cleaner and more maintainable. This pruning process paves the way for future improvements and innovations by eliminating technical debt and reducing complexity.
+• Streamlining the Product: Much of Superset’s codebase has been diligently reviewed and refactored to improve overall efficiency, performance, and maintainability.
+• Focus on Community Consensus: The introduction of the new release-building process marks a significant shift towards community consensus and collaboration. By actively seeking input and feedback from the Superset community, the project’s maintainers are trying to ensure that potentially breaking changes are carefully evaluated and discussed.
+• Enabled by Default:
+
+DRILL_TO_DETAIL
+DASHBOARD_CROSS_FILTERS
+ENABLE_TEMPLATE_REMOVE_FILTERS
+GENERIC_CHART_AXES
+
+
+• DRILL_TO_DETAIL
+• DASHBOARD_CROSS_FILTERS
+• ENABLE_TEMPLATE_REMOVE_FILTERS
+• GENERIC_CHART_AXES
+• Marked as deprecated (to be removed in 4.0):
+
+CLIENT_CACHE
+DASHBOARD_CACHE
+DASHBOARD_FILTERS_EXPERIMENTAL
+DASHBOARD_NATIVE_FILTERS
+DASHBOARD_NATIVE_FILTERS_SET
+DISABLE_DATASET_SOURCE_EDIT
+ENABLE_EXPLORE_DRAG_AND_DROP
+ENABLE_EXPLORE_JSON_CSRF_PROTECTION
+ENABLE_TEMPLATE_REMOVE_FILTERS
+GENERIC_CHART_AXES
+REMOVE_SLICE_LEVEL_LABEL_COLORS
+VERSIONED_EXPORT
+
+
+• CLIENT_CACHE
+• DASHBOARD_CACHE
+• DASHBOARD_FILTERS_EXPERIMENTAL
+• DASHBOARD_NATIVE_FILTERS
+• DASHBOARD_NATIVE_FILTERS_SET
+• DISABLE_DATASET_SOURCE_EDIT
+• ENABLE_EXPLORE_DRAG_AND_DROP
+• ENABLE_EXPLORE_JSON_CSRF_PROTECTION
+• ENABLE_TEMPLATE_REMOVE_FILTERS
+• GENERIC_CHART_AXES
+• REMOVE_SLICE_LEVEL_LABEL_COLORS
+• VERSIONED_EXPORT
+• Removed
+
+ALLOW_DASHBOARD_DOMAIN_SHARDING
+DASHBOARD_EDIT_CHART_IN_NEW_TAB
+DISPLAY_MARKDOWN_HTML
+ENABLE_BROAD_ACTIVITY_ACCESS
+ENABLE_DND_WITH_CLICK_UX (consolidated with ENABLE_EXPLORE_DRAG_AND_DROP)
+ENFORCE_DB_ENCRYPTION_UI
+FORCE_DATABASE_CONNECTIONS_SSL
+UX_BETA
+
+
+• ALLOW_DASHBOARD_DOMAIN_SHARDING
+• DASHBOARD_EDIT_CHART_IN_NEW_TAB
+• DISPLAY_MARKDOWN_HTML
+• ENABLE_BROAD_ACTIVITY_ACCESS
+• ENABLE_DND_WITH_CLICK_UX (consolidated with ENABLE_EXPLORE_DRAG_AND_DROP)
+• ENFORCE_DB_ENCRYPTION_UI
+• FORCE_DATABASE_CONNECTIONS_SSL
+• UX_BETA
+• New feature flags (previously in configuration)
+
+ENABLE_BROAD_ACTIVITY_ACCESS
+MENU_HIDE_USER_INFO
+
+
+• ENABLE_BROAD_ACTIVITY_ACCESS
+• MENU_HIDE_USER_INFO
+• One more new feature flag for a new feature!
+
+DRILL_BY (more on this below!)
+
+
+• DRILL_BY (more on this below!)
+• /slice_json/
+• /annotation_json/
+• /superset/tables/&lt;int:db_id>/
+• /superset/available_domains
+• /superset/datasources
+• /superset/filter/…
+• /superset/recent_activity/...
+• /superset/fave_dashboards_by_username/...
+• /superset/fave_dashboards/...
+• /superset/created_dashboards/...
+• /superset/user_slices/...
+• /superset/created_slices/...
+• /superset/fave_slices/...
+• /superset/favstar/...
+• /superset/get_or_create_table/...
+• /superset/sqllab_viz/...
+• /superset/stop_query/...
+• /superset/queries/...
+• /superset/search_queries/...
+• /superset/copy_dash/int:dashboard_id/
+• /superset/save_dash/int:dashboard_id/
+• /superset/add_slices/
+• /superset/add_slices/int:dashboard_id/
+• /superset/testconn
+• /superset/validate_sql_json/
+• /superset/schemas_access_for_file_upload
+• /superset/extra_table_metadata/
+• /superset/estimate_query_cost/...
+• /superset/results/...
+• /superset/sql_json/...
+• /superset/csv/...
+• superset/warm_up_cache has been replaced by the new api/v1/charts/warm_up_cache and api/v1/dataset/warm_up_cache endpoint
+• superset/copy_dash/{dash_id}/ has been replaced b the new api/v1/dashboard/{dash_id}/copy/ endpoint
+• /superset/favstar has been replaced by the POST/DELETE /api/v1/dashboard/{pk}/favorites/ and /api/v1/chart/{pk}/favorites/ endpoints to add/remove fav status for dashboards and charts, respectively.
+• /superset/estimate_query_cost has been replaced by the new /api/v1/sqllab/estimate/ endpoint
+• /superset/schemas_access_for_file_upload has been replaced with the new /api/v1/database/{id}/schemas_access_for_file_upload endpoint
+• The changed_by_url and created_by_url REST API response fields have been removed from datasets, dashboards, and charts
+• The deprecated metrics column was removed from the /api/v1/dataset/ endpoint
+• verbose_map has been added to the GET /dataset/ endpoint to enable drill-by
+• A UUID is returned when using the database creation API
+• datasource/get can be replaced with GET  /api/v1/dataset/{pk}
+• datasource/save can be replaced with PUT /api/v1/dataset/{pk}
+• superset/override_role_permissions (not used by Superset’s client/SDKs)
+• explore_json is deprecated in favor of /api/v1/chart/data
+• /api/v1/charts/warm_up_cache
+• /api/v1/dashboard/{dash_id}/copy/ 
+• /api/v1/dashboard/{pk}/favorites/
+• /api/v1/chart/{pk}/favorites/
+• /api/v1/sqllab/estimate/
+• /api/v1/database/{id}/schemas_access_for_file_upload
+• Both the Dual Line Chart and the Multiple Line Chart plugins have been migrated to Mixed Chart`
+• The Legacy Treemap plugin has been migrated to the ECharts-based Treemap
+• Pivot Table v1 has been migrated to Pivot Table v2
+• Filters based on values have had a row limit (to prevent your database and/or browser from exploding), and in 3.0, this default limit is now configurable.
+• Support for time grains in temporal filters has been expanded
+• Cascading filters are now able to inherit (or cascade) from temporal and numeric filters
+• In single-value filters, you can now type to manually enter a value
+• The formatter added to a given column will override the formatter used in a chart.
+• If a column has a D3 formatter with % or currency signs, the special signs are overridden by the selected currency symbol.
+• You can now import and export databases including their SSH Tunnel credentials
+• SSH timeouts are now more configurable via a SSH_TUNNEL_PACKET_TIMEOUT_SEC setting in config.py
+• Performance enhancements
+• UI tweaks and fixes
+• Regressions from new features
+• DB support
+• Build  & deployment fixes
+• Back up your databases (but you're doing this all the time anyway, right?)
+• Carefully read CHANGELOG.md for all the incremental changes in this version (and prior versions, between your current installation and 3.0.0).
+• Similarly, review UPDATING.md to keep an eye out for all changes that have been explicitly marked as breaking changes.
+• Adjust your feature flags and configurations to meet your feature requirements and other preferences for your org.
+• Check your CSP policy (there is now one in place by default, and it should be configured for your needs)
+• Execute the migrations
+• If you have third-party apps interacting with Superset, check for relevant dependency updates or API endpoint changes that may affect compatibility.
+• How you install and deploy Superset (e.g. docker vs. pip vs. helm)
+• How you’ve configured Superset
+• What integrations, databases, etc. you’re using
+• Gather consensus around a “breaking change window” in which project maintainers will allow /approved/ breaking changes to be merged
+• Build a GitHub Project Kanban board to capture proposals and track their state of consensus
+• Implement ratified changes only during the breaking change window
+• Close the window to breaking changes, reverting to normal/proper Semver practice.
+• Committers and PMC members place their proposed changes on the GitHub Project Kanban board, ready to be proposed for consensus
+• An email with a batch of these proposed changes (numbered for convenience of reference) is sent for lazy consensus to the Dev list
+• The Dev list has three days to object to any of these proposed changes individually (i.e. the batch, or “wave” of them is not struck down in its entirety)
+• After three days pass, if there is no objection, the changes are moved into a “consensus reached” state.
+• Contributors tracked the state of work (and pull requests) on the board until merged.
+• Anything not proposed for consensus, or completed during the breaking change window, will be punted to the next subsequent version (in this case, 4.0).
+• 3.0.0 is now available!
+• 2.0.x will be LTS until 3.1.0 and/or 4.0.0 come out. In other words:
+
+2.1.1 is the current release, and 2.1.x will continue to receive patches for now.
+2.2.x may or may not happen, depending on bandwidth/volunteers to build and ship the release, and/or when additional modern versions (3.1.0 or 4.0.0) get released
+
+
+• 2.1.1 is the current release, and 2.1.x will continue to receive patches for now.
+• 2.2.x may or may not happen, depending on bandwidth/volunteers to build and ship the release, and/or when additional modern versions (3.1.0 or 4.0.0) get released
+• 4.0 planning will begin soon! But first, we need to revisit the process. If you want to get involved in the process, you can:
+
+Join the Apache Superset dev mailing list (just send an email to dev-subscribe@superset.apache.org)
+Join the #release-strategy! channel on Slack
+Visit the Release Strategy working group syncs on the community calendar.
+Join the superset dev email list by emailing
+
+
+• Join the Apache Superset dev mailing list (just send an email to dev-subscribe@superset.apache.org)
+• Join the #release-strategy! channel on Slack
+• Visit the Release Strategy working group syncs on the community calendar.
+• Join the superset dev email list by emailing
+• Michael Molina, Daniel Gaspar, and John Bodley for helping to run the meetup
+• Michael Molina for being the release manager for Superset 3.0.0, and helping to edit these release notes.
+• Elizabeth Thompson for chairing the Release Strategy group.
+• And you! Thanks for reading, and thanks for caring about Superset.
+`DRILL_TO_DETAIL`
+`DASHBOARD_CROSS_FILTERS`
+`ENABLE_TEMPLATE_REMOVE_FILTERS`
+`GENERIC_CHART_AXES`
+`CLIENT_CACHE`
+`DASHBOARD_CACHE`
+`DASHBOARD_FILTERS_EXPERIMENTAL`
+`DASHBOARD_NATIVE_FILTERS`
+`DASHBOARD_NATIVE_FILTERS_SET`
+`DISABLE_DATASET_SOURCE_EDIT`
+`ENABLE_EXPLORE_DRAG_AND_DROP`
+`ENABLE_EXPLORE_JSON_CSRF_PROTECTION`
+`ENABLE_TEMPLATE_REMOVE_FILTERS`
+`GENERIC_CHART_AXES`
+`REMOVE_SLICE_LEVEL_LABEL_COLORS`
+`VERSIONED_EXPORT`
+`ALLOW_DASHBOARD_DOMAIN_SHARDING`
+`DASHBOARD_EDIT_CHART_IN_NEW_TAB`
+`DISPLAY_MARKDOWN_HTML`
+`ENABLE_BROAD_ACTIVITY_ACCESS`
+`ENABLE_DND_WITH_CLICK_UX`
+`ENABLE_EXPLORE_DRAG_AND_DROP`
+`ENFORCE_DB_ENCRYPTION_UI`
+`FORCE_DATABASE_CONNECTIONS_SSL`
+`UX_BETA`
+`ENABLE_BROAD_ACTIVITY_ACCESS`
+`MENU_HIDE_USER_INFO`
+`DRILL_BY`
+`/slice_json/`
+`/annotation_json/`
+`/superset/tables/&lt;int:db_id>/`
+`/superset/available_domains`
+`/superset/datasources`
+`/superset/filter/…`
+`/superset/recent_activity/...`
+`/superset/fave_dashboards_by_username/...`
+`/superset/fave_dashboards/...`
+`/superset/created_dashboards/...`
+`/superset/user_slices/...`
+`/superset/created_slices/...`
+`/superset/fave_slices/...`
+`/superset/favstar/...`
+`/superset/get_or_create_table/...`
+`/superset/sqllab_viz/...`
+`/superset/stop_query/...`
+`/superset/queries/...`
+`/superset/search_queries/...`
+`/superset/copy_dash/int:dashboard_id/`
+`/superset/save_dash/int:dashboard_id/`
+`/superset/add_slices/`
+`/superset/add_slices/int:dashboard_id/`
+`/superset/testconn`
+`/superset/validate_sql_json/`
+`/superset/schemas_access_for_file_upload`
+`/superset/extra_table_metadata/`
+`/superset/estimate_query_cost/...`
+`/superset/results/...`
+`/superset/sql_json/...`
+`/superset/csv/...`
+`superset/warm_up_cache`
+`api/v1/charts/warm_up_cache`
+`api/v1/dataset/warm_up_cache`
+`superset/copy_dash/{dash_id}/`
+`api/v1/dashboard/{dash_id}/copy/`
+`/superset/favstar`
+`/api/v1/dashboard/{pk}/favorites/`
+`/api/v1/chart/{pk}/favorites/`
+`/superset/estimate_query_cost`
+`/api/v1/sqllab/estimate/`
+`/superset/schemas_access_for_file_upload`
+`/api/v1/database/{id}/schemas_access_for_file_upload`
+`changed_by_url`
+`created_by_url`
+`verbose_map`
+`datasource/get`
+`/api/v1/dataset/{pk}`
+`datasource/save`
+`/api/v1/dataset/{pk}`
+`superset/override_role_permissions`
+`explore_json`
+`/api/v1/chart/data`
+`/api/v1/charts/warm_up_cache`
+`/api/v1/dashboard/{dash_id}/copy/ `
+`/api/v1/dashboard/{pk}/favorites/`
+`/api/v1/chart/{pk}/favorites/`
+`/api/v1/sqllab/estimate/`
+`/api/v1/database/{id}/schemas_access_for_file_upload`
+`getUiOverrideRegistry`
+`getExtensionsRegistry`
+`superset native-filters upgrade`
+`viz.py`
+`div`
+`DASHBOARD_CROSS_FILTERS`
+`x`
+`ALLOW_FULL_CSV_EXPORT`
+`%`
+`SSH_TUNNEL_PACKET_TIMEOUT_SEC`
+`config.py`
+`get_catalog_names`
+`TAGGING_SYSTEM`
+`#documentation`
+`#deploying-superset`
+`#release-strategy!`
+`#apache-releases`
+`#release-strategy`

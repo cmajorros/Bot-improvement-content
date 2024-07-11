@@ -1,0 +1,59 @@
+**Apache Superset™ Now Supports Rockset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Rockset is a real-time indexing database built for the cloud that uses RocksDB for fast storage. Organizations use Rockset to power data-intensive, customer-facing applications where the ability to quickly index, query, and run fresh data in seconds is essential.
+Rockset automatically indexes semi-structured data via Converged Index, where every field is indexed in 3 different ways: row, columnar, and an inverted index. This is how Rockset has millisecond query latency on terabytes of nested semi-structured data.
+
+Apache Superset is a modern, open-source BI platform built on modern technologies (Python, React / TypeScript, cloud-native backend, etc). Because Superset is open source and was built with extensibility in mind, Superset can easily be extended to support any SQL speaking data source. Superset ships with both a powerful no-code chart builder that lets end-users quickly build charts and assemble dashboards (and having Superset generate the queries for them).
+The speed of crafting charts in Superset combined with the speed of ingesting and serving data in Rockset makes for a great pairing when building real time dashboards. If you’re unsure what exactly real-time entails, I encourage you to read our blog post on real-time analytics that explores the nuances further.
+Out of the box, Superset didn’t know how to talk to Rockset. As I discussed in my earlier post,  Building New Database Connectors for Superset post, Superset needs a SQLAlchemy dialect and a companion Python DB-API 2.0 library to query a database. In addition, each database needs it’s own database engine spec (referred to db_engine_spec in the Superset codebase) to enable some specific features like time grains.
+The Rockset team has built a Python client library that meets these requirements, so a lot of the heavy lifting is already done!
+
+To better support Superset features like time grains, I created a minimal database engine spec for Rockset:
+
+and made Superset aware of Rockset as a queryable database.
+
+There are two requirements to using Rockset with Superset:
+The Rockset database engine spec was merged into Superset’s master branch 2 weeks ago at this time of writing. The last major release of Superset was version 1.3, which was released more than 2 weeks ago. This means that currently, the only way to tap into the Rockset database engine spec is to run a close-to-master version of Superset or cherry the specific commits into your Superset deployment.
+In the following sections, I’ll assume that you’re running a Superset version that has the database engine spec mentioned above.
+Docker
+To add the Rockset driver in your Docker-ized Superset deployment, you just need to add the following line to docker/requirements-local.txt:
+and rebuild your Docker image.
+Non-Docker / Native
+If you’re not using Docker to run Superset, then you need to ensure that the rockset driver (version 0.7.68 is the last one I have personally tested) is installed in your Python environment / context.
+Either run pip install rockset==0.7.68 manually or add rockset==0.7.68 to your pip requirements installation file.
+Make sure to re-build or re-deploy if needed for your setup.
+Preset Cloud
+Rockset is available in Preset Cloud, our hosted Apache Superset product and you will see Rockset as an option in the new Database modal.
+
+If everything was installed correctly, you should see Rockset listed as an option in the new database modal.
+Next, you need to generate an API key in the Rockset interface.
+
+Once you have your Rockset API key, head back to Superset, select + Database, select Rockset from the drop-down, and type in the following value for the SQLAlchemy URI depending on the region you set in Rockset:
+Finally, click Test Connection to see if your Superset instance can talk to Rockset. Here's more documentation from the Rockset website
+This integration is still in its infancy! Superset can't yet use Rockset query lambdas as a data source, for example. Certain Superset features like CSV upload as well don’t work.
+We’re hoping to collaborate with the Rockset team to close these gaps and unlock the full power of Rockset and Superset!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Inclusion of the Rockset database engine spec in your Superset deployment
+• Inclusion of the Rockset library in the same Python context as your Superset deployment
+`db_engine_spec`
+`master`
+`docker/requirements-local.txt`
+`rockset==0.7.68`
+`pip install rockset==0.7.68`
+`rockset==0.7.68`
+`Oregon (us-west-2):	https://api.rs2.usw2.rockset.com
+N. Virginia (us-east-1):	https://api.use1a1.rockset.com
+Frankfurt (eu-central-1):	https://api.euc1a1.rockset.com`

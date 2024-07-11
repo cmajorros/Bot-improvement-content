@@ -1,0 +1,22 @@
+**Customer Spotlight: Rocket Travel by Agoda **
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Rocket Travel by Agoda, part of Booking Holdings, partners with companies worldwide to build and manage fully customizable travel booking platforms with a focus on earning and redeeming loyalty currency, or offering discount rates. Rocket Travel by Agoda provides strategic marketing solutions and has robust partnerships with third-party suppliers and wholesale rates that help support affiliate and B2B API partners. Rocket Travel by Agoda also owns and operates the consumer-facing product  rocketmiles.com, which lets customers earn miles, points, or gift cards from their favorite loyalty program when booking hotels at over 400,000 properties worldwide.
+Rocket Travel by Agoda, having worked with Chartio for its business intelligence (BI) software, faced the need to migrate to a new analytics tool due to Chartio's acquisition by Atlassian in 2022. After evaluating BI tooling alternatives, the team chose Preset for its user-friendly SQL querying functionality and a familiar look and feel for visualization types.
+While Agoda uses Superset as a primary BI tool, Rocket Travel by Agoda decided on Preset for the convenience of maintaining separate workspaces (instances of Apache Superset). Workspaces ensure the segregation of data access and security for Rocket Travel by Agoda's more than 80 third-party partners worldwide. Combined with easily configurable row-level security (RLS), Preset enables Rocket Travel by Agoda’s partners to access their unique partner dashboards using their credentials and view key partnership metrics, such as earned partner commissions, point redemption, and account balances, in a self-service manner. Preset enables Rocket Travel by Agoda’s finance and accounting team to efficiently create and deliver invoices to the partners. The ability to automate report delivery directly to customer emails linking back to their dashboards has streamlined the monthly reporting process.
+Rocket Travel by Agoda uses Preset’s dashboards to tell stories of the traveler’s journey through data. By leveraging Preset, the team analyzes marketing campaigns, booking data and trends to define clear objectives and drive new initiatives for their partners in the travel space.
+Additionally, Rocket Travel by Agoda uses Preset’s SQL Lab to query metrics and dimensions. Preset facilitates quicker and more flexible ad hoc analysis, especially compared to legacy BI tools. The team finds a major advantage in the ease of using custom SQL to build charts in Preset.
+50-60% of Rocket Travel by Agoda's employees use Preset with roles ranging from Viewers to Contributors and Creators. The drag-and-drop functionality in Preset simplified the learning curve for non-technical users to create their own charts and dashboards. Additionally, Rocket Travel by Agoda's partners find value in being able to access Preset’s dashboards like their own BI tools.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

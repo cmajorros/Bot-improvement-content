@@ -1,0 +1,13 @@
+Title : Designated Driver Episode 5 • Shillelagh
+
+The video discusses the development and evolution of Shalayli, a library developed for Apache Superset to enhance its capabilities in data querying and visualization. The conversation is between two individuals, Evan and Beto Jameeda, with a focus on the origins and features of Shalayli.
+
+Shalayli was originally conceived to facilitate SQL queries to Druid, a data store used by Superset. It was named after a Druid spell from Dungeons & Dragons, reflecting its initial purpose of forcing SQL into a system designed differently. Initially, Druid did not support SQL directly, so Shalayli served as a bridge to translate SQL queries into Druid-compatible JSON payloads.
+
+Over time, Shalayli expanded beyond Druid to support various data sources through adapters. These adapters allow Superset users to query data from diverse sources like Google Sheets, GraphQL endpoints, Airtable, and more. The library aims to simplify data integration for users, abstracting complexities through intuitive adapters that handle different data formats and APIs.
+
+The discussion highlights the community-driven nature of Shalayli's development, with contributions and feedback shaping its evolution. Despite challenges like supporting new Python versions and transitioning to a PostgreSQL backend for scalability, Shalayli remains integral to Superset's functionality. It underpins features like querying CSV files stored on Amazon S3 as if they were databases, showcasing its versatility beyond traditional database connections.
+
+The conversation also touches on ongoing efforts to improve Superset's example dashboards using Shalayli. This initiative aims to create live example dashboards within Superset that leverage Shalayli's capabilities to fetch and visualize real-time data from diverse sources, thereby enhancing user engagement and showcasing Superset's potential in real-world data applications.
+
+Overall, Shalayli represents a pivotal tool in Superset's ecosystem, enabling flexible data querying and visualization across various data sources, supported by an active community and ongoing development efforts.

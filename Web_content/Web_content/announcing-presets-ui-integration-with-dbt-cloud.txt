@@ -1,0 +1,85 @@
+**Announcing Preset’s UI integration with dbt Cloud**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Join the “Syncing databases, datasets, and metrics from dbt” webinar to see the product demo and get your questions answered! Sign up here.
+While many teams create and manage databases, datasets, and metrics using Preset's user interface, some organizations prefer to handle them in source control using a data transformation layer like dbt. dbt simplifies the process of generating reliable, clean datasets and metrics for visualization in Preset (Enterprise plan).
+Preset has recently integrated with dbt Cloud via its user interface, enabling data teams to define data models (databases, datasets, and metrics) as version-controlled assets within dbt Cloud and synchronize them with Preset Cloud. While we have been supporting integration with dbt Cloud and dbt Core through Preset CLI for some time, the new feature allows you to seamlessly sync the two tools via the Preset user interface.
+We will demonstrate how you can synchronize your dbt models with Preset using the new feature. If your organization is using the open-source dbt Core, jump to this article instead.
+Before we delve into the details, we understand that many teams are curious about the impact of dbt's acquisition of Transform and of the recent announcement regarding the dbt Semantic Layer integration with MetricFlow on Preset's compatibility with dbt. While we await further information to define our roadmap, we’re closely monitoring the news from dbt and plan to support dbt's new semantic layer features rather than building upon the old ones.
+To show how the integration works we’re going to use this dbt project. The project is identical to the classic Jaffle Shop project from the dbt tutorial, with the addition of a few metrics:
+Once you have the project running in dbt Cloud, syncing it to Preset is straightforward. The first step is to create a new service token so that Preset can access the project metadata. This can be done under Account Settings on the dbt Cloud website. You need to create a token with the Account Admin permission, in order to fetch the projects and jobs available, as well as Metadata Only, to fetch the model and metric definitions.
+
+Next, go to Preset and connect the database where your models live. In our project, we’re using BigQuery.
+
+After the database has been connected, go to the dbt Cloud drawer.
+
+In the dbt Cloud drawer, provide the service token that was generated.
+
+Once you’ve provided the token, choose an Account, a Project, a Job, and finally, the models from the job that you want to synchronize.
+
+Note that you can choose your dbt models from the dropdown, or by using dbt graph operators if you want to select multiple models.
+
+Click Next to finalize the configuration, and click Finishto save the database.
+
+As soon as the database is created, datasets should be created from the model in the Preset workspace.
+
+A background process will synchronize all selected models, including their descriptions, columns, and metrics. Synchronization will happen automatically when you first set up your connection and on a daily basis.
+
+You can now click on the dataset and create charts using the dbt metrics!
+
+Preset’s integration with dbt Cloud is available for teams on the Preset Enterprise plan.
+If you’re interested in seeing a product demo or learning more about how Preset synchronizes with dbt, reach out to our team!
+Preset is a data visualization platform that takes a dataset-centric approach to make data exploration more flexible and efficient. Unlike the query-centered approach (“one query, one chart”), or the semantic-centric approach (”a semantic layer too complex to build and maintain”), Preset's dataset-centric BI tool allows you to create charts and dashboards directly from individual datasets containing all of the metrics, definitions, and dimensions related to a specific subject area. A dataset comprises tabular data from your database along with additional metadata, such as certification, column descriptions, metrics, and calculations, facilitating seamless and convenient data exploration.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+`metrics:
+  - name: new_customers
+    label: New customers
+    model: ref('customers')
+    description: "The number of paid customers using the product"
+
+    calculation_method: count
+    expression: customer_id
+
+    timestamp: first_order_date
+    time_grains: [day, week, month]
+
+    dimensions:
+      - first_name
+
+    filters:
+      - field: number_of_orders
+        operator: '='
+        value: '0'
+
+  - name: total_customers
+    label: Total customers
+    model: ref('customers')
+    type: count
+    sql: customer_id
+
+  - name: paying_customers
+    label: Customers who bought something
+    model: ref('customers')
+    type: count
+    sql: customer_id
+    filters:
+      - field: number_of_orders
+        operator: '>'
+        value: '0'
+
+  - name: ratio_of_paying_customers
+    label: Percentage of paying customers
+    calculation_method: derived
+    expression: "{{metric('paying_customers')}} / {{metric('total_customers')}}"`

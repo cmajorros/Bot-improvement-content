@@ -1,0 +1,29 @@
+**Announcing Preset Managed Private Cloud for AWS **
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Preset is excited to announce the launch of Preset’s Managed Private Cloud (MPC), giving users the ability to now deploy Preset workspaces inside their own AWS private cloud as a fully managed solution!
+With Preset MPC, Preset takes on the overhead of deploying, configuring, managing, upgrading, and scaling Superset while securely running inside of your own AWS account.
+Preset MPC has two primary components: the Preset Control Plane and the Customer Workspace.
+The Preset Control Plane is responsible for deploying, configuring, and managing Users and Customer workspaces, and resides inside of Preset’s AWS account.
+A Customer Workspace is a fully deployed instance of Preset, and is deployed and hosted within a customers’  AWS account. The Customer Workspace can then connect to any customer database/data warehouse, whether its on premise or in another cloud, and the connection will stay within the customers private network
+Security:
+Preset is SOC2 Type 2 and PCI-DSS compliant. All communication between your cloud and Preset is over TLS and is fully encrypted. We also leverage a 3rd party observability platform  to monitor logs emitted by customer-owned workspaces to ensure the same  availability and SLA as our Preset SaaS.
+We will work with your Infrastructure team to create a separate VPC instance inside your AWS account and a user (via a Cloudformation template). Once the user exists, we terraform the cluster with all the required resources like VPCs, IAM roles, RDS instances, etc. These resources will be created once, and then will be used by Preset deployments throughout their lifecycle.
+From there, we will have running and functioning workspaces for you to use and to configure the users, teams, and their access permissions and roles.
+If you are already using Preset Cloud and want to migrate, we offer seamless migration of your existing data with little downtime.
+Just fill out this form and one of our experts will reach out to you
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• You are looking for a modern cloud based BI solution but your organization requires you to keep all your data including datasets, saved queries, and results cache inside of your network and private cloud
+• You are currently running Apache Superset inside of your own AWS private cloud and would like to move to a fully managed solution

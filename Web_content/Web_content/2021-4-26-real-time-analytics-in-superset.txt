@@ -1,0 +1,93 @@
+**How Apache Superset™ Supports Real-Time Analytics**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The Superset project started life as a hackathon project by Max at Airbnb. His team was struggling to support real-time analytics using Tableau in conjunction with Druid, Presto / Trino, and the rest of their data stack. The limitations of existing closed source BI tools encouraged Max to start building his own open source BI software.
+The Superset project and community has come a long way since these roots but has always maintained first class support for the real-time analytics use case.
+In this post, I'll provide an overview of all the ways Apache Superset supports this important use case.
+The Superset philosophy is to act as a thin layer above your existing data stack. Combined with the community's desire to use common, open standards like SQLAlchemy and Python DB-2.0 API, this enables Superset to be able to query pretty much all of the data engines out there.
+OLTP stands for online transacational processing and is an acronym used to describe databases and data engines optimized for recording transactions and state of real world processes. This type of data is often referred to as operational data. OLTP databases are usually optimized for row-oriented columns, where each row corresponds to a real-world event, transaction, etc.
+For small teams that are moving quickly, it's quite common to have analytics & reporting query the OLTP database directly that's powering the business. Querying the data powering a live product or service is as close to real-time as you can probably get.
+With this context in mind, here are the most popular OLTP databases that Superset supports:
+OLAP stands for online analytical processing and is an acronym used to describe databases and data engines optimized for analytics. As organizations grow and mature, they tend to store data specifically for analytical needs in a separate place.
+There's a few reasons for this pattern, but the two most relevant ones are:
+OLAP databases are usually optimized for column-oriented operations, like computing statistics (e.g. medians and averages). Superset supports a large number of OLAP databases:
+The last category of data engines are query engines and data lakes. While these aren't like databases at all, they offer a powerful SQL interface to query data either at rest (represented as files) or living in multiple databases.
+Nearly all of the data collected in organizations is some form of time series data. The goal of real-time analytics is to quickly help teams:
+To aid in these goals, Superset ships with beautiful versions of all of the common time series charts.
+Unified ECharts Time-series Chart
+A key milestone in the transition to ECharts is the addition of the ECharts time-series chart in Superset. This is currently a single, unified chart (with a setting to switch between the different sub-types) that will eventually be split up into separate charts entirely.
+Here's the same dataset visualized four different ways in this unified chart type.
+
+Area Chart
+
+Time-series Table
+
+Big Number with Trendline
+
+Dual Line Chart
+
+When visualizing time series data, powerful charts are an important first step but aren't sufficient. Time series data contains a rich universe of context that's usually missing.
+Annotations are a powerful way for dashboard designers, who usually have more context into the data, to enrich time series charts with additional context for the reader. This is especially important in organizations where a small minority of folks are crafting dashboards and the remaining majority are consuming dashboards.
+
+You can read more about annotations in Superset in our documentation.
+For some teams, staying on top of large dips or spikes in specific metrics is essential to their success. To help with this, you can set up alerts in Superset that notify you:
+Here's what the Add Alert window looks like:
+
+You then can use SQL to specify the condition, when met, you want a notification. You can read more about this feature here.
+Time series forecasting describes a class of techniques for identifying patterns in a historical time series data and using them to predict future values.
+
+Prophet, a library open sourced by Facebook, enables time series forecasting in Superset without writing any complex code. End users can simply select the relevant options from drop down menus.
+
+You can read about configuring Prophet and Superset here and how to make time series forecasts here.
+Note that time series forecasting currently only works with the ECharts time-series chart. In addition. time series forecasting in Superset is currently limited to univariate predictive models.
+Vastly Larger Gallery of Charts
+One of the most important upcoming changes in Superset to better support real-time analytics centers on the migration to ECharts. The Apache ECharts project has a massive gallery of examples, all of which can be added to Superset.
+
+In the coming months, expect many more chart types to make their way into Superset core. If you can't wait, remember that you can always add your own viz plugins in Superset!
+Cross Filtering
+Cross filtering is a powerful way to filter data in other charts by selecting elements in a reference chart. This functionality is common to many BI tools and is in active development for addition into Superset. This will enable end-users to quickly drill down deeper into the context of charts in their dashboards.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• MySQL / MariaDB
+• Postgres
+• Microsoft SQL Server
+• Oracle
+• CockroachDB
+• and more!
+• analytics use cases involve lots of column-oriented calculations, like computing statistics of one or more columns (e.g. average income for many individuals, usually represented as rows)
+• separation of concerns for resource planning, so all data infrastructure doesn't go down at once under load
+• Apache Druid
+• Snowflake
+• Apache Pinot
+• Clickhouse
+• Google BigQuery
+• Amazon Redshift
+• Vertica
+• and more!
+• Dremio
+• Trino
+• PrestoDB
+• Amazon Athena
+• Databricks
+• Apache Impala
+• Apache Hive
+• Apache Drill
+• and more!
+• understand progress towards targets / goals
+• visualize and internalize important trends
+• identify emergencies to resolve
+• and more
+• at a given time interval
+• when a specific criteria (specified as SQL) is met
+• via Slack or email

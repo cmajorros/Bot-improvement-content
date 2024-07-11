@@ -1,0 +1,44 @@
+**Apache Superset vs ThoughtSpot**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We have written a few posts comparing commercial business intelligence (BI) tools, such as Tableau and Metabase, with open-source analytics software, Apache Superset. In this blog post, we will compare the functionalities of ThoughtSpot and Superset to help you identify the right BI solution for your organization.
+Founded in 2012, ThoughtSpot is known for its search-driven approach to analytics, aimed at enabling business users to explore and analyze data using natural language search.
+ThoughtSpot offers the following key functionalities and benefits:
+Superset is the leading open-source data analytics software known for its ease of use and customization capabilities. Since the project's inception in 2017, Superset has gained popularity among data professionals for its ability to quickly transform raw data into beautiful charts and interactive dashboards.
+Superset offers the following key functionalities and benefits:
+Today, thousands of organizations of all sizes have successfully implemented Superset to enable data access and self-serve analytics across organizations, including Airbnb, Dropbox, and Nielsen.
+ Try Preset, a fully-managed, cloud-hosted version of Apache Superset.
+See below for the feature-by-feature comparison of the two BI solutions.
+ Evaluate popular analytics software tools such as Apache Superset, Tableau, Looker, and more.
+From the comparative table above, you might have noticed that Superset and ThoughtSpot offer distinct advantages. Superset provides data teams with greater control over the organization's analytics experiences through its versatility and customization options. On the other hand, ThoughtSpot stands out for its natural language query functionality, enabling non-technical users to uncover actionable insights without needing to know SQL or table relations.
+Preset, a fully-managed cloud-hosted solution for Apache Superset, complements Superset with its AI Assist feature (currently available in alpha mode). AI Assist is a text-to-SQL (natural language query) functionality that allows users to ask questions in natural language and returns answers by executing complex SQL queries across multiple tables behind the scenes.
+Figure 1: AI Assist (text to SQL) in Preset (currently in alpha mode).
+
+To learn more about how Preset makes it easier for organizations to deploy and manage multiple instances of Superset with just a few clicks, we encourage you to read this blog.
+Figure 2: Preset Cloud, a cloud-hosted solution with open-source Apache Superset with additional features and a security layer.
+
+Open-source Superset is a cost-effective BI option, particularly when your organization has substantial underlying databases. Because of the usage-based pricing model, ThoughSpot can be considerably expensive when involving extensive datasets. Because every iteration of a question asked by a business user incurs charges not only for queries sent to the underlying database but also for ThoughtSpot usage, your team may incur unpredictable and high costs if the tool is rolled out to more users.
+When evaluating between Superset and Preset, a key factor to weigh is the ease of maintenance. Self-hosting Superset necessitates a dedicated resource to manage tasks such as upgrades, bug fixes, user support, customization, and managing feature flags for additional functionalities. In contrast, with hosted Preset, these responsibilities are handled through affordable user-based licensing fees.
+We encourage you to consider Superset if your organization is looking for a business intelligence solution that is fully customizable, easy to use for both technical and non-technical users, and affordable (with a low total cost of ownership).
+Preset is an affordable alternative if you're looking for a hassle-free, cloud-hosted Superset experience with AI Assist (natural language querying capability). Sign up for a free Preset account to see it yourself!
+As AI Assist is still in alpha mode, contact our team if you're interested in learning more about this feature.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Natural language search and AI-driven insights: Users can ask questions in plain language and receive answers in the form of data visualizations. ThoughtSpot's AI-driven insights, powered by its SpotIQ technology, suggest relevant visualizations.
+• Data visualization capabilities: ThoughtSpot provides a diverse range of data visualization options, including basic charts, geospatial maps, and pivot tables.
+• Relational search and in-memory calculation: ThoughtSpot's relational search functionality helps users analyze data across multiple data sources and tables. Additionally, its in-memory calculation engine allows users to perform computations on large datasets.
+• Open-source and customizability: Superset offers flexibility for customization and extension, enabling organizations to build their modern data stacks. While Superset comes pre-installed with 40+ chart types and UI-based data connectors, data professionals can integrate new database connectors and add new visualization types through plugins.
+• Instant time-to-dashboard: Superset automatically pulls in relevant information from the database (like schema and column types) and lets you create charts and dashboards instantly without upfront investment in semantic layer.
+• Easy dashboard creation and exploration: Any non-technical user can drag and drop charts and set up filters to create their own dashboards and explore data, freeing up the centralized data teams’ resourcing and time.
+• SQL interface: Superset's SQL interface (a.k.a. SQL Lab) allows data teams to write custom SQL queries to access and retrieve data from databases. The SQL IDE allows for advanced use cases, such as writing ad-hoc queries, aggregating and manipulating data, and creating virtual datasets by joining multiple tables.

@@ -1,0 +1,32 @@
+**Curate Apache Superset and Preset with Content Tags**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+As a data practitioner on the data team, seeing the increasing adoption of BI analytics across your company is exciting news. However, as the number of charts and dashboards continues to grow, keeping them well-organized can become a challenge, especially when you want to make them easily discoverable and shareable with your team and key stakeholders.
+That's why we're announcing content tags, which make the organization of charts, dashboards, and saved queries in Apache Superset and Preset Cloud easier, enabling effortless data discovery, access, and collaboration for everyone in your organization.
+In Preset, we're also introducing enhancements in the coming weeks to simplify tag creation and curation, as well as to provide instant access to frequently used content.
+Using flexible and customizable tags, content creators can curate charts, dashboards, and saved queries. Each piece of content can have multiple tags, providing flexibility in organizational structures to accommodate various ways of organizing assets (e.g., “Sales Dashboard" could be tagged as Sales Team, Internal, Key Metrics, Leadership Review, etc.).
+
+Finding and searching for tagged content is easy. Search using tag names from any of the Dashboard, Charts, or Saved Queries pages. On our newly created "Tags" page, users can easily access all content items tagged with a specific keyword, enabling the discovery of dashboards related to similar topics and interests. Tags can be used to organize assets into collections for teams, business lines, product categories, and more.
+
+In Preset, tag permissions are initially linked to workspace roles, simplifying the management and maintenance of organizational structures. Only workspace administrators have the authorization to create, edit, and delete tags, thus preventing issues such as duplicates, disarray, and unclear tags. Content creators can apply tags to their created content, and individuals with viewing access can locate tagged content as permitted by their data access roles.
+If your organization has many users and content, it can still be a challenge to locate and access the most critical charts and dashboards tagged with specific keywords. In the coming weeks, you'll have the capability to pin your favorite assets to Preset's Homepage, enabling you to access them instantly upon logging into Preset.
+
+If you’re interested in using tags to manage Superset or Preset charts and dashboards, follow our docs to get started.
+In Preset, tags are available for all subscription types. If you don’t have an account yet, create one for free!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+`Sales Team`
+`Internal`
+`Key Metrics`
+`Leadership Review`

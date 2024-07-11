@@ -1,0 +1,47 @@
+**Comparing Apache Superset and Mode Analytics**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+In this blog, we will compare the functionalities of two modern business intelligence platforms: Mode Analytics and open-source Apache Superset (or its cloud-hosted version, Preset Cloud, where applicable).
+Superset is a leading open-source data analytics software known for its ease of use and customization capabilities. Since the project's inception in 2017, Superset has gained popularity among data teams for its ability to quickly transform raw data into beautiful charts and interactive dashboards.
+Superset shines in the following areas:
+Today, thousands of organizations of all sizes have successfully implemented Superset to enable data access and self-serve analytics across organizations, including Airbnb, Dropbox, and Nielsen.
+Founded in 2013, Mode is a business intelligence tool known for its integrated R and Python notebooks. Data teams can load SQL results directly into connected R and Python notebooks to extend analytics. The acquisition of Mode by ThoughtSpot was announced in June 2023.
+Before we dive deeper into the feature-by-feature comparison, let's touch on why you might care about open-source software. Besides being free of charge, open-source software ensures ongoing product development and prevents vendor lock-in.
+In June 2019, the Looker team announced that they were being acquired by Google. The acquisition resulted in the transition from Google Data Studio to Looker Studio.
+This isn't a new phenomenon. Due to the maturity and dynamism of the BI market, consolidation has been accelerating over the past few years:
+Acquisitions often carry the risk of shutdowns or reduced investments in the acquired solutions, leaving customers to seek new services for their business analytics assets, which they will likely need to rebuild.
+Open-source BI applications reduce this risk. If you self-host an open-source tool, you are immune to vendor lock-in. If you choose to partner with a SaaS or hosted service provider of open-source software, you have multiple options, including alternative vendors, hiring expertise from the marketplace, or even taking ownership and operating the software independently.
+We've outlined below the feature-by-feature comparison of the two BI solutions (Table 1). The key differences include:
+Table 1: BI feature comparison
+ Evaluate popular analytics software tools such as Apache Superset, Tableau, Looker, and more.
+Open-source Superset sounds great, but is your team looking for a SaaS solution?
+Preset Cloud offers a fully managed SaaS solution for Apache Superset, providing a hassle-free experience. It includes all of Superset's BI functions and ensures enterprise-grade security, simplifying user access and data permissions management via the user interface and API (Figure 1).
+Self-hosting Superset requires dedicated resources for tasks like upgrades, bug fixes, user support, customization, and feature flag management. This may be feasible for large organizations but challenging for resource-strapped startups and SMBs. Hosted Preset handles infrastructure and backend tasks, allowing data teams to focus on providing data and analytics access.
+To learn more about how Preset streamlines the deployment and management of multiple Superset instances with a few clicks, we encourage you to read this blog.
+Figure 1: Preset Cloud, a cloud-hosted solution with open-source Apache Superset with additional features and a security layer.
+
+We encourage you to consider Superset or Preset if your organization is looking for a flexible modern business intelligence tool. While designed for SQL-savvy data teams, these platforms support self-service analytics for non-technical users and can reduce vendor license fees and overall ownership costs.
+Get started with your charts and dashboards by creating a Preset account for free. Even if your organization plans to self-host Superset, we recommend trying out the core BI features in our SaaS environment to save time and effort.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Customizability: Superset offers flexibility for customization and extension, enabling organizations to build their modern data stacks. While Superset comes pre-installed with 40+ chart types and UI-based data connectors, data professionals can integrate new database connectors and add new visualization types through plugins.
+• Easy dashboard creation and exploration: Non-technical users can drag-and-drop charts, filters, and elements to create dashboards and explore their data, freeing up centralized data teams’ resources and time.
+• SQL interface: Superset's SQL IDE lets data teams write queries in the UI to access and retrieve data from databases. Analysts can also write ad-hoc queries, aggregate and manipulate data, and join multiple tables to create virtual datasets.
+• Redash was acquired by Databricks
+• Chart.io was acquired and shut down by Atlassian
+• Tableau was acquired by Salesforce
+• Periscope was acquired by Sisense
+• Mode Analytics was acquired by ThoughtSpot
+• Mode is designed for technical users proficient in SQL language, and it allows for advanced analytics, such as predictive analytics, through Python and R-notebook workflows.
+• Superset is an ideal tool for SQL-savvy users. Furthermore, its user-friendly interface, rich visualizations, customization options, and cost-effective pricing model make it suitable for self-service analytics for everyone, including non-technical users.

@@ -1,0 +1,112 @@
+**Build A StackOverflow Dashboard (Part 1): Connecting Superset to BigQuery**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+At Preset, we're helping to steward the open source community behind Apache Superset (incubating). Our community is split between the community Slack, Github, StackOverflow, and more. These community tools generate a large volume of data, and it can be hard to understand:
+As a company focused on enabling every team to become a data team, we naturally turned to data, visualizations, and dashboards as one way to help us answer these questions.
+In this blog post series, we'll explore how to build a StackOverflow dashboard. We'll use the public dataset for StackOverflow combined with Superset for visualization.
+In this post, we'll explore how to connect BigQuery to Apache Superset.
+Google BigQuery is a data warehouse solution that's hosted on Google Cloud. Similar to it's Amazon counterpart, Redshift, BigQuery is a column oriented database system that's optimized for analytics use cases.
+BigQuery hosts a number of public datasets as part of their marketplace on Google Cloud.
+
+As with every experiment using cloud resources, it's very important to understand and internalize how the fee structure works. Google charges around 2 axes of usage:
+For public datasets, Google waives the associated storage costs but charges for accessing and scanning their centrally located public datasets. Google lets us query 1 terabyte per month in an on-demand way for free and then they charge $5 per terabyte processed afterwards.
+To use public datasets, we need to first create a project by heading to the project selector page and following the project setup wizard. You can read the updated instructions on the BigQuery documentation site.
+Once you've created a BigQuery project, you can add the StackOverflow dataset just by navigating to public dataset page. If you're logged into BigQuery, you should see this dataset now registered in your project.
+To provide access to BigQuery from outside of Google Cloud, we'll need to first create a Service Account. A Service Account is essentially a user account that has specific permissions to access resources in Google Cloud programmatically (instead of just from the UI). Unlike a regular user account for humans, Service Accounts don't have passwords and instead access resources using public key cryptography.
+Use the search bar to find and navigate to the "Service Accounts" configuration page.
+
+
+
+
+Superset can query BigQuery datasets using the pybigquery SQLAlchemy plugin.
+We have detailed instructions on how to do this in our Installing Additional Drivers blog post.
+You'll need to adapt step 2.2 from that post to install pybigquery:
+After Docker has rebuilt the images and you've booted up the Superset service, navigate to Sources > Databases in the navigation bar and then click the + button next to Filter List.
+
+
+
+
+If you run into problems, we encourage you to join the Superset community Slack or ask your question on Stack Overflow.
+In part 2 of this blog post, we'll explore:
+The good news is, completing this series of tutorials will enable you to create Superset dashboards from any of the BigQuery public datasets. We now maintain upto date documentation on BigQuery and Superset in our end-user docs.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• community health across different channels in a community tool
+• how the project and community are growing together
+• how effectively is our team responding to the questions and needs of the community
+• storage: how much data is actually stored
+• compute: how much data is actually processed
+• 
+To use public datasets, we need to first create a project by heading to the project selector page and following the project setup wizard. You can read the updated instructions on the BigQuery documentation site.
+
+• 
+Once you've created a BigQuery project, you can add the StackOverflow dataset just by navigating to public dataset page. If you're logged into BigQuery, you should see this dataset now registered in your project.
+To provide access to BigQuery from outside of Google Cloud, we'll need to first create a Service Account. A Service Account is essentially a user account that has specific permissions to access resources in Google Cloud programmatically (instead of just from the UI). Unlike a regular user account for humans, Service Accounts don't have passwords and instead access resources using public key cryptography.
+
+• 
+Use the search bar to find and navigate to the "Service Accounts" configuration page.
+
+• Step 1 of this wizard involves specifying an account name, ID, and description. Feel free to be creative here! When you're finished, click Create to be taken to the next step.
+• In step 2 of this wizard, you need to search for and add "BigQuery User" to this service account. This enables this service account to run queries in BigQuery, create datasets, read dataset metadata, and list tables.
+• You can skip step 3 if you don't have an organization level IAM hierarchy and are just trying this out first. You'll now be taken to a list of all of your Service Acounts.
+• The last step here is to select the service account you just created, create a new private-public key pair by selecting Add Key, and download your private key as a JSON file. Most services only let you download your private key once, so keep this file for safe keeping!
+• 
+You'll need to adapt step 2.2 from that post to install pybigquery:
+echo "pybigquery" >> ./docker/requirements-local.txt
+
+• 
+After Docker has rebuilt the images and you've booted up the Superset service, navigate to Sources > Databases in the navigation bar and then click the + button next to Filter List.
+
+• Fill out the Add Database form with the necessary details.
+
+Database: think of a memorable name for this connection.
+SQLAlchemy URI. The SQLAlchemy URI for BigQuery looks like: bigquery://{project_id}. To find your BigQuery project_id, navigate back to the BigQuery console and you'll find it under Resources.
+
+
+• Database: think of a memorable name for this connection.
+• SQLAlchemy URI. The SQLAlchemy URI for BigQuery looks like: bigquery://{project_id}. To find your BigQuery project_id, navigate back to the BigQuery console and you'll find it under Resources.
+• Once you've filled out the form fields above, click the Test Connection to test if your Superset instance can talk to your BigQuery project.
+• how to prep data from BigQuery for Superset
+• how to create Superset charts to visualize trends on StackOverflow questions
+`Then, click **+ Create Service Account** under the search bar. You should still see your BigQuery project name next to "Google Cloud Platform", which is critical to ensuring the Service Account you're creating can access datasets you've added to your BigQuery project.`
+`pybigquery`
+`echo "pybigquery" >> ./docker/requirements-local.txt`
+`bigquery://{project_id}`
+`- **Expose in SQL Lab**: make sure this checkbox is ticked.
+
+    Here's a completed example:`
+`- **Extra**: In this field, we need to add information from the BigQuery credentials JSON file we downloaded in Step 7. Superset expects a dictionary formatted the following way:`
+`        {
+          "credentials_info": {
+            <DATA_FROM_CREDENTIALS_FILE>
+          }
+        }`
+`    Here's a more tangible example (obviously you'd replace the blanks with data from your JSON file):`
+`        {
+          "credentials_info": {
+            "type": "service_account",
+            "project_id": "_____",
+            "private_key_id": "____",
+            "private_key": "-----BEGIN PRIVATE KEY-----
+            \n____
+            ______
+            END PRIVATE KEY-----\n",
+            "client_email": "___",
+            "client_id": "____",
+            "auth_uri": "____",
+            "token_uri": "____",
+            "auth_provider_x509_cert_url": "____",
+            "client_x509_cert_url": "____"
+          }
+        }`

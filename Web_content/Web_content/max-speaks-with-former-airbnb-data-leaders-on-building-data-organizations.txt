@@ -1,0 +1,24 @@
+**Max Speaks with Former Airbnb Data Leaders on Building Data Organizations**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Both Apache Superset and Apache Airflow were originally created within Airbnb. Airbnb has helped create lots of modern open source data tools, some of which have spawned companies of their own.
+Max recently spoke with Chetan Sharma (early data scientist at Airbnb), Lindsay Pettingil (former Tech Lead at Airbnb), and James Mayfield (former Director of PM of Infrastructure at Airbnb) on the Decoding Data Leadership podcast, hosted by Acryl Data. They spoke with Swaroop Jagadish from Acryl Data on a number of topics related to the challenges of building large data organizations and cultures.
+In this episode, they discussed:
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• approaches to data democratization
+• how to manage and rollout open source projects
+• advice for building your own data culture
+• building political capital internally for data
+• where is data management headed?

@@ -1,0 +1,34 @@
+**Preset Raises $35.9M Series B to Democratize Business Intelligence**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+We are excited to announce that Preset has raised $35.9 million in Series B funding led by Redpoint Ventures, with participation from existing investor a16z. This brings our total funding to $48.4 million. This round will help Preset continue to grow our team and invest in the technology, including enhancing Superset and building an even more robust cloud service.
+Along with the new funding, we are also announcing the general availability of Preset Cloud, a fully hosted, hassle-free cloud service for Apache Superset. Originally created by our founder Maxime Beauchemin while at Airbnb, Superset has quickly become the most popular open source visualization layer for the modern data stack amongst data professionals at thousands of data-first organizations and household brands around the world. With the public launch of Preset Cloud, it is now easier for anyone to access the full power of Superset in a reliable, securely managed, and highly scalable cloud environment.
+Preset Exits Beta with Strong Customer Momentum
+
+After six months in private beta, Preset has seen tremendous demand for the service and has partnered with early adopters like Funimation Global Group, which selected Preset to help modernize their data culture, democratizing access to data for everyone, and centralizing reporting and analytics on Preset Cloud.
+"We are excited to partner with Preset to help shape the future of data at Funimation," said Rahul Purini, Chief Operating Officer at Funimation Global Group. "Visibility into our metrics is key to our success in the anime space and with our fans.  Preset Cloud makes those insights accessible to everyone in our organization so users are empowered to ask their own questions and get to the answers with a quick few steps."
+Preset Cloud delivers both the flexibility of open source along with the mature features of Superset, including:
+In addition, Preset Cloud eliminates the traditional barriers to adopting and scaling open source Superset, through:
+
+"Today is a huge day for Preset," says Maxime Beauchemin. "I'm excited to disrupt the business intelligence market with the freedom of open source, the convenience and accessibility of a freemium cloud service, and a product that modern teams want to use!"
+Start using Preset Cloud for free today and join us on our journey to democratizing business intelligence.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• No-code data explorer: Interactive dashboards and complex visualizations are easy to create without writing any code
+• Advanced SQL editor: Collaborative SQL editor to build a semantic data model to define dimensions and metrics and create virtual datasets
+• Rich gallery of visualizations: Over 40 out of the box visualization types to showcase an organization's data
+• Integration with modern data technologies: Integrations with nearly any SQL speaking data source including Snowflake, BigQuery, Druid, Presto and Dremio
+• Self-service and freemium pricing: Preset Cloud removes the complexity and reduces the cost of starting and maintaining Superset in a easy-to-use cloud service
+• Enterprise security, compliance & governance: Preset Cloud provides integrated single sign-on (SSO), configurable role-based access control, and is SOC2 compliant
+• World-class support: Preset Cloud is run and maintained by a team of Superset experts. The team is the largest contributor to the Apache Superset project.

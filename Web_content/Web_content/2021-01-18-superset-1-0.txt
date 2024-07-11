@@ -1,0 +1,49 @@
+** Apache Superset 1.0 is out!**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Apache Superset is an open source enterprise-ready data exploration, data visualization and dashboarding application that enables teams to be productive with data.
+Today our community is proud to announce the release of Apache Superset 1.0, a major milestone that we’ve been working towards since the very first commit at a hackathon at Airbnb back in 2015. Superset 1.0 packs a lot of new features, uplevels usability, holds a higher quality standard, and raises the bar for releases to come. This post details the key advancements that our community has been building up towards this release.
+While growing fast over the past four years, Superset had accumulated a certain amount of technical debt, design debt, bugs, and idiosyncrasies. For this release, we wanted to pay the bulk of that debt off, streamlining the core user flows, refreshing the overall look and feel, taking off some of the scaffolding that was left standing around, and more generally, leveling up the user experience.
+Visually, Superset 1.0 is stunning, introducing card layouts with thumbnails throughout the application, streamlining navigation and content discovery with a new home page, redesigned menus, and generally enriching existing pages.
+
+Behind the scenes, we moved away from Bootstrap 2x in favor of building a proper design system on top of Ant Design. We also redesigned all of our CRUD (Create Read Update Delete), moving away from the rigid scaffolding “auto-magic” provided by FAB (Flask App Builder), to our own React-based solution that enables us to build richer experiences.
+
+More generally, many rough edges got buffed, the whole product got polished, and we managed to get our core user flows to, well, flow nicely.
+
+For engineers and hackers, we’ve made Superset much more modular, extensible and integratable. We’re now exposing the building blocks of Superset for engineers to extend or use in other projects. It’s now easier than ever to create new visualization plugins for Superset and to share those plugins back with the community. We’re excited by the possibilities that this opens and excited to  observe a growing ecosystem of plugins take life.  We’ve also formalized a public REST API that enables engineers to essentially do everything that users can do in Superset, programmatically.
+
+Superset is now more secure than ever before. Preset commissioned penetration testing on the product and led the charge to fix all discovered vulnerabilities and set up automation mechanisms to prevent regression. We’ve also committed to doing regular pentesting audits to ensure that we catch issues. We’ve refined our processes around resolving security issues while pushing through a handful of well-handled CVEs (Common Vulnerabilities and Exposures) over the past year. Also important, we’ve simplified the security model in Superset to a simpler set of atomic permissions to make it more comprehensive.
+Because we wanted to make it easier for people to manage and share the objects they’re building in Superset, we’ve rebuilt the export/import functionality from the ground up. This allows organizations to manage and synchronize objects across environments, and for users to share the assets that they’ve built easily.
+We’ve also completely redesigned our community website at superset.apache.org and made it the official hub for our fast growing community. All of the resources expected from a mature open source community can be found and contributed to there.
+Reporting and alerting has always been highly requested in the community, and 1.0 packs a solid implementation that can support most use cases. This enables periodic email delivery of reports, as well as an alerting system that can monitor your metrics arbitrary shifts and alert you as specified. We built an extensible system that we can expand to more delivery mechanisms and forecasting/alerting logic.
+
+
+Around the topic of open source governance, Superset graduated from the incubator to become a top-level project at the Apache Software Foundation. As a project that had been incubating since 2016, we finally ironed out some minor licensing issues, prevented license-related regressions using FOSSA, and started publishing proper ASF releases on a regular cadence. We also actively worked towards fitting the Apache Project Maturity Model, aligning with the governance model prescribed by the ASF and took action to grow the community in sustainable ways. The graduation formally recognizes that the community has complied with all the requirements, and operates at the high standard required by the ASF.
+With 1680 PRs merged and 25+ SIPs (Superset Improvement Proposals) over 2020, it’s hard to summarize what went into this release. Improvements happened in all aspects of the project, from infrastructure to design, through backend and frontend, to community and governance. Here are some honorable mentions that we haven’t been covered above, but deserve a mention in this post:
+All-in-all, Superset has come a long way recently and this release marks the project entering its mature stage. The community has gained velocity and momentum, and yet we’re still accelerating. 1.0 marks a huge milestone in our journey to delight data teams with the most comprehensive and modern analytics platform there is, but clearly this is still the beginning of a much greater adventure.
+Congratulations to all contributors and to sponsoring organizations, this is a huge achievement!
+Join our community! Get involved!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Asynchronous backend improvements
+• Metadata and data pane in explorer view
+• Toolbars redesign (SQL Lab, dashboard, explore)
+• Date range picker redesign
+• Various Docker / Helm improvements
+• Migration of key visualization to plugins using Echarts
+• Time series forecasting leveraging the Prophet library
+• Improvements to and extensive use of our feature flag framework
+• Improved analytics logging, capturing more events more consistently
+• Exploration control panels improvements
+• Improved SQL-to-explore flows

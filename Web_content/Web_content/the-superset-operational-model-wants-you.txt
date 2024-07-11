@@ -1,0 +1,86 @@
+**The Superset Operational Model Wants YOU!**
+**What exactly is the Superset Operational Model?**
+**Why you should get involved**
+**Communicating (in)effectively in a modern ASF project**
+**How (and where) the Superset community conducts business today**
+**Divide and conquer FTW**
+**Where you come in!**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Over the last year, the Apache Superset project has adopted and evolved a new pattern for distributing and tracking long-term responsibilities and oversight of project management. The idea is to allow project maintainers including Project Managment Committee (PMC) members and Committers, as well as the general user/contributor community (hey, that’s you!) to better organize efforts around various initiatives, and create a space for ad-hoc brainstorming and discussion.
+In November of 2021, John Bodley and Ville Brofeldt (both PMC members) penned the initial proposal for the Operational Model, which helped to initiate several Working Groups, each with a designated area of ownership. These working groups can then “go deep” on areas in their domain expertise, and report back in a centralized event we call the Superset Town Hall. The goals of this effort, in short, are to
+In other words, to turn discussion into action, and keep these activities as open and inclusive as possible along the way.
+We’ve grown to find that these dedicated subject areas greatly benefit from real-time discussion to hash out ideas, and a centralized place to track and assign ownership of tasks and responsibilities. While this might sound perfectly reasonable to many folks in many circles, there are two frequently-asked fundamental questions this blog post seeks to answer for the sake of the Superset community:
+In the Superset community, we feild a wide swath of recurring topics and questions, and at large, this effort aims to address several of them. Have you ever found yourself wondering any following?
+If so, then you have a place here. With the Superset project and community, there exists a continuous need to revisit how and where we communicate with each other, and broadcast updates and gather input input. The Operational Model is attempting to open this all up, and make it easier and more meaningful for you and anyone interested to get more actively involved in helping to manage the Apache Superset project.
+It should come as no surprise that running the day-to-day operations of a project the size of Superset requires a daunting amount of communications to to keep this project — and all those who work on it — on a steady course. Providing this steering and oversight, and driving/maintaining community engagement following The Apache Way has long presented unique strengths and difficulties, and those who manage the project are constantly evolving their processes to avoid breaking these fairly sacred ground rules, while staying in sync and in alignment in new and effective ways.
+A key fundamental principle of operating any Apache project is that the community must make important (and especially contentious) decisions by gathering consensus. Any discussions and decision making to that end is done as openly, transparently, and inclusively as possible. In traditional (and generally smaller) ASF projects, the bulk of this discussion and consensus building is encouraged to take place on official Apache email lists, including the public developer list (which you can subscribe to by sending an email to this address) and private list for the Project Management Committee (PMC).
+In the Superset project, we continue to conduct business on these lists when it comes to procedural matters (voting in releases, addressing security concerns, nominating new committers, etc.), but for the most part we found long ago that these traditional (email-based) modes of communication were insufficient to keep up with the scale and pace of the project’s needs. People need to find and engage with discussions, and reach decisions quickly, as the cost of inaction on any feature, process, troubleshooting, or security concern, tends to greatly outweigh the cost of moving quickly and course-correcting as needed. To put it simply, email does not scale.
+Before we get into the particulars of the Superset Operational model, and how it works, it’s important to mention some key fora that anyone in the Superset community ought to be aware of. Each of these are used by Operational Model groups, and each has a key purpose worth enumerating. :
+While many Apache projects have opted to track issues with JIRA, the entirety of Superset’s development work takes place on Github, making Github Issues the natural place to track issues (and the code that resolves them). While this is highly effective in many ways, most people have difficulties keeping up with the sheer number of user-reported issues (”drinking from the firehose”). Most individuals’ notification-checking habits, and a sometimes challenging signal-to noise ratio on the repo also contribute to this difficulty. Due to this reality, the community has embraced keeping Issues scoped to actual bugs, and moving troubleshooting and feature requests to Github Discussions.
+Compared to Issues, Github Discussions provide a more purpose-built means to engage with topics. The most common flavors of discussions are “Q&A” (kind of like Stack Overflow, where answers can be accepted as correct), and “Ideas” where folks can hash out feature and design requests. Sometimes, however, troubleshooting and feature discussion requires a more contemporaneous discussion, in which case we advise users to participate via Slack.
+While Slack is by nature async, meaning it’s very timezone-friendly and gives a lot of people time to reply to questions/comments/concerns, it’s also very expedient in many cases. The blessing and curse of this forum, however, is that with over eight thousand people participating, there are a lot of important questions that might go unanswered, or interesting discussions that require broader, more real-time discussion to hash out. In those cases, topics frequently need to be put on some form of agenda for more synchronous discussion/meetings.
+This is by far the most controversial aspect of how the Superset community operates, in terms of the Apache Way. For years, the Superset community (mostly committers, but anyone who cares to join) had periodic synchronous meetings including in-person gatherings ((pre-COVID, anyway), with a Zoom call for remote folks. This initially raised alarm bells with Apache in terms of openness/inclusiveness, and fairness of accessibility with different time zones and so forth involved. These issues were addressed by publicly shared notes, and rotating time slots to make the meetings available to different global regions. Over time, these came to be include discussion than we could handle in single meetings, and a more purposeful, organized approach was needed, so it again became time to evolve.
+The Superset Town Hall, a monthly meeting, acts as the hub of this the Operational Model. All discussions on Slack, email, Github, or anywhere else are fair game to be proposed as agenda items for this open gathering. The notes and agenda going into and coming out of this gathering are public, and shared on all of the aforementioned fora.
+The town hall acts as a place to capture these discussions, and dole out action items to working groups with specific areas of ownership. These actions captured during (or following) the Town Hall are added to the Operational Model Project on Github. Then the working groups pick these up in their own slack channels and group syncs. Once this work is tackled, any decisions made or actions taken are reported back to the community through subsequent Town Halls and, as needed, official Apache consensus processes or Superset Improvement Proposals (SIPs).
+The current Operational Model working groups, and how to interact with them, are as follows.
+This group is charged with making sure official Apache releases of Superset stay on track. This means coordinating release managers for a given release, maintaining proper semver practices, figuring out proposals and procedures for what can or should be brought into any given release.
+This group focuses on making sure that Superset is as straightforward to maintain as possible, meaning that patterns are formalized and adhered to, build processes are well documented and robust, and that both new contributors and seasoned veterans can have the lowest possible friction in customizing and contributing to the product.
+This group has oversight on issues of stability, performance, and reliability of the Superset codebase, including the core product, its various test suites, and the repository’s CI processes. Paying down technical debt and improving overall product reliability are the key goals.
+While many of Superset’s security practices can not be carried out in public (which we hope to unveil in another blog post soon), the group does have public interfaces for those who wish to discuss or help with mitigating security concerns, or wants to better understanding this aspect of Superset's process
+This group tends to focus itself on broader concerns of making sure that the project is operating smoothly, including the spinning up new working groups, management of shared assets, and general macro project operations.
+If any of these pique your interest, please join us in these efforts! To ask questions or provide feedback on the Operational Model itself, the Town Hall, and related matters, please also feel free to join #operational-model-overview.
+All of these meetings and more are on the Superset Community Calendar. Note that these groups set their own cadence according to their needs, and groups may go inactive or be created/disbanded at any time. The bottom line goal is to make sure things are tended to, not to fill everyone’s calendars and inboxes.
+Whether you’re a potential contributor, you manage a Superset deployment, or you’re an end user, the Operational Model serves as one of the primary conduits to get, give, or request updates on what’s happening with the project. We strongly encourage you to drop by to provide ideas and feedback, or just get to know others who share your interests and enthusiasm. Some easy places to start are:
+We look forward to seeing more of you, and hearing more about how we can help each other. There’s no community without your involvement, and we can’t wait to work with you to in helping Superset and its community grow and thrive in 2023 and onward.
+<span style={{color: "#999", fontSize: ".75rem", display: "block", textAlign: "right"}}>Hands illustration used in header via Freepik
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• Enlist more members of the community’s growth and operations
+• Make sure broad areas of concern are made actionable, instead of being “rabbit hole” discussions
+• Give sufficient time and space to let discussions come to fruition among relevant subject matter experts and interested parties
+• Make sure that actions taken are coordinated and communicated effectively with the community in its entirety
+• Why you should take interest in the Operational Model
+• Is this approach compatible with Apache governance, and how so?
+• How, where, and when can interested members of the community stay in tune and get involved in these activities?
+• What is the overarching feature roadmap for Superset?
+• When will a change I care about get released?
+• When or why should I upgrade to the newest version of Superset?
+• How does the Superset community handle various flavors of technical debt?
+• If I want to get involved in contributing, where can I begin today?
+• What challenges are the community facing, and how are they addressing mine?
+• Where is the project in terms of product maturity and community health/growth?
+• How can I interact more with people using and building Superset?
+• How can I support and evangelize the growth of Superset?
+• Slack Channel: #operational-model-release-strategy
+• Calendar Meeting
+• Slack Channel: #operational-model-developer-experience
+• Calendar Meeting
+• Slack Channel: #operational-model-quality
+• Calendar Meeting
+• Slack Channel: #operational-model-security
+• Calendar Meeting
+• Slack Channel: #operational-model-management
+• Calendar Meeting
+• Keeping an eye on the Town Hall notes/agenda and the Operational Model Github Project to keep aware of all that’s being prioritized.
+• Adding general-interest agenda items (technical or non-technical) to the Town Hall agenda.
+• Getting involved in Superset Slack! We need all the volunteers we can get to help out new users by answering questions, and helping to spot common issues that need to be addressed with broader initiatives.
+• Joining the Working Groups, on slack and in-person! We’re actively recruiting interested parties for these areas, and we’d love for you to join us — all are welcome.
+• Joining the Town Hall! We’d love not just to hear your voice and what motivates you, but also to hear how we can improve this process for you and help make the Superset project an ever more vibrant community.
+`#operational-model-release-strategy`
+`#operational-model-developer-experience`
+`#operational-model-quality`
+`#operational-model-security`
+`#operational-model-management`
+`#operational-model-overview`

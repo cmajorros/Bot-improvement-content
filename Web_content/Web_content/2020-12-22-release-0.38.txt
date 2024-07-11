@@ -1,0 +1,66 @@
+**Superset 0.38, CRUD Redesign, ECharts Improvements, and more.**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+The Superset community recently released Superset 0.38, and it's packed with improvements! We'll highlight some of the key changes in this blog post.
+Following on the heels of the Superset project's recent graduation from the ASF incubator track, the maturity of the feature set in Superset, and discussions in the contributor mailing list, Superset 0.38 will likely be the last release before the big 1.0 release.
+Superset 1.0 will be a significant milestone marking the beginning of a new era in the development of Superset! We can expect higher quality releases in the future with fewer bugs, continued emphasis on the security important for enterprise users, and a steady flow of new, powerful features.
+With an eye towards 1.0, let's dive in and see what's new in Superset 0.38.
+CRUD stands for Create, Read, Update, and Delete. CRUD UI's are everywhere in Superset, from specifying new database connections to editing the metadata of an existing virtual dataset. The CRUD screens in Superset have been overhauled to make these common actions significantly more intuitive.
+You'll notice that some of these experiences have been converted to modal windows, to improve workflow speed.
+Adding a Database
+Adding a new database is now accomplished with this simpler, more modular modal window.
+
+See all screenshots in the PR
+Deleting a Database
+Deleting a database just got safer! When attempting to delete a database, you're given more context on the number of charts powered by this data and you're asked to type in a phrase to confirm the deletion.
+
+Editing a Dataset
+When editing a dataset, you're now presented with the updated design.
+
+Saved Query List
+Do you enjoy saving queries in Superset for reference? Saved queries now have their own tab and list actions.
+
+Certifying Tables & Queries
+Have you ever wondered if a data source or a metric in Superset is reliable? Starting in 0.38, both metrics and tables can be marked as being certified by a team member, admin, or whoever your resident data expert is.
+For example, metrics can be certified in the Update view:
+
+Your team can see which metrics are certified (and by whom) in the Read view:
+
+You can read how to configure this in the PR.
+ECharts Pie Chart
+The migration to ECharts continues! Superset 0.38 includes the new migrated ECharts pie chart, which represents a big leap in functionality and aesthetics.
+
+ECharts Timeseries Chart
+We'd also like to introduce the new ECharts Timeseries chart). Time series data stores and charts are close to the community's heart, as Superset was originally created to specifically visualize data from Druid.
+
+Superset now adds experimental support for timeseries forecasting, using the Facebook Prophet library.
+Sunburst Chart Improvements
+You now have more color options when creating sunburst charts.
+Full Screen Dashboards
+Throw away your static slides and present Superset dashboards instead, with the new Full Screen mode.
+
+Download Charts
+Created a beautiful chart that you want to now make your desktop wallpaper? You can now download a chart you created in Explore as an image!
+
+Updated Email Format for Alerts
+Email alerts in Superset now contain more information on the relevant SQL statement, along with a link!
+Presto
+Superset will reduce the number of queries made to Presto in certain cases, will return more specific error messages, and will also now correctly expand row data. Presto is also now part of the test suite in the Superset development process!
+This blog post really just scratched the surface of this massive release. In addition to other features, included in this release are also a mammoth list of bug fixes.
+Here are some helpful links to get more context on the bugs fixed in or how to update to this release:
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• What's everything that changed?: Full technical release notes for 0.38
+• What breaking changes were made? List of breaking changes in 0.38
+• What's coming down the pipe? Roadmap for Apache Superset

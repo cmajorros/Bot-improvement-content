@@ -1,0 +1,47 @@
+**Getting Started - Installing Apache Superset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Installing Apache Superset can be intimidating - there's a lot of documentation, multiple different installation methods, and a whole heap of configuration options. It doesn't have to be hard to get going and in this article we're going to show you exactly how to get started with a simple setup of Apache Superset.
+The best-supported method currently for installing Superset is via Docker and docker-compose, so we'll be taking that approach. Superset also does not have official support for Windows, so for the purposes of this tutorial, we'll assume you're running either Mac OSX or Linux.
+The first step is to make sure you're all set with a working Docker environment. On OSX this is relatively straightforward -  all that is required is to install Docker for Mac then you should be off to the races! Both the docker engine and a recent version of docker-compose are installed when you install Docker for Mac from the package.
+Once you have Docker for Mac installed, open up the preferences pane for Docker, go to the "Resources" section and increase the allocated memory to 6GB. With only the 2GB of RAM allocated by default, Superset will fail to start.
+Installing Docker on Linux is slightly more complicated, but Docker.com has good instructions both for Ubuntu (the flavour we've linked to) and for a number of other installations. As docker-compose is not installed as part of the base Docker installation on Linux, once you have a working engine installation, you'll also want to follow the docker-compose installation instructions for Linux.
+If you're on Windows, your best option may be to install an Ubuntu Desktop VM via VirtualBox and proceed with the Linux instructions inside of that VM. If you go that route, it is recommended to assign at least 8GB of RAM to the virtual machine as well as provisioning a hard drive of at least 40GB so that you'll have space for both the OS and all of the required dependencies.
+Superset's code is hosted on Github.. To download the code from github, open a terminal, navigate to the location you would like to put Superset's files on your hard drive and run:
+Once that command completes successfully you should see a new incubator-superset folder in your current directory.
+Next, cd into the folder you created in Step 1:
+Once you're in the directory, run the following command:
+You should see a wall of logging output from the containers being launched on your machine. Once this output slows to a crawl, you should have a running instance of Superset on your local machine!
+Your shiny, new instance of Superset should be running, along with a Postgres server to store your data already pre-loaded with the examples that ship with Superset. You can access Superset now via your web browser by visiting http://localhost:8088. Note that many browsers now default to https - if yours is one of them, please make sure it uses http.
+Log in with the default username and password:
+and you should be off to the races!
+The version of Superset you have installed just now should be enough to let you kick the tires in the interface, play with dashboards, charts, and SQL Lab, and generally see what we're up to. However, this system is limited in a number of ways - it does not include drivers for many of the databases that Superset supports. It stores all of its data locally on your machine, so any charts you create won't be accessible to anyone else outside of your local network.
+If you'd like a more production-ready setup for Superset, sign up for a hosted Superset solution here. It's a great opportunity for you to help shape this offering, influence our ambitious Superset roadmap, and access Preset’s expertise as an extension of your team.
+If you have any other questions, hit us up at contact@preset.io or join our community Slack channel
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+`docker-compose`
+`docker-compose`
+`docker-compose`
+`$ git clone https://github.com/apache/incubator-superset.git`
+`incubator-superset`
+`docker-compose up`
+`cd`
+`$ cd incubator-superset`
+`$ docker-compose up`
+`http://localhost:8088`
+`https`
+`http`
+`username: admin
+password: admin`

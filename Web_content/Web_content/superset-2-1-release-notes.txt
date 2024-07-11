@@ -1,0 +1,86 @@
+**Superset 2.1 Release Notes**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+Thanks to everyone for their patience with these release notes. Normally we like to publish these for a new version of Apache Superset as soon as it ships, but there was a reason to wait a bit this time around. In case you hadn’t heard, there was a bit of a security issue that was on the verge of being made public. That has since transpired, so now we’re able to tell you the full story of this release (which you can download via the official source release or the PyPI package), including all the features, fixes, and everything that comes with it.
+Before we launch into updates, I want to cordially invite you to join us for the Superset 2.1.0 Meetup on May 9th at 9am PST! You can register here for the event or you can watch the recording at the same link after the event transpires.
+In case you haven’t already heard, Superset 2.1 includes a relatively straightforward patch for a seemingly simple security problem (published here as a CVE) that affects a surprisingly high number of Superset instances out in the wild. We blogged about it already, but the takeaway is that Superset will no longer boot in production mode with the default SECRET_KEY enabled. If you haven’t either changed the default SECRET_KEY or upgraded to Superset 2.1.0, we’d highly recommend doing one or both of those. In the most zero-blame way I can say this, I want to note that Superset is not alone in having this sort of issue arise, and I highly recommend anyone deploying open-source enterprise tools to read the installation/configuration docs, read the comments in the config file, and just not use default credentials in any software you run. These sorts of issues are one reason a managed service like Preset might be a good choice, depending on your team/company’s needs and capabilities.
+TL;DR: change that SECRET_KEY if you haven’t already ⚠️
+In other news, Superset 2.1.0 includes numerous bumps of both npm and python packages, many of which address underlying security issues and CVEs from underlying libraries.
+Well, in short, a lot! Since Superset 2.0.1 was released (which you can read about here), there were 1261 new-new pull requests that made it into 2.1.0 (see the changelog and release tag page). It’s worth noting that this is a minor release meaning that there will be new features as well as bug fixes (like a patch release), but there should be no breaking changes. Anyway, there are lots to cover, so let’s get right into it!
+After much ado, one of the most long-awaited steps in moving toward Apache Echarts is finally in a Superset release, and ready for testing. As of Superset 2.1, you can enable the GENERIC_CHART_AXES flag, and enable a categorical (rather than just time-series) axis for all ECharts visualizations in Superset. This enables you to create bar, area, line, scatterplot, and other chart types with a non-temporal axis (e.g. brand, country, or other dimensions). You can read more here.
+
+If you enable the new HORIZONTAL_FILTER_BAR feature flag, you can now use dashboard filters in a horizontal layout at the top of the page, rather than a vertical sidebar. This is set (via the filter settings / gear icon) on a per-dashboard layout and supports an “overflow” menu so that it can scale to any number of filters. This is particularly useful for those who are embedding Superset dashboards.
+
+The new DRILL_TO_DETAIL feature flag, when enabled, allows users to right-click most chart types (including all ECharts charts, and most others) to display a table of the underlying data, or right-click a part of certain charts (e.g. a wedge in a pie chart) to do the same but with a particular filter applied to the results.
+
+The resulting modal allows users to further understand and contextualize the granular data being aggregated into the chart, including its dataset, owner(s), and the ability to remove the applied filter, if applicable.
+
+If you want more details about Drill to Detail (and forthcoming drilling features) you can check out the YouTube recording of our State Of Drilling event.
+In the Chart Builder (née Explore), you can now export data not just as CSV, but as XLSX!
+
+There’s a new visualization in town! Based on Apache Echarts, this new Sunburst chart is more performant than its NVD3 predecessor, and will soon be ready to replace that legacy chart with an official deprecation and migration in a future major version of Superset.
+
+Superset 2.1 allows users to better understand the relationship between Superset objects (i.e. Charts and Dashboards) in new ways. For example, you can now see in the Chart Builder tool how many dashboards include the chart you’re modifying, and thus better understand the fallout of saving changes. In the menu to the right of this metadata bar, you can view the full list of these dashboards as well, to quickly jump to those dashboards and see them in the context of other related data.
+
+You can also filter the list of charts for those used by selected dashboards.
+
+In previous editions of Superset, we added dashboard cross-filtering, which enabled a click in one chart (for example, clicking a wedge on a pie chart) to emit a filter that would be picked up by compatible charts in the rest of the dashboard. In the early phases, this needed to be enabled on a per-chart basis in the chart’s controls. Now that the tide has turned and most (i.e. non-legacy) charts support this, the control has been moved to the dashboard level, when the DASHBOARD_CROSS_FILTERS feature flag is enabled.
+
+When the SSH_TUNNELING feature flag is enabled, you can now add additional configuration (see docs) to Superset that allows you to connect to databases that might not be accessible to the public internet by enabling an SSH tunnel.
+
+Numerous performance improvements have been made in Superset 2.1.0. A few highlights worth enumerating include:
+
+
+
+Superset 2.1 brings in a whole wave of translation improvements that have been happening on the repo. The release comes with enhanced internationalization, including improved translations for Russian, Chinese, French, Spanish, and Slovenian.
+Superset is perpetually in need of updates to its translations (until we get GPT plugged in, perhaps… I can dream). If you want to join the wave of people improving this area of the codebase, please join us in the (brand spankin’ new) #translations channel on Superset Slack.
+In Superset 2.1, 12 endpoints were migrated to the API V1 standard, and are now visible in the Superset API documentation. Superset has been making moves to migrate its endpoints since SIP-17 was ratified in 2019, by way of following more typical “RESTful” patterns, while improving documentation and test coverage. This release is a big stride toward in this department, and we’ll be continuing to see this sort of migration going forward until the legacy endpoints are deprecated and removed in future major versions of Superset.
+What, that’s not enough?! Well, ok, yes, there’s more coming. The Superset community is currently in the throes of building out Superset 3.0, which will include many new features and numerous “breaking changes” that are necessary to move the project forward. There’s also a good chance that Superset 2.1.0 will be followed up on with 2.1.1 and beyond to include any critical bug fixes or security patches, on an as-needed basis. If you want to keep tabs on these releases, you can join us on Slack in the #apache-releases channel, or in #operational-model-release-strategy if you want to get more involved in building and testing these releases. As always, we’d also love for you to join us in our Superset Town Hall meetings, which take place monthly on the Superset Community Calendar. We hope Superset 2.1 brings you a lot of success, and we can’t wait to show you what comes next!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• More parts of the application have been moved into the React single page application (SPA) — namely the “Explore” tool (called Chart Builder, going forward), and the “Add Slice” view (a.k.a. viz gallery/picker). This means that moving between different parts of the application (e.g. a Dashboard and the Chart Builder) is significantly faster since the browser doesn’t have to load an entirely new page.
+• Upgrading to Python 3.11, which carries performance improvements of (reportedly) up to 25%.
+• Dashboard virtualization to reduce rendering of out-of-viewport visualizations, when the DASHBOARD_VIRTUALIZATION feature flag is enabled.
+• Improved efficiency of CSV downloads.
+• Consolidation of queries around bootstrap data and permissions, reducing the number of queries and execution time.
+• Numerous frontend performance improvements utilizing memorization and minimizing unnecessary state changes to vastly reduce unnecessary queries and React component renderings.
+• Added support for clickhouse-connect, the official ClickHouse driver.
+• Added support for Risingwave by adding the official db engine spec.
+• Implements query cost estimation for BigQuery in SQL Lab.
+• Adds keypair auth for Snowflake SSO authentication.
+• Adds DB connection form for Databricks.
+• Adds a tracking URL for Presto/Trino.
+• Chart control panels have been made more consistent in styling.
+• Superset objects (namely, datasets) are now displayed in menus correctly according to users’ assigned roles.
+• There are two new configuration options for customizing which user account is used for Alerts & Reports and Thumbnail rendering:  ALERT_REPORTS_EXECUTE_ASand THUMBNAIL_EXECUTE_AS. These remove the need to use a singular service account and improve security by making it possible to render reports/thumbnails exactly like they appear in the browser. This can be particularly useful for charts/dashboards that rely heavily on Row Level Security or Jinja templating.
+• You can now configure Superset with custom filters to exclude users and roles from “owner” and “role” access control menus (see PR for implementation details). For example, adding a “role” filter can be useful when using DASHBOARD_RBAC, as it makes it possible to customize which roles users should be able to give access to.
+• A long-standing bug caused datasets, charts, and dashboards to fail to show up on list views (but being accessible via direct link) when users were given the “database access on ” permission. This has now been fixed (see PR). Previously achieving the same required giving users “schema access on .” to each individual schema on the database, causing additional maintenance overhead and clutter in roles.
+`SECRET_KEY`
+`SECRET_KEY`
+`SECRET_KEY`
+`npm`
+`GENERIC_CHART_AXES`
+`HORIZONTAL_FILTER_BAR`
+`DRILL_TO_DETAIL`
+`DASHBOARD_CROSS_FILTERS`
+`SSH_TUNNELING`
+`DASHBOARD_VIRTUALIZATION`
+`clickhouse-connect`
+`keypair`
+`#translations`
+`ALERT_REPORTS_EXECUTE_AS`
+`THUMBNAIL_EXECUTE_AS`
+`DASHBOARD_RBAC`
+`#apache-releases`
+`#operational-model-release-strategy`

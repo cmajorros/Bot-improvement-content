@@ -1,0 +1,24 @@
+**Why Perpetua Switched from Metabase to Preset to Power Their Next Phase of Growth**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+As an ad optimization software company that works with clients such as Amazon, Instacart, Walmart, and Target, Perpetua has seen massive growth in their first five years as a company.
+Before Perpetua switched to Preset, they faced large obstacles as their company began quick expansion. Originally, Perpetua used Metabase for a few queries and visualizations. While  this worked well for the startup phase, Metabase could not meet their needs during their phase of accelerated growth. They were on the lookout for a tool that had the features in Metabase but could actually scale to handle the number of visualizations, dashboards, and users Perpetua had in their organization.
+Perpetua was looking for a tool that helped with scaling, visualizations, and dashboards, all while allowing for more people to be competent with the platform and be able to manipulate the data. The Business Intelligence Lead at Perpetua, Gloria Steiner, transitioned the company away from relying on a single database and also tried both Looker and Tableau internally. She quickly realized these tools did not meet the needs of the company in this crucial growth period..
+“Instead of allowing people to access all the data and be able to write their own queries and manipulate the data, Looker and Tableau didn't have these vital features that were important to Perpetua. We didn’t have a lot of adoption and saw this as a really big issue, so we started looking at other tools in the market and thats where Preset addressed these ”. - Gloria Steiner, Business Intelligence Lead at Perpetua
+The teams at Perpetua were more technical and liked to write their own queries. With that in mind, LookML was a huge barrier for adoption.
+Adam Epstein, Perpetua’s Co-president, kept hearing about Preset through the numerous data blogs and newsletter he subscribed to. He forwarded the content to Steiner, she then signed up for the free tier, and overall really enjoyed the product. After understanding Preset’s offerings and a smooth implementation phase, Perpetua continues to use Preset across their organization daily.
+Perpetua uses Preset for a wide range of use cases, from marketing benchmark reporting to customer success dashboards and for both external and internal projects. Steiner’s favorite features include the SQL editor in Preset, the advanced  filtering capabilities on dashboards, alert systems, and advanced reporting. Many teams at Perpetua use Preset in their operations, including Customer Success, Marketing, Sales, and Product.
+Steiner looks forward to the continued partnership with Preset and is excited to see how Preset will help Perpetua with long term growth. She specifically looks forward to new Business Intelligence members joining her team and using the Preset platform to make business decisions and add value through the use of their dashboard feature. Preset is excited to see how Perpetua will continue to develop, incorporating Preset’s valuable tools.
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free

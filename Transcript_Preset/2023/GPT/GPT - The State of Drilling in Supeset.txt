@@ -1,0 +1,12 @@
+Topic : The State of Drilling in Supeset
+The speaker begins by discussing the challenges of setting up hierarchical relationships and establishing user hierarchies in data visualization. They highlight the need for extensive user research to determine the right approach, emphasizing the significant workload involved for chart maintainers. This sets the stage for proposing a new feature called "drill by," which aims to simplify the process with more flexibility and less setup compared to traditional drill down and drill up features. The speaker seeks feedback on whether traditional drill down features are still necessary.
+
+Moving on to community involvement, the speaker outlines opportunities for contributing to the project, particularly in engineering efforts. They note the presence of legacy plugins in Superset that are no longer supported, such as those using the outdated NVD3 library, which do not support modern features like the right-click contextual menu. There's a call to replace these plugins gradually with newer versions, while also enhancing existing visualizations across the product.
+
+Participants are encouraged to join the Superset Slack community, where dedicated channels exist for discussing drilling actions and general Superset customization. An upcoming town hall meeting is announced, scheduled to discuss forming a new operational model group focused on drilling actions within Superset.
+
+During the Q&A session, the speaker addresses logistical questions, including how to access webinar recordings and where to direct general Superset inquiries. They explain the process of identifying legacy plugins (often marked with "legacy" in their folder names) and how the community can help by enabling and providing feedback on new features like drill to detail and cross filters through configuration settings.
+
+The speaker also touches on potential future improvements, such as integrating the right-click contextual menu with various chart types and enhancing functionality like data zoom in timeline charts. They emphasize ongoing community engagement through Slack and other channels, offering to assist with any unanswered questions or ideas for improvement.
+
+In conclusion, the speaker thanks participants for their time, reiterates the invitation to join the Superset Slack community for ongoing discussions, and expresses enthusiasm for organizing around the proposed operational model group in the upcoming town hall meeting.

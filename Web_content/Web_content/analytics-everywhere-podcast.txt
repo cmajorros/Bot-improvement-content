@@ -1,0 +1,39 @@
+**Announcing The Analytics Everywhere Podcast, by Preset**
+Fully-managed, cloud-hosted service for Apache Superset
+Preset with additional security in your private cloud
+Interactive analytics in your custom applications
+Managing your Preset workspaces as code
+Analytics and visualizations powered by Apache Superset for modern data stacks
+Embedded analytics for your organization
+Embedded analytics for customers
+I'm excited to announce The Analytics Everywhere Podcast, our new podcast here at Preset!
+At Preset, we're the experts of Apache Superset and we're obsessed with crafting the best analytics experiences for end-users.  In this podcast, we aspire to exchange perspectives with other builders of data tools, unpack new trends in the modern data ecosystem like headless BI and reverse ETL, and share what we've learned as well operating in this space.
+Episode 1: The Data Mesh
+In our inaugural episode, I sit down with my friend Chris Riccomini. Chris has over a decade of experiece working on large scale data systems at Paypal, LinkedIn, and WePay. He created Apache Samza, LinkedIn's streaming system infrastructure on top of Apache Kafka and also published The Missing README.
+In this episode, we focus on unpacking the data mesh and discuss the following:
+How to Listen
+Our landing page for the podcast currently lives here on Anchor.fm. Here are all the ways you can listen to the podcast:
+We hope you give the podcast a listen and we welcome your feedback!
+Lastly, shout out to Val D'Orito for designing our awesome podcast logo!
+Receive a weekly digest of new blog posts
+• ProductPreset CloudFully-managed, cloud-hosted service for Apache SupersetManaged Private CloudPreset with additional security in your private cloudPreset Embedded DashboardsInteractive analytics in your custom applicationsPreset APIManaging your Preset workspaces as code
+• Use CasesBusiness Intelligence (BI)Analytics and visualizations powered by Apache Superset for modern data stacksInternal ToolingEmbedded analytics for your organizationCustomer-facing AppsEmbedded analytics for customers
+• Pricing
+• ResourcesBlogDocumentationEventsPodcastWhat is Superset?Customers
+• Contact Sales
+• Log In
+• Try for Free
+• What is the data mesh?
+• Stripe Sigma and Snowflake's Data Clean Room
+• What's missing about the original data mesh blog posts?
+• Lack of rigorous contracts within data teams
+• What can data mesh learn from the microservices movement?
+• Analytics Engineering
+• Metadata Management and the challenges of the curation
+• Where federated querying using Presto or Trino fits in
+• ...and all of the data tools Max and Chris existed!
+• Apple Podcasts
+• Listen Notes
+• Spotify
+• Anchor.fm
+• Google Podcasts
